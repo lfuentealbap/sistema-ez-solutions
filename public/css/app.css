@@ -10284,12 +10284,24 @@ textarea.form-control-lg {
     height: 400px;
 }
 .fondo-principal{
-    background-color: #a8dabd;
+    background-color: #94e28f;
 }
 .pie-pagina{
     background-color: #027933;
 }
-.link-rrss:active, .link-rrss:visited, .link-rrss:link{
+.link-rrss:active, .link-rrss:visited, .link-rrss:link, .link-rrss{
     text-decoration: none;
+    font-size: medium;
 }
 
+.text-carrusel{
+    text-shadow: 1px 1px #75bef5;
+    color: white;
+    background-color: #1b82ddb9;
+}
+.cabecera-acordeon{
+    background-color: #399b38;
+}
+.cuerpo-acordeon{
+    background-color: #70d36f;
+}
