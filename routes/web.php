@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('inicio.inicio');
-});
+})->name('inicio');
+
+Route::get('/plataforma', function () {
+    return view('plataforma.inicio');
+})->name('plataforma');
 
 Auth::routes();
 

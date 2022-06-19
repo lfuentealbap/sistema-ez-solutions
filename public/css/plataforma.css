@@ -1,0 +1,46 @@
+.navbar-plataforma{
+    background: rgb(0,119,0);
+    background: linear-gradient(90deg, rgba(0,119,0,1) 0%, rgba(0,201,162,1) 55%, rgba(61,212,5,1) 100%);
+    color: azure;
+}
+.navbar-item{
+    color: azure;
+}
+.img-presentacion{
+    width: 400px;
+    height: 400px;
+}
+.img-pre-plat{
+    margin: 0;
+    padding-top: 20px;
+    width: 200px;
+    height: 200px;
+}
+.fondo-login{
+    background: #11998e;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.fondo-plataforma{
+    background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+}
+.pie-pagina{
+    background-color: #027933;
+}
+.link-rrss:active, .link-rrss:visited, .link-rrss:link, .link-rrss{
+    text-decoration: none;
+    font-size: medium;
+}
+
+.text-carrusel{
+    text-shadow: 1px 1px #75bef5;
+    color: white;
+    background-color: #1b82ddb9;
+}
+.cabecera-acordeon{
+    background-color: #399b38;
+}
+.cuerpo-acordeon{
+    background-color: #70d36f;
+}
