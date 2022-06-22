@@ -18,6 +18,7 @@
  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
  <!-- Bootstrap icons-->
  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
  <!--Iconos Font Awesome-->
  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -38,7 +39,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('inicio') }}">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#scrollContacto">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('plataforma') }}">Plataforma Técnico</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Plataforma Técnico</a></li>
                     </ul>
                 </div>
             </div>

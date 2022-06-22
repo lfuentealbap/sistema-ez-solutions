@@ -11,7 +11,7 @@ class OT extends Model
     protected $fillable = [
         'nombre_tecnico',
         'fecha',
-        'nombre_cliente',
+        'nombre_colaborador',
         'calle',
         'ciudad',
         'tipo_requerimiento',

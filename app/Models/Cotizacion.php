@@ -11,7 +11,6 @@ class Cotizacion extends Model
     protected $fillable = [
         'fecha_creacion',
         'fecha_expiracion',
-        'rut_cliente',
         'neto',
         'iva',
         'total',

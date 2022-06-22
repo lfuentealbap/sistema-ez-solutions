@@ -17,7 +17,7 @@
                             <div class="col-md-6">
                                 <input id="rut" type="text" oninput="checkRut(this)" id="rut" class="form-control @error('rut') is-invalid @enderror" name="rut" value="{{ old('rut') }}" required autocomplete="rut" placeholder="Ejemplo RUT: 12345678-9" autofocus>
 
-                                @error('email')
+                                @error('rut')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

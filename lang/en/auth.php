@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'El rut asociado no existe en los registros. Por favor, contáctese con el jefe para su registro',
+    'password' => 'La contraseña ingresada es incorrecta, intente nuevamente.',
+    'throttle' => 'Muchos intentos fallidos de iniciar sesión, inténtelo nuevamente en :seconds segundos.',
 
 ];
