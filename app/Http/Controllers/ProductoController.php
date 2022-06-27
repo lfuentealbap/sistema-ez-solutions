@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TrabajoRequest;
-use App\Models\Trabajo;
+use App\Http\Requests\ProductoRequest;
+use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class TrabajoController extends Controller
+class ProductoController extends Controller
 {
-    ////
     public function __construct()
     {
         $this->middleware('auth');//->only('index'); ->except(['index','create']);
@@ -18,17 +18,17 @@ class TrabajoController extends Controller
         //$products = DB::table('products')->get();
         //$products = Product::all();
         //dd($products);
-        return view('plataforma.trabajos.index')->with([
-            'trabajos' => Trabajo::all(),
+        return view('plataforma.productos.index')->with([
+            'productos' => DB::table('productos')->get(),
         ]);
 
     }
 
     public function create(){
-        return view('plataforma.trabajos.create');
+        return view('plataforma.productos.create');
     }
 
-    public function store(TrabajoRequest $request){
+    public function store(ProductoRequest $request){
         //return "Formulario para crear  un producto";
         /*$product = Product::create([
             'title' => request()->title,
@@ -55,34 +55,34 @@ class TrabajoController extends Controller
         //}
         //session()->forget('error');
 
-    $trabajo = Trabajo::create(/*request()->all()*/$request->validated());
+    $producto = Producto::create(/*request()->all()*/$request->validated());
 
         //session()->flash('success', 'The new product with id '.$product->id.'was created');
         //return redirect()->back();
-        return redirect()->route('plataforma.trabajos.index')->withSuccess('El trabajo: '.$trabajo->titulo.' was created');
+        return redirect()->route('plataforma.productos.index')->withSuccess('El producto: '.$producto->nombre.' fué agregado exitosamente');
     }
 
-    public function show(Trabajo $trabajo){
-        //$product = DB::table('products')->where('id', $product)->first();
+    public function show(Producto $producto){
+        //$producto = DB::table('productos')->where('codigo', $producto)->get();
         //$product = DB::table('products')->find($product);
         //Product $product sustituye; $product= Product::findOrFail($product); //originalmente es ::find
-        //dd($product);
+        //dd($producto);
 
-        return view('plataforma.trabajos.show')->with([
-            'trabajos'=> $trabajo,
+        return view('plataforma.productos.show')->with([
+            'producto'=> $producto,
             'html' => "<h2>Subtitle</h2>",
         ]);
-        //return "Mostrando producto con nombre {$product}";
+        //return "Mostrando producto con nombre {$producto}";
     }
 
-    public function edit(Trabajo $trabajo){
+    public function edit(Producto $producto){
 
-        return view('plataforma.trabajos.edit')->with([
-            'trabajo'=> $trabajo,//Product::findOrFail($product),
+        return view('plataforma.productos.edit')->with([
+            'producto'=> $producto,//Product::findOrFail($product),
         ]);
     }
 
-    public function update(TrabajoRequest $request, Trabajo $trabajo){
+    public function update(ProductoRequest $request, Producto $producto){
         //return "Actualizando producto con nombre {$product}";
         /* Las siguientes reglas estan en ProductRequest
         $rules = [
@@ -96,13 +96,13 @@ class TrabajoController extends Controller
         request()->validate($rules);*/
 
         //$product= Product::findOrFail($product);
-    $trabajo->update(/*request()->all()*/$request->validated());
-        return redirect()->route('plataforma.trabajos.index')->withSuccess('El trabajo: '.$trabajo->titulo.' fué editado exitosamente');
+    $producto->update(/*request()->all()*/$request->validated());
+        return redirect()->route('plataforma.productos.index')->withSuccess('El producto: '.$producto->nombre.' fué editado exitosamente');
     }
 
-    public function destroy(Trabajo $trabajo){
-        //$product= Product::findOrFail($product);
-        $trabajo->delete();
-        return redirect()->route('plataforma.trabajos.index')->withSuccess('El trabajo '.$trabajo->titulo.' fué eliminado exitosamente');
+    public function destroy(Producto $producto){
+        //$producto= Producto::findOrFail($producto->codigo);
+        $producto->delete();
+        return redirect()->route('plataforma.productos.index')->withSuccess('El producto '.$producto->nombre.' fué eliminado exitosamente');
     }
 }
