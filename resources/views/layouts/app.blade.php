@@ -37,6 +37,56 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        @if (Auth::user()->rol=='jefe')
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTrabajos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Trabajos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrabajos">
+                              <li><a class="dropdown-item" href="#">Todos mis trabajos</a></li>
+                              <li><a class="dropdown-item" href="#">Crear trabajo</a></li>
+                              <li><a class="dropdown-item" href="#">Trabajos en curso</a></li>
+                              <li><a class="dropdown-item" href="#">Trabajos del día</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCotizaciones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Cotizaciones
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCotizaciones">
+                              <li><a class="dropdown-item" href="#">Todas mis cotizaciones</a></li>
+                              <li><a class="dropdown-item" href="#">Crear una cotización</a></li>
+                              <li><a class="dropdown-item" href="#">Cotizaciones en espera</a></li>
+                              <li><a class="dropdown-item" href="#">Cotizaciones listas</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCotizaciones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Trabajadores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCotizaciones">
+                              <li><a class="dropdown-item" href="#">Ver todos los trabajadores</a></li>
+                              <li><a class="dropdown-item" href="#">Registrar nuevo trabajador</a></li>
+                              <li><a class="dropdown-item" href="#">Rendimiento trabajadores</a></li>
+                              <li><a class="dropdown-item" href="#">Revisar sueldo trabajadores</a></li>
+                            </ul>
+                        </li>
+                        @endif
+
+                        @if (Auth::user()->rol=='trabajador')
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTrabajos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Trabajos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrabajos">
+                              <li><a class="dropdown-item" href="#">Todos mis trabajos</a></li>
+                              <li><a class="dropdown-item" href="#">Trabajos en curso</a></li>
+                              <li><a class="dropdown-item" href="#">Trabajos hechos</a></li>
+                            </ul>
+                          </li>
+                        @endif
 
                     </ul>
 
@@ -60,7 +110,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle navbar-item" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->nombres }}
+                                    <img src="{{ asset('img/trabajador/trabajador.png') }}" class="rounded float-start border border-1" alt="..." style="width: 30px; height: 30px;"> &nbsp; {{ Auth::user()->nombres }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
