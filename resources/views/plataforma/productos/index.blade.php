@@ -3,7 +3,7 @@
 @section('content')
     <h1>Lista de productos para cotización</h1>
 
-    <a class="btn btn-success mb-3" href="{{ route('plataforma.productos.create') }}">Crear</a>
+    <a class="btn btn-success mb-3" href="{{ route('plataforma.productos.create') }}"><i class="fas fa-file-plus"></i> Crear</a>
 
     @empty($productos)
         <div class="alert alert-warning">
@@ -11,8 +11,8 @@
         </div>
     @else
 
-    <div class="table-responsive">
-        <table class="table table-hover">
+    <div class="table-responsive rounded" style="background-color: lightblue;">
+        <table class="table table-bordered border-primary">
             <thead class="thead-light">
                 <tr>
                     <th>Código</th>
@@ -33,14 +33,14 @@
                         <td>{{$producto->stock}}</td>
                         <td>
                             <a class="btn btn-info" href="{{ route('plataforma.productos.show', [
-                                'producto' => $producto->codigo]) }}">Ver</a>
+                                'producto' => $producto->codigo]) }}"><i class="fas fa-eye"></i> Ver</a>
                             <a class="btn btn-primary" href="{{ route('plataforma.productos.edit', [
-                                'producto' => $producto->codigo]) }}">Editar</a>
+                                'producto' => $producto->codigo]) }}"><i class="fas fa-edit"></i> Editar</a>
                             <form class="d-inline" action="{{route('plataforma.productos.destroy', [
                                 'producto' => $producto->codigo])}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
                             </form>
 
                         </td>

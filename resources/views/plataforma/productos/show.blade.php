@@ -38,14 +38,14 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-secondary" href="{{ route('plataforma.productos.index') }}"><i class="fas fa-th-list"></i>Volver a la lista</a>
+        <a class="btn btn-secondary" href="{{ route('plataforma.productos.index') }}"><i class="fas fa-th-list"></i> Volver a la lista</a>
                             <a class="btn btn-primary" href="{{ route('plataforma.productos.edit', [
-                                'producto' => $producto->codigo]) }}">Editar este producto</a>
+                                'producto' => $producto->codigo]) }}"><i class="fas fa-edit"></i> Editar este producto</a>
                             <form class="d-inline" action="{{route('plataforma.productos.destroy', [
                                 'producto' => $producto->codigo])}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar este producto</button>
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar este producto</button>
                             </form>
 
 

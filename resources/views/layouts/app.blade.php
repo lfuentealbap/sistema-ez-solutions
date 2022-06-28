@@ -17,6 +17,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!--Icons Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Styles -->
@@ -26,7 +29,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark navbar-plataforma shadow-sm">
             <div class="container">
-                <a class="navbar-brand navbar-item"  href="{{ url('/home') }}"> <img src="img/inicio/logo.png" style="width: 30px; height: 20px;" alt="EZ Solutions"></img>
+                <a class="navbar-brand navbar-item"  href="{{ url('/home') }}"> <img src="{{ asset('img/inicio/logo.png') }}" style="width: 30px; height: 20px;" alt="EZ Solutions"> </img>
                     {{ __('Plataforma') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -102,6 +105,7 @@
             @endif
 
             @yield('content')
+
         </main>
     </div>
 </body>
