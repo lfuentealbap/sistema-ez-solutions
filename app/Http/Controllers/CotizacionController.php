@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CotizacionRequest;
+use App\Models\Cliente;
 use App\Models\Cotizacion;
+use App\Models\Producto;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,14 +22,18 @@ class CotizacionController extends Controller
         //$products = DB::table('products')->get();
         //$products = Product::all();
         //dd($products);
-        return view('plataforma.productos.index')->with([
-            'cotizaciones' => DB::table('cotizaciones')->get(),
+        return view('plataforma.cotizaciones.index')->with([
+            'cotizaciones' => DB::table('cotizaciones')->get(), 'clientes' => Cliente::all(),
         ]);
 
     }
 
     public function create(){
-        return view('plataforma.productos.create');
+
+        $hoy=Carbon::now()->format('Y-m-d');
+
+        return view('plataforma.cotizaciones.create')->with(['clientes' => Cliente::all(), 'hoy'=> $hoy, 'productos' => Producto::all()
+        ]);;
     }
 
     public function store(CotizacionRequest $request){

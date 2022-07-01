@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('cotizacion_producto', function (Blueprint $table) {
             $table->bigInteger('id_cotizacion')->unsigned();
             $table->integer('codigo_producto')->unsigned();
+            $table->integer('cantidad')->unsigned();
+            $table->integer('subtotal')->unsigned();
 
             $table->foreign('id_cotizacion')->references('id')->on('cotizaciones');
             $table->foreign('codigo_producto')->references('codigo')->on('productos');

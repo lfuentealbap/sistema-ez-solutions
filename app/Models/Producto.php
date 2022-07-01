@@ -16,4 +16,9 @@ class Producto extends Model
         'valor',
         'stock',
     ];
+    //relacion muchos a muchos con cotizacion
+    public function cotizaciones(){
+        //hace la relacion muchos a muchos y trae el elemento de la tabla de la relacion cotizacion-producto
+        return $this->belongsToMany(Cotizacion::class)->withPivot(['cantidad', 'subtotal']);
+    }
 }

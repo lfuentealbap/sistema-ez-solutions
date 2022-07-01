@@ -21,7 +21,10 @@ return new class extends Migration
             $table->integer('iva')->unsigned();
             $table->integer('total')->unsigned();
             $table->string('estado')->default('pendiente');
+            $table->string('rut_cliente');
             $table->timestamps();
+
+            $table->foreign('rut_cliente')->references('rut')->on('clientes');
         });
     }
 

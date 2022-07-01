@@ -25,7 +25,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/plataforma.css') }}" rel="stylesheet">
 </head>
-<body class="fondo-login">
+<body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark navbar-plataforma shadow-sm">
             <div class="container">
@@ -37,6 +37,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        @auth
+
                         @if (Auth::user()->rol=='jefe')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTrabajos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,27 +54,31 @@
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCotizaciones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Cotizaciones
+                              Gestiones
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCotizaciones">
-                              <li><a class="dropdown-item" href="#">Todas mis cotizaciones</a></li>
-                              <li><a class="dropdown-item" href="#">Crear una cotización</a></li>
-                              <li><a class="dropdown-item" href="#">Cotizaciones en espera</a></li>
-                              <li><a class="dropdown-item" href="#">Cotizaciones listas</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.cotizaciones.index') }}">Gestionar cotizaciones</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.clientes.index') }}">Gestionar clientes</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.productos.index') }}">Gestionar productos</a></li>
+                              <li><a class="dropdown-item" href="#">Gestionar Empleados</a></li>
+                              <li><a class="dropdown-item" href="#">Gestionar trabajos de empleados</a></li>
                             </ul>
                         </li>
-
+{{--}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCotizaciones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Trabajadores
                             </a>
+
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCotizaciones">
                               <li><a class="dropdown-item" href="#">Ver todos los trabajadores</a></li>
                               <li><a class="dropdown-item" href="#">Registrar nuevo trabajador</a></li>
                               <li><a class="dropdown-item" href="#">Rendimiento trabajadores</a></li>
                               <li><a class="dropdown-item" href="#">Revisar sueldo trabajadores</a></li>
                             </ul>
+
                         </li>
+                        {{--}}
                         @endif
 
                         @if (Auth::user()->rol=='trabajador')
@@ -87,6 +93,7 @@
                             </ul>
                           </li>
                         @endif
+                        @endauth
 
                     </ul>
 

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OT extends Model
 {
     use HasFactory;
+    protected $table = "ordenes_trabajos";
     protected $fillable = [
         'nombre_tecnico',
         'fecha',

@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
+    protected $primaryKey = "rut";
+    protected $keyType = 'string';
     protected $fillable = [
         'nombre_completo',
         'direccion',
@@ -17,4 +19,8 @@ class Cliente extends Model
         'email',
 
     ];
+    public function cotizaciones()
+    { //relacion con id personalizada;
+        return $this->hasMany(Cotizacion::class, 'rut_cliente');
+    }
 }
