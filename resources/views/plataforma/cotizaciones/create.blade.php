@@ -30,21 +30,10 @@
                     <input type="date" class="form-control" name="fecha_expiracion" value="{{old('fecha_expiracion')}}" required>
                 </div>
             </div>
-            <!-- Button trigger modal -->
+
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertarModal">
                 Agregar producto
             </button>
-            <div class="form-row row mb-3">
-                <label for="codigo">Productos:</label>
-                <div class="col-md-6">
-                    <select class="form-select" id="codigo" name="codigo[]">
-                        <option selected value="">Seleccione productos...</option>
-                        @foreach ($productos as $producto)
-                        <option value="{{ $producto->codigo }}">{{$producto->nombre}} - ${{$producto->valor}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
 
             <table class="table table-sm table-bordered border-primary">
                 <thead>
@@ -67,7 +56,7 @@
             </table>
 
             <div class=" row mb-3">
-                <button type="submit" class="btn btn-primary btn-lg">Crear Cotización</button>
+                <button type="button" class="btn btn-primary btn-lg">Crear Cotización</button>
             </div>
 
         </form>
@@ -96,8 +85,8 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Insertar</button>
         </div>
       </div>
     </div>
