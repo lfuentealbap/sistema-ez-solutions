@@ -17,6 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $primaryKey = "rut";
+    protected $keyType = 'string';
     protected $fillable = [
         'rut',
         'nombres',
@@ -49,4 +51,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cotizaciones()
+    { //relacion con id personalizada;
+        return $this->hasMany(Cotizacion::class, 'rut_trabajador');
+    }
+
+    public function trabajos()
+    { //relacion con id personalizada;
+        return $this->hasMany(Trabajo::class, 'rut_trabajador');
+    }
+    public function gastos()
+    { //relacion con id personalizada;
+        return $this->hasMany(Gasto::class, 'rut_trabajador');
+    }
 }

@@ -29,14 +29,7 @@
                             <td>{{$cotizacion->id}}</td>
                             <td>{{$cotizacion->fecha_creacion}}</td>
                             <td>{{$cotizacion->fecha_expiracion}}</td>
-                            <td>
-                                @foreach ($clientes as $cliente)
-                                @if ($cliente->rut == $cotizacion->rut_cliente)
-                                    {{ $cliente->nombre_completo }}
-                                @endif
-
-                                @endforeach
-                            </td>
+                            <td>{{$cotizacion->cliente->nombre_completo}}</td>
                             <td>
                                 @if($cotizacion->estado == "pendiente")
                                 <span class="badge bg-warning text-darkbg-warning text-dark">Pendiente</span>

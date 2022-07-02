@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TrabajoRequest;
+use App\Models\Area;
 use App\Models\Trabajo;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TrabajoController extends Controller
@@ -25,7 +27,9 @@ class TrabajoController extends Controller
     }
 
     public function create(){
-        return view('plataforma.trabajos.create');
+        return view('plataforma.trabajos.create')->with([
+            'trabajador' => User::all(), 'areas' => Area::all(),
+        ]);
     }
 
     public function store(TrabajoRequest $request){
@@ -59,7 +63,7 @@ class TrabajoController extends Controller
 
         //session()->flash('success', 'The new product with id '.$product->id.'was created');
         //return redirect()->back();
-        return redirect()->route('plataforma.trabajos.index')->withSuccess('El trabajo: '.$trabajo->titulo.' was created');
+        return redirect()->route('plataforma.trabajos.index')->withSuccess('El trabajo: '.$trabajo->titulo.' fué creado exitosamente');
     }
 
     public function show(Trabajo $trabajo){
@@ -78,7 +82,7 @@ class TrabajoController extends Controller
     public function edit(Trabajo $trabajo){
 
         return view('plataforma.trabajos.edit')->with([
-            'trabajo'=> $trabajo,//Product::findOrFail($product),
+            'trabajo'=> $trabajo, 'trabajador' => User::all(), 'areas' => Area::all(),//Product::findOrFail($product),
         ]);
     }
 

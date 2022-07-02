@@ -23,7 +23,7 @@ class CotizacionController extends Controller
         //$products = Product::all();
         //dd($products);
         return view('plataforma.cotizaciones.index')->with([
-            'cotizaciones' => DB::table('cotizaciones')->get(), 'clientes' => Cliente::all(),
+            'cotizaciones' => Cotizacion::all(), 'clientes' => Cliente::all(),
         ]);
 
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Trabajo;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('plataforma.inicio');
+        return view('plataforma.inicio')->with([
+            'trabajos'=> Trabajo::all(),
+        ]);
     }
 }

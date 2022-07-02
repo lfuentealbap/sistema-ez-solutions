@@ -5,6 +5,7 @@ use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\CotizacionProductoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProductoCotizacionController;
+use App\Http\Controllers\TrabajoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,16 @@ Route::delete('plataforma/clientes/{cliente}', [ClienteController::class, 'destr
 Route::get('plataforma/cotizaciones',[CotizacionController::class, 'index'])->name('plataforma.cotizaciones.index');
 Route::get('plataforma/cotizaciones/create', [CotizacionController::class, 'create'])->name('plataforma.cotizaciones.create');
 Route::post('plataforma/cotizaciones', [ProductoCotizacionController::class, 'store'])->name('cotizaciones.productos.store');
+
+//trabajos
+Route::get('plataforma/trabajos',[TrabajoController::class, 'index'])->name('plataforma.trabajos.index');
+Route::get('plataforma/trabajos/create', [TrabajoController::class, 'create'])->name('plataforma.trabajos.create');
+Route::post('plataforma/trabajos', [TrabajoController::class, 'store'])->name('trabajos.store');
+Route::get('plataforma/trabajos/{trabajo}', [TrabajoController::class, 'show'] )->name('plataforma.trabajos.show');
+Route::get('plataforma/trabajos/{trabajo}/edit', [TrabajoController::class, 'edit'])->name('plataforma.trabajos.edit');
+Route::match(['put', 'patch'],'plataforma/trabajos/{trabajo}', [TrabajoController::class, 'update'])->name('plataforma.trabajos.update');
+Route::delete('plataforma/trabajos/{trabajo}', [TrabajoController::class, 'destroy'])->name('plataforma.trabajos.destroy');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

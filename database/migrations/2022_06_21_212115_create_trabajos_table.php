@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('fecha_termino');
             $table->integer('pago')->unsigned();
             $table->string('rut_trabajador');
+            $table->string('estado')->default('en curso');
             $table->bigInteger('id_area')->unsigned();
             $table->timestamps();
 

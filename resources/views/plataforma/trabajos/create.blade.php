@@ -24,8 +24,26 @@
         <label for="stock">Monto a pagar por el trabajo</label>
         <input type="number" min="0" step="500" class="form-control" name="pago" value="{{old('pago')}}" required>
     </div>
+    <div class="form-row">
+        <label for="id_area">Área:</label>
+        <select class="form-select" id="id_area" name="id_area">
+            <option selected value="">Seleccione area...</option>
+            @foreach ($areas as $area)
+            <option value="{{ $area->id }}">{{$area->nombre}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="codigo">Trabajador asignado:</label>
+        <select class="form-select" id="rut" name="rut">
+            <option selected value="">Seleccione empleado...</option>
+            @foreach ($trabajadores as $trabajo)
+            <option value="{{ $producto->rut }}">{{$trabajador->nombres}} {{$trabajador->apellidos}}</option>
+            @endforeach
+        </select>
+    </div>
     <div class="form-row mt-3">
-        <button type="submit" class="btn btn-primary btn-lg">Create Product</button>
+        <button type="submit" class="btn btn-primary btn-lg">Registrar trabajo</button>
     </div>
 
 </form>
