@@ -28,7 +28,9 @@ class TrabajoRequest extends FormRequest
             'descripcion' => ['required','max:1000'],
             'fecha_inicio' => ['required'],
             'fecha_termino' => ['required'],
+            'rut_trabajador' => ['required'],
             'pago' => ['required','min:0'],
+            'id_area' => ['required'],
 
         ];
     }

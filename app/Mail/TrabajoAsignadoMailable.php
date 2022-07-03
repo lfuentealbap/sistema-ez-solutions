@@ -11,15 +11,16 @@ class TrabajoAsignadoMailable extends Mailable
 {
     use Queueable, SerializesModels;
     public $subject = "Se te asignó un trabajo";
+    public $contenido;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($trabajo)
     {
-        //
+        $this->contenido = $trabajo;
     }
 
     /**

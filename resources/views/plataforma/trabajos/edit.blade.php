@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Editar producto</h1>
-<form action="{{route('plataforma.productos.update', ['producto' => $producto->codigo]) }}" method="post">
+<h1>Editar trabajo</h1>
+<form action="{{route('plataforma.trabajos.update', ['trabajo' => $trabajo->id]) }}" method="post">
     @csrf
     @method('put')
     <div class="form-row">
@@ -34,7 +34,7 @@
         </select>
     </div>
     <div class="form-row mt-3">
-        <button type="submit" class="btn btn-primary btn-lg">Registrar trabajo</button>
+        <button type="submit" class="btn btn-primary btn-lg">Actualizar datos de trabajo</button>
     </div>
 
 </form>

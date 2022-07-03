@@ -61,7 +61,7 @@
                               <li><a class="dropdown-item" href="{{ route('plataforma.clientes.index') }}">Gestionar clientes</a></li>
                               <li><a class="dropdown-item" href="{{ route('plataforma.productos.index') }}">Gestionar productos</a></li>
                               <li><a class="dropdown-item" href="#">Gestionar Empleados</a></li>
-                              <li><a class="dropdown-item" href="#">Gestionar trabajos de empleados</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.index') }}">Gestionar trabajos de empleados</a></li>
                             </ul>
                         </li>
 {{--}}

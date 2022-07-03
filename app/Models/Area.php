@@ -13,4 +13,8 @@ class Area extends Model
 
 
     ];
+    public function trabajos()
+    { //relacion con id personalizada;
+        return $this->hasMany(Trabajo::class, 'id_area');
+    }
 }

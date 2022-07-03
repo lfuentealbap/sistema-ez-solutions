@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TrabajoRequest;
+use App\Mail\TrabajoAsignadoMailable;
 use App\Models\Area;
 use App\Models\Trabajo;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TrabajoController extends Controller
 {
@@ -28,41 +30,22 @@ class TrabajoController extends Controller
 
     public function create(){
         return view('plataforma.trabajos.create')->with([
-            'trabajador' => User::all(), 'areas' => Area::all(),
+            'trabajadores' => User::all(), 'areas' => Area::all(),
         ]);
     }
 
     public function store(TrabajoRequest $request){
-        //return "Formulario para crear  un producto";
-        /*$product = Product::create([
-            'title' => request()->title,
-            'description' => request()->description,
-            'price' => request()->price,
-            'stock' => request()->stock,
-            'status' => request()->status,
-        ]);*/
 
-        /* Reglas estan en ProductRequest
-        $rules = [
-            'title' => ['required','max:255'],
-            'description' => ['required','max:1000'],
-            'price' => ['required','min:1'],
-            'stock' => ['required','min:0'],
-            'status' => ['required','in:available,unavailable'],
-        ];
-
-        request()->validate($rules);*/
-        //if agregada a la funcion withValidator() de ProductRequest
-        //if(/*request()*/$request->status == 'available' && /*request()*/$request->stock == 0){
-            //session()->flash('error', 'If available must have stock');//en ves de flash era put
-            //return redirect()->back()->withInput(request()->all())->withErrors('If available must have stock');
-        //}
-        //session()->forget('error');
 
     $trabajo = Trabajo::create(/*request()->all()*/$request->validated());
+        $trabajadores = User::all();
+        foreach($trabajadores as $trabajador){
+            if($trabajador->rut == $trabajo->rut_trabajador){
+                Mail::to($trabajador->email)->send(new TrabajoAsignadoMailable($trabajo));
+            }
+        }
 
-        //session()->flash('success', 'The new product with id '.$product->id.'was created');
-        //return redirect()->back();
+
         return redirect()->route('plataforma.trabajos.index')->withSuccess('El trabajo: '.$trabajo->titulo.' fué creado exitosamente');
     }
 

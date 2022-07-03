@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Create a product</h1>
-<form action=" {{route('products.store') }}" method="post">
+<h1>Registrar Trabajo</h1>
+<form action=" {{route('trabajos.store') }}" method="post">
     @csrf
     <div class="form-row">
         <label for="title">Titulo</label>
@@ -34,11 +34,11 @@
         </select>
     </div>
     <div class="form-row">
-        <label for="codigo">Trabajador asignado:</label>
-        <select class="form-select" id="rut" name="rut">
+        <label for="rut_trabajador">Trabajador asignado:</label>
+        <select class="form-select" id="rut_trabajador" name="rut_trabajador">
             <option selected value="">Seleccione empleado...</option>
-            @foreach ($trabajadores as $trabajo)
-            <option value="{{ $producto->rut }}">{{$trabajador->nombres}} {{$trabajador->apellidos}}</option>
+            @foreach ($trabajadores as $trabajador)
+            <option value="{{ $trabajador->rut }}">{{$trabajador->nombres}} {{$trabajador->apellidos}}</option>
             @endforeach
         </select>
     </div>

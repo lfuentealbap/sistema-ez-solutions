@@ -16,6 +16,7 @@ class Trabajo extends Model
         'pago',
         'estado',
         'rut_trabajador',
+        'id_area',
 
     ];
     protected $dates = [
@@ -24,5 +25,9 @@ class Trabajo extends Model
     public function trabajador(){
 
         return $this->belongsTo(User::class, 'rut_trabajador');
+    }
+    public function area(){
+
+        return $this->belongsTo(Area::class, 'id_area');
     }
 }
