@@ -52,13 +52,19 @@ Route::post('plataforma/cotizaciones', [ProductoCotizacionController::class, 'st
 
 //trabajos
 Route::get('plataforma/trabajos',[TrabajoController::class, 'index'])->name('plataforma.trabajos.index');
+Route::get('plataforma/trabajos/encurso',[TrabajoController::class, 'enCurso'])->name('plataforma.trabajos.encurso');
+Route::get('plataforma/trabajos/todosencurso',[TrabajoController::class, 'todosEnCurso'])->name('plataforma.trabajos.todosencurso');
+Route::get('plataforma/trabajos/mistrabajos',[TrabajoController::class, 'mistrabajos'])->name('plataforma.trabajos.mistrabajos');
+Route::get('plataforma/trabajos/trabajoshoy',[TrabajoController::class, 'hoy'])->name('plataforma.trabajos.trabajoshoy');
+Route::get('plataforma/trabajos/finalizado',[TrabajoController::class, 'finalizado'])->name('plataforma.trabajos.finalizados');
 Route::get('plataforma/trabajos/create', [TrabajoController::class, 'create'])->name('plataforma.trabajos.create');
 Route::post('plataforma/trabajos', [TrabajoController::class, 'store'])->name('trabajos.store');
 Route::get('plataforma/trabajos/{trabajo}', [TrabajoController::class, 'show'] )->name('plataforma.trabajos.show');
 Route::get('plataforma/trabajos/{trabajo}/edit', [TrabajoController::class, 'edit'])->name('plataforma.trabajos.edit');
 Route::match(['put', 'patch'],'plataforma/trabajos/{trabajo}', [TrabajoController::class, 'update'])->name('plataforma.trabajos.update');
 Route::delete('plataforma/trabajos/{trabajo}', [TrabajoController::class, 'destroy'])->name('plataforma.trabajos.destroy');
+Route::match(['put', 'patch'],'plataforma/trabajos/suspender/{trabajo}', [TrabajoController::class, 'suspender'])->name('plataforma.trabajos.suspender');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/plataforma', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

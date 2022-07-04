@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TrabajoRequest;
+use App\Http\Requests\TrabajoSuspenderRequest;
+use App\Mail\TrabajoActualizadoMailable;
 use App\Mail\TrabajoAsignadoMailable;
+use App\Mail\TrabajoSuspendidoMailable;
 use App\Models\Area;
 use App\Models\Trabajo;
 use App\Models\User;
@@ -24,6 +27,51 @@ class TrabajoController extends Controller
         //$products = Product::all();
         //dd($products);
         return view('plataforma.trabajos.index')->with([
+            'trabajos' => Trabajo::all(),
+        ]);
+
+    }
+    public function enCurso(){
+        //$products = DB::table('products')->get();
+        //$products = Product::all();
+        //dd($products);
+        return view('plataforma.trabajos.encurso')->with([
+            'trabajos' => Trabajo::all(),
+        ]);
+
+    }
+    public function misTrabajos(){
+        //$products = DB::table('products')->get();
+        //$products = Product::all();
+        //dd($products);
+        return view('plataforma.trabajos.mistrabajos')->with([
+            'trabajos' => Trabajo::all(),
+        ]);
+
+    }
+    public function hoy(){
+        //$products = DB::table('products')->get();
+        //$products = Product::all();
+        //dd($products);
+        return view('plataforma.trabajos.trabajoshoy')->with([
+            'trabajos' => Trabajo::all(),
+        ]);
+
+    }
+    public function todosEnCurso(){
+        //$products = DB::table('products')->get();
+        //$products = Product::all();
+        //dd($products);
+        return view('plataforma.trabajos.todosencurso')->with([
+            'trabajos' => Trabajo::all(),
+        ]);
+
+    }
+    public function finalizado(){
+        //$products = DB::table('products')->get();
+        //$products = Product::all();
+        //dd($products);
+        return view('plataforma.trabajos.finalizados')->with([
             'trabajos' => Trabajo::all(),
         ]);
 
@@ -66,9 +114,11 @@ class TrabajoController extends Controller
     }
 
     public function edit(Trabajo $trabajo){
-
+        $inicio = Carbon::parse($trabajo->fecha_inicio)->format('d-m-Y H:i');
+        $termino = Carbon::parse($trabajo->fecha_termino)->format('d-m-Y H:i');
         return view('plataforma.trabajos.edit')->with([
-            'trabajo'=> $trabajo, 'trabajador' => User::all(), 'areas' => Area::all(),//Product::findOrFail($product),
+            'trabajo'=> $trabajo, 'trabajadores' => User::all(), 'areas' => Area::all(), 'inicio' => $inicio,
+            'termino' => $termino,//Product::findOrFail($product),
         ]);
     }
 
@@ -86,8 +136,34 @@ class TrabajoController extends Controller
         request()->validate($rules);*/
 
         //$product= Product::findOrFail($product);
+        $trabajadores = User::all();
+        foreach($trabajadores as $trabajador){
+            if($trabajador->rut == $trabajo->rut_trabajador){
+                Mail::to($trabajador->email)->send(new TrabajoActualizadoMailable($trabajo));
+            }
+        }
     $trabajo->update(/*request()->all()*/$request->validated());
         return redirect()->route('plataforma.trabajos.index')->withSuccess('El trabajo: '.$trabajo->titulo.' fué editado exitosamente');
+    }
+    public function suspender(TrabajoSuspenderRequest $request, Trabajo $trabajo){
+        $trabajadores = User::all();
+        foreach($trabajadores as $trabajador){
+            if($trabajador->rut == $trabajo->rut_trabajador){
+                Mail::to($trabajador->email)->send(new TrabajoSuspendidoMailable($trabajo));
+            }
+        }
+        $trabajo->update($request->validated());
+        return redirect()->back()->withSuccess('El trabajo: '.$trabajo->titulo.' fué suspendido exitosamente');
+    }
+    public function cancelar(TrabajoSuspenderRequest $request, Trabajo $trabajo){
+        $trabajadores = User::all();
+        foreach($trabajadores as $trabajador){
+            if($trabajador->rut == $trabajo->rut_trabajador){
+                Mail::to($trabajador->email)->send(new TrabajoSuspendidoMailable($trabajo));
+            }
+        }
+        $trabajo->update($request->validated());
+        return redirect()->back()->withSuccess('El trabajo: '.$trabajo->titulo.' fué suspendido exitosamente');
     }
 
     public function destroy(Trabajo $trabajo){

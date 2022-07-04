@@ -29,7 +29,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark navbar-plataforma shadow-sm">
             <div class="container">
-                <a class="navbar-brand navbar-item"  href="{{ url('/home') }}"> <img src="{{ asset('img/inicio/logo.png') }}" style="width: 30px; height: 20px;" alt="EZ Solutions"> </img>
+                <a class="navbar-brand navbar-item"  href="{{ url('/plataforma') }}"> <img src="{{ asset('img/inicio/logo.png') }}" style="width: 30px; height: 20px;" alt="EZ Solutions"> </img>
                     {{ __('Plataforma') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -45,10 +45,10 @@
                               Trabajos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrabajos">
-                              <li><a class="dropdown-item" href="#">Todos mis trabajos</a></li>
-                              <li><a class="dropdown-item" href="#">Crear trabajo</a></li>
-                              <li><a class="dropdown-item" href="#">Trabajos en curso</a></li>
-                              <li><a class="dropdown-item" href="#">Trabajos del día</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.mistrabajos') }}">Todos mis trabajos</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.create') }}">Crear trabajo</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.todosencurso') }}">Trabajos en curso</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.trabajoshoy') }}">Trabajos del día</a></li>
                             </ul>
                         </li>
 
@@ -87,9 +87,9 @@
                               Trabajos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrabajos">
-                              <li><a class="dropdown-item" href="#">Todos mis trabajos</a></li>
-                              <li><a class="dropdown-item" href="#">Trabajos en curso</a></li>
-                              <li><a class="dropdown-item" href="#">Trabajos hechos</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.mistrabajos') }}">Todos mis trabajos</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.encurso') }}">Trabajos en curso</a></li>
+                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.finalizados') }}">Trabajos hechos</a></li>
                             </ul>
                           </li>
                         @endif

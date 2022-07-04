@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TrabajoRequest extends FormRequest
+class TrabajoSuspenderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,9 @@ class TrabajoRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo' => ['required','max:255'],
-            'descripcion' => ['required','max:1000'],
+            'estado' => ['required','max:255'],
             'fecha_inicio' => ['required'],
             'fecha_termino' => ['required'],
-            'rut_trabajador' => ['required'],
-            'pago' => ['required','min:0'],
-            'id_area' => ['required'],
-            'estado' => [],
 
         ];
     }

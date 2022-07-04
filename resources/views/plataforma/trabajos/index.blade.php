@@ -31,6 +31,19 @@
                             <td>{{$trabajo->trabajador->nombres}} {{$trabajo->trabajador->apellidos}}</td>
                             <td>{{$trabajo->fecha_termino}}</td>
                             <td>
+                                @if($trabajo->estado == "en curso")
+                                <span class="badge bg-primary">En curso</span>
+                                @elseif ($trabajo->estado == "finalizado")
+                                <span class="badge bg-success">Finalizado</span>
+                                @elseif ($trabajo->estado == "suspendido")
+                                <span class="badge bg-danger">Suspendido</span>
+                                @elseif ($trabajo->estado == "cancelado")
+                                <span class="badge bg-secondary">Cancelado</span>
+                                @elseif ($trabajo->estado == "atrasado")
+                                <span class="badge bg-warning">Atrasado</span>
+                                @endif
+                            </td>
+                            <td>
                                 <a class="btn btn-info" href="{{ route('plataforma.trabajos.show', [
                                     'trabajo' => $trabajo->id]) }}"><i class="fas fa-eye"></i> Ver</a>
                                 <a class="btn btn-primary" href="{{ route('plataforma.trabajos.edit', [
@@ -41,6 +54,19 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
                                 </form>
+                                @if ($trabajo->estado == "en curso" || $trabajo->estado == "atrasado")
+                                    <form action="{{route('plataforma.trabajos.suspender', ['trabajo' => $trabajo->id]) }}" method="post">
+                                        @csrf
+                                        @method('put')
+                                            <input type="hidden" class="form-control" name="estado" value="suspendido" required>
+                                            <input type="hidden" class="form-control" name="rut_trabajador" value="{{$trabajo->rut_trabajador}}" required>
+                                                <input type="hidden" class="form-control" name="fecha_inicio" value="{{$trabajo->fecha_inicio}}" required>
+                                                <input type="hidden"  class="form-control" name="fecha_termino" value="{{$trabajo->fecha_termino}}" required>
+
+                                            <button type="submit" class="btn btn-warning"><i class="fas fa-power-off"></i> Suspender</button>
+                                    </form>
+                                @endif
+
 
                             </td>
                         </tr>

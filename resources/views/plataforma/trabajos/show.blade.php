@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-secondary" href="{{ route('plataforma.productos.index') }}"><i class="fas fa-th-list"></i> Volver a la lista</a>
+        <a class="btn btn-secondary" href="{{ route('plataforma.trabajos.index') }}"><i class="fas fa-th-list"></i> Volver a la lista</a>
                             <a class="btn btn-primary" href="{{ route('plataforma.trabajos.edit', [
                                 'trabajo' => $trabajo->id]) }}"><i class="fas fa-edit"></i> Editar este trabajo</a>
                             <form class="d-inline" action="{{route('plataforma.trabajos.destroy', [
