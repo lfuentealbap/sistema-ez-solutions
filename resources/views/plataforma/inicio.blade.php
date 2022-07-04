@@ -15,10 +15,22 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                 <h5 class="card-title">{{$trabajo->titulo}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{$trabajo->estado}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    @if($trabajo->estado == "en curso")
+                                <span class="badge bg-primary">En curso</span>
+                                @elseif ($trabajo->estado == "finalizado")
+                                <span class="badge bg-success">Finalizado</span>
+                                @elseif ($trabajo->estado == "suspendido")
+                                <span class="badge bg-danger">Suspendido</span>
+                                @elseif ($trabajo->estado == "cancelado")
+                                <span class="badge bg-secondary">Cancelado</span>
+                                @elseif ($trabajo->estado == "atrasado")
+                                <span class="badge bg-warning">Atrasado</span>
+                                @endif
+                </h6>
                 <p class="card-text">{{$trabajo->descripcion}}.</p>
-                <a href=href="{{ route('plataforma.trabajos.show', [
-                    'trabajo' => $trabajo->id]) }} class="card-link">Ver detalles</a>
+                <a href="{{ route('plataforma.trabajos.show', [
+                    'trabajo' => $trabajo->id]) }}" class="card-link">Ver detalles</a>
                 <a href="#" class="card-link">Finalizar</a>
                 </div>
             </div>
@@ -50,10 +62,21 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                 <h5 class="card-title">{{$trabajo->titulo}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{$trabajo->estado}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    @if($trabajo->estado == "en curso")
+                                <span class="badge bg-primary">En curso</span>
+                                @elseif ($trabajo->estado == "finalizado")
+                                <span class="badge bg-success">Finalizado</span>
+                                @elseif ($trabajo->estado == "suspendido")
+                                <span class="badge bg-danger">Suspendido</span>
+                                @elseif ($trabajo->estado == "cancelado")
+                                <span class="badge bg-secondary">Cancelado</span>
+                                @elseif ($trabajo->estado == "atrasado")
+                                <span class="badge bg-warning">Atrasado</span>
+                                @endif
                 <p class="card-text">{{$trabajo->descripcion}}.</p>
-                <a href=href="{{ route('plataforma.trabajos.show', [
-                    'trabajo' => $trabajo->id]) }} class="card-link">Ver detalles</a>
+                <a href="{{ route('plataforma.trabajos.show', [
+                    'trabajo' => $trabajo->id]) }}" class="card-link">Ver detalles</a>
                 <a href="#" class="card-link">Finalizar</a>
                 </div>
             </div>

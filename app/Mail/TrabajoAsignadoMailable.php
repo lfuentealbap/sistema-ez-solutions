@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -21,6 +22,8 @@ class TrabajoAsignadoMailable extends Mailable
     public function __construct($trabajo)
     {
         $this->contenido = $trabajo;
+        $this->contenido['fecha_inicio'] = Carbon::parse($this->contenido['fecha_inicio'])->format('d-m-Y H:i:s');
+        $this->contenido['fecha_termino'] = Carbon::parse($this->contenido['fecha_termino'])->format('d-m-Y H:i:s');
     }
 
     /**

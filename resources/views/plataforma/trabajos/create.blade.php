@@ -14,11 +14,11 @@
     </div>
     <div class="form-row">
         <label for="fecha_inicio">Fecha de Inicio</label>
-        <input type="date" class="form-control" name="fecha_inicio" value="{{old('fecha_inicio')}}" required>
+        <input type="datetime-local" class="form-control" name="fecha_inicio" value="{{old('fecha_inicio')}}" required>
     </div>
     <div class="form-row">
         <label for="stock">Fecha de Término</label>
-        <input type="date"  class="form-control" name="fecha_termino" value="{{old('fecha_termino')}}" required>
+        <input type="datetime-local"  class="form-control" name="fecha_termino" value="{{old('fecha_termino')}}" required>
     </div>
     <div class="form-row">
         <label for="stock">Monto a pagar por el trabajo</label>

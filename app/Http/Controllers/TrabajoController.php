@@ -8,6 +8,7 @@ use App\Models\Area;
 use App\Models\Trabajo;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class TrabajoController extends Controller
@@ -41,12 +42,12 @@ class TrabajoController extends Controller
         $trabajadores = User::all();
         foreach($trabajadores as $trabajador){
             if($trabajador->rut == $trabajo->rut_trabajador){
-                Mail::to($trabajador->email)->send(new TrabajoAsignadoMailable($trabajo));
+                Mail::to($trabajador->email)->queue(new TrabajoAsignadoMailable($trabajo));
             }
         }
 
 
-        return redirect()->route('plataforma.trabajos.index')->withSuccess('El trabajo: '.$trabajo->titulo.' fué creado exitosamente');
+        return redirect()->route('plataforma.trabajos.index')->withSuccess('El trabajo <strong>'.$trabajo->titulo.'</strong> fué creado exitosamente, además se envió un aviso al trabajador por email');
     }
 
     public function show(Trabajo $trabajo){
@@ -54,10 +55,12 @@ class TrabajoController extends Controller
         //$product = DB::table('products')->find($product);
         //Product $product sustituye; $product= Product::findOrFail($product); //originalmente es ::find
         //dd($product);
-
+        $inicio = Carbon::parse($trabajo->fecha_inicio)->format('d-m-Y H:i:s');
+        $termino = Carbon::parse($trabajo->fecha_termino)->format('d-m-Y H:i:s');
         return view('plataforma.trabajos.show')->with([
-            'trabajos'=> $trabajo,
-            'html' => "<h2>Subtitle</h2>",
+            'trabajo'=> $trabajo,
+            'inicio' => $inicio,
+            'termino' => $termino,
         ]);
         //return "Mostrando producto con nombre {$product}";
     }

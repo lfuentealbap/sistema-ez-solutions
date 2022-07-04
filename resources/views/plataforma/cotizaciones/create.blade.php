@@ -21,13 +21,13 @@
             <div class="form-row row mb-3">
                 <label for="fecha_creacion">Fecha actual:</label>
                 <div class="col-md-6">
-                    <input type="date" class="form-control" disabled name="fecha_creacion" value="{{ $hoy }}" required>
+                    <input type="datetime-local" class="form-control" disabled name="fecha_creacion" value="{{ $hoy }}" required>
                 </div>
             </div>
             <div class="form-row row mb-3">
                 <label for="fecha_expiracion">Fecha expiración</label>
                 <div class="col-md-6">
-                    <input type="date" class="form-control" name="fecha_expiracion" value="{{old('fecha_expiracion')}}" required>
+                    <input type="datetime-local" class="form-control" name="fecha_expiracion" value="{{old('fecha_expiracion')}}" required>
                 </div>
             </div>
 
