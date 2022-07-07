@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="background-color: #50bb52">{{ __('Iniciar sesión en la plataforma') }}</div>
-                <div class="container" style="background-color: #b5f0af"><img class="rounded mx-auto d-block img-pre-plat" src="img/inicio/logo.png" alt="Logo empresa" /></div>
-                <div class="card-body" style="background-color: #b5f0af">
+                <div class="card-header" style="background-color: #2a61a8; color:azure;">{{ __('Iniciar sesión en la plataforma') }}</div>
+                <div class="container" style="background-color: #a6cdff"><img class="rounded mx-auto d-block img-pre-plat" src="img/inicio/logo.png" alt="Logo empresa" /></div>
+                <div class="card-body" style="background-color: #a6cdff">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -53,7 +53,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in"></i>
                                     {{ __('Iniciar sesión') }}
                                 </button>
 {{--}}

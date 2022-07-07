@@ -10277,17 +10277,17 @@ textarea.form-control-lg {
 }
 
 .navbar-inicio{
-    background-color: #027933;
+    background-color: #2a61a8;
 }
 .img-presentacion{
     width: 400px;
     height: 400px;
 }
 .fondo-principal{
-    background-color: #94e28f;
+    background-color: #a6cdff;
 }
 .pie-pagina{
-    background-color: #027933;
+    background-color: #2a61a8;
 }
 .link-rrss:active, .link-rrss:visited, .link-rrss:link, .link-rrss{
     text-decoration: none;
@@ -10300,8 +10300,13 @@ textarea.form-control-lg {
     background-color: #1b82ddb9;
 }
 .cabecera-acordeon{
-    background-color: #399b38;
+    background-color: #406fb4;
 }
 .cuerpo-acordeon{
-    background-color: #70d36f;
+    background-color: #85ade6;
+}
+cuerpo-acordeon:not(.collapsed) {
+    color: azure;
+    background-color: #648dcd;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }

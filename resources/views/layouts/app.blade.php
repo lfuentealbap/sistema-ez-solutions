@@ -25,7 +25,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/plataforma.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="fondo-plataforma">
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark navbar-plataforma shadow-sm">
             <div class="container">
@@ -40,8 +40,8 @@
                         @auth
 
                         @if (Auth::user()->rol=='jefe')
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTrabajos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item dropdown navbar-item">
+                            <a class="nav-link dropdown-toggle navbar-item" href="#" id="navbarDropdownTrabajos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Trabajos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrabajos">
@@ -52,8 +52,8 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCotizaciones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item dropdown navbar-item">
+                            <a class="nav-link dropdown-toggle navbar-item" href="#" id="navbarDropdownCotizaciones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Gestiones
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCotizaciones">
@@ -82,8 +82,8 @@
                         @endif
 
                         @if (Auth::user()->rol=='trabajador')
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTrabajos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item dropdown navbar-item">
+                            <a class="nav-link dropdown-toggle navbar-item" href="#" id="navbarDropdownTrabajos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Trabajos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrabajos">
