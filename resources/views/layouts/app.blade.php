@@ -131,10 +131,10 @@
                                             <a class="nav-link"
                                                 href="{{ route('plataforma.trabajos.editar') }}">Editar trabajo</a>
                                             <a class="nav-link"
-                                                href="{{ route('plataforma.trabajos.index') }}">Suspender
+                                                href="{{ route('plataforma.trabajos.suspenderT') }}">Suspender
                                                 trabajo</a>
                                             <a class="nav-link"
-                                                href="{{ route('plataforma.trabajos.index') }}">Cancelar trabajo</a>
+                                                href="{{ route('plataforma.trabajos.cancelarT') }}">Cancelar trabajo</a>
 
                                             <a class="nav-link"
                                                 href="{{ route('plataforma.trabajos.create') }}">Registrar nuevo

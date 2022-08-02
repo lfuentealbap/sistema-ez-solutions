@@ -24,6 +24,7 @@
                 </thead>
                 <tbody>
                     @foreach ($trabajos as $trabajo)
+                        @if ($trabajo->estado != "cancelado" && $trabajo->estado != "finalizado")
                         <tr>
 
                             <td>{{ $trabajo->titulo }}</td>
@@ -63,6 +64,7 @@
 
                             </td>
                         </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>

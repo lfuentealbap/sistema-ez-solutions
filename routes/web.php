@@ -56,7 +56,8 @@ Route::post('plataforma/cotizaciones', [ProductoCotizacionController::class, 'st
 Route::get('plataforma/trabajos',[TrabajoController::class, 'index'])->name('plataforma.trabajos.index');
 Route::get('plataforma/trabajos/encurso',[TrabajoController::class, 'enCurso'])->name('plataforma.trabajos.encurso');
 Route::get('plataforma/trabajos/editar',[TrabajoController::class, 'editar'])->name('plataforma.trabajos.editar');
-Route::get('plataforma/trabajos/suspender',[TrabajoController::class, 'suspenderT'])->name('plataforma.trabajos.suspender');
+Route::get('plataforma/trabajos/suspender',[TrabajoController::class, 'suspenderT'])->name('plataforma.trabajos.suspenderT');
+Route::get('plataforma/trabajos/cancelar',[TrabajoController::class, 'cancelarT'])->name('plataforma.trabajos.cancelarT');
 Route::get('plataforma/trabajos/todosencurso',[TrabajoController::class, 'todosEnCurso'])->name('plataforma.trabajos.todosencurso');
 Route::get('plataforma/trabajos/mistrabajos',[TrabajoController::class, 'mistrabajos'])->name('plataforma.trabajos.mistrabajos');
 Route::get('plataforma/trabajos/trabajoshoy',[TrabajoController::class, 'hoy'])->name('plataforma.trabajos.trabajoshoy');
@@ -68,6 +69,7 @@ Route::get('plataforma/trabajos/{trabajo}/edit', [TrabajoController::class, 'edi
 Route::match(['put', 'patch'],'plataforma/trabajos/{trabajo}', [TrabajoController::class, 'update'])->name('plataforma.trabajos.update');
 Route::delete('plataforma/trabajos/{trabajo}', [TrabajoController::class, 'destroy'])->name('plataforma.trabajos.destroy');
 Route::match(['put', 'patch'],'plataforma/trabajos/suspender/{trabajo}', [TrabajoController::class, 'suspender'])->name('plataforma.trabajos.suspender');
+Route::match(['put', 'patch'],'plataforma/trabajos/cancelar/{trabajo}', [TrabajoController::class, 'cancelar'])->name('plataforma.trabajos.cancelar');
 
 //gastos
 Route::get('plataforma/gastos',[GastoController::class, 'index'])->name('plataforma.gastos.index');

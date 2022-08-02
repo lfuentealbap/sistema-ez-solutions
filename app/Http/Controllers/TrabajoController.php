@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TrabajoCancelarRequest;
 use App\Http\Requests\TrabajoRequest;
 use App\Http\Requests\TrabajoSuspenderRequest;
 use App\Mail\TrabajoActualizadoMailable;
 use App\Mail\TrabajoAsignadoMailable;
+use App\Mail\TrabajoCanceladoMailable;
 use App\Mail\TrabajoSuspendidoMailable;
 use App\Models\Area;
 use App\Models\Trabajo;
@@ -45,6 +47,15 @@ class TrabajoController extends Controller
         //$products = Product::all();
         //dd($products);
         return view('plataforma.trabajos.suspender')->with([
+            'trabajos' => Trabajo::all(),
+        ]);
+
+    }
+    public function cancelarT(){
+        //$products = DB::table('products')->get();
+        //$products = Product::all();
+        //dd($products);
+        return view('plataforma.trabajos.cancelar')->with([
             'trabajos' => Trabajo::all(),
         ]);
 
@@ -173,11 +184,12 @@ class TrabajoController extends Controller
         $trabajo->update($request->validated());
         return redirect()->back()->withSuccess('El trabajo: "'.$trabajo->titulo.'" fué suspendido exitosamente');
     }
-    public function cancelar(TrabajoSuspenderRequest $request, Trabajo $trabajo){
+
+    public function cancelar(TrabajoCancelarRequest $request, Trabajo $trabajo){
         $trabajadores = User::all();
         foreach($trabajadores as $trabajador){
             if($trabajador->rut == $trabajo->rut_trabajador){
-                Mail::to($trabajador->email)->send(new TrabajoSuspendidoMailable($trabajo));
+                Mail::to($trabajador->email)->send(new TrabajoCanceladoMailable($trabajo));
             }
         }
         $trabajo->update($request->validated());

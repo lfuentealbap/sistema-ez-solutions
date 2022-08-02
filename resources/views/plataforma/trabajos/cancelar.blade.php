@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Lista de trabajos</h1>
+    <h1>Cancelar trabajos</h1>
 
     <a class="btn btn-success mb-3" href="{{ route('plataforma.trabajos.create') }}"><i class="fas fa-file-plus"></i> Crear</a>
 
@@ -24,6 +24,7 @@
                 </thead>
                 <tbody>
                     @foreach ($trabajos as $trabajo)
+                    @if ($trabajo->estado != "cancelado" && $trabajo->estado != "finalizado")
                         <tr>
 
                             <td>{{ $trabajo->titulo }}</td>
@@ -46,41 +47,24 @@
                             <td>
                                 <a class="btn btn-info" href="{{ route('plataforma.trabajos.show', [
                                     'trabajo' => $trabajo->id]) }}"><i class="fas fa-eye"></i> Ver</a>
-                                <a class="btn btn-primary" href="{{ route('plataforma.trabajos.edit', [
-                                    'trabajo' => $trabajo->id]) }}"><i class="fas fa-edit"></i> Editar</a>
-                                <form class="d-inline" action="{{route('plataforma.trabajos.destroy', [
-                                    'trabajo' => $trabajo->id])}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
-                                </form>
+
                                 @if ($trabajo->estado == "en curso" || $trabajo->estado == "atrasado")
-                                    <form action="{{route('plataforma.trabajos.suspender', ['trabajo' => $trabajo->id]) }}" method="post">
+                                    <form action="{{route('plataforma.trabajos.cancelar', ['trabajo' => $trabajo->id]) }}" method="post">
                                         @csrf
                                         @method('put')
-                                            <input type="hidden" class="form-control" name="estado" value="suspendido" required>
+                                            <input type="hidden" class="form-control" name="estado" value="cancelado" required>
                                             <input type="hidden" class="form-control" name="rut_trabajador" value="{{$trabajo->rut_trabajador}}" required>
                                                 <input type="hidden" class="form-control" name="fecha_inicio" value="{{$trabajo->fecha_inicio}}" required>
                                                 <input type="hidden"  class="form-control" name="fecha_termino" value="{{$trabajo->fecha_termino}}" required>
 
-                                            <button type="submit" class="btn btn-warning"><i class="fas fa-power-off"></i> Suspender</button>
+                                            <button type="submit" class="btn btn-warning"><i class="fas fa-align-slash"></i> Cancelar</button>
                                     </form>
                                 @endif
-                                @if ($trabajo->estado != "cancelado")
-                                <form action="{{route('plataforma.trabajos.cancelar', ['trabajo' => $trabajo->id]) }}" method="post">
-                                    @csrf
-                                    @method('put')
-                                        <input type="hidden" class="form-control" name="estado" value="cancelado" required>
-                                        <input type="hidden" class="form-control" name="rut_trabajador" value="{{$trabajo->rut_trabajador}}" required>
-                                            <input type="hidden" class="form-control" name="fecha_inicio" value="{{$trabajo->fecha_inicio}}" required>
-                                            <input type="hidden"  class="form-control" name="fecha_termino" value="{{$trabajo->fecha_termino}}" required>
 
-                                        <button type="submit" class="btn btn-warning"><i class="fas fa-align-slash"></i> Cancelar</button>
-                                </form>
-                            @endif
 
                             </td>
                         </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
