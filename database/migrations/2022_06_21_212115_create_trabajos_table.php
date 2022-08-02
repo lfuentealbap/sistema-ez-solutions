@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->string('descripcion');
+            $table->string('ciudad');
+            $table->string('direccion');
             $table->timestamp('fecha_inicio');
             $table->timestamp('fecha_termino');
             $table->integer('pago')->unsigned();

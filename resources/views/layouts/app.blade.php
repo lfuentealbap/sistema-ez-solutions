@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +11,17 @@
     <title>{{ __('Plataforma de EZ Solutions') }}</title>
 
     <!-- Scripts -->
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/validarRut.js') }}"></script>
+    <script src="{{ asset('js/datatables.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap5.js') }}"></script>
+    <script src="{{ asset('js/tablas.js') }}"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
+    <!--Datatables -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,135 +29,310 @@
 
     <!--Icons Font Awesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/plataforma.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css')}}" rel="stylesheet" >
+    <link href="{{ asset('css/datatables.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dataTables.bootstrap.css') }}" rel="stylesheet">
+
 </head>
-<body class="fondo-plataforma">
-    <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-plataforma shadow-sm">
-            <div class="container">
-                <a class="navbar-brand navbar-item"  href="{{ url('/plataforma') }}"> <img src="{{ asset('img/inicio/logo.png') }}" style="width: 30px; height: 20px;" alt="EZ Solutions"> </img>
-                    {{ __('Plataforma') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        @auth
+<body class="fondo-plataforma sb-nav-fixed">
 
-                        @if (Auth::user()->rol=='jefe')
-                        <li class="nav-item dropdown navbar-item">
-                            <a class="nav-link dropdown-toggle navbar-item" href="#" id="navbarDropdownTrabajos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Trabajos
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrabajos">
-                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.mistrabajos') }}">Todos mis trabajos</a></li>
-                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.create') }}">Crear trabajo</a></li>
-                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.todosencurso') }}">Trabajos en curso</a></li>
-                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.trabajoshoy') }}">Trabajos del día</a></li>
-                            </ul>
-                        </li>
+    @auth
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark navbar-plataforma">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="{{ url('/plataforma') }}"><img src="{{ asset('img/inicio/logo.png') }}"
+            style="width: 30px; height: 20px;" alt="EZ"></img>{{ __('Plataforma') }}
+    </a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
 
-                        <li class="nav-item dropdown navbar-item">
-                            <a class="nav-link dropdown-toggle navbar-item" href="#" id="navbarDropdownCotizaciones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Gestiones
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCotizaciones">
-                              <li><a class="dropdown-item" href="{{ route('plataforma.cotizaciones.index') }}">Gestionar cotizaciones</a></li>
-                              <li><a class="dropdown-item" href="{{ route('plataforma.clientes.index') }}">Gestionar clientes</a></li>
-                              <li><a class="dropdown-item" href="{{ route('plataforma.productos.index') }}">Gestionar productos</a></li>
-                              <li><a class="dropdown-item" href="#">Gestionar Empleados</a></li>
-                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.index') }}">Gestionar trabajos de empleados</a></li>
-                            </ul>
-                        </li>
-{{--}}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCotizaciones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Trabajadores
-                            </a>
-
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCotizaciones">
-                              <li><a class="dropdown-item" href="#">Ver todos los trabajadores</a></li>
-                              <li><a class="dropdown-item" href="#">Registrar nuevo trabajador</a></li>
-                              <li><a class="dropdown-item" href="#">Rendimiento trabajadores</a></li>
-                              <li><a class="dropdown-item" href="#">Revisar sueldo trabajadores</a></li>
-                            </ul>
-
-                        </li>
-                        {{--}}
-                        @endif
-
-                        @if (Auth::user()->rol=='trabajador')
-                        <li class="nav-item dropdown navbar-item">
-                            <a class="nav-link dropdown-toggle navbar-item" href="#" id="navbarDropdownTrabajos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Trabajos
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrabajos">
-                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.mistrabajos') }}">Todos mis trabajos</a></li>
-                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.encurso') }}">Trabajos en curso</a></li>
-                              <li><a class="dropdown-item" href="{{ route('plataforma.trabajos.finalizados') }}">Trabajos hechos</a></li>
-                            </ul>
-                          </li>
-                        @endif
-                        @endauth
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        {{--}}
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link navbar-item" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                            {{--}}
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle navbar-item" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ asset('img/trabajador/trabajador.png') }}" class="rounded float-start border border-1" alt="..." style="width: 30px; height: 30px;"> &nbsp; {{ Auth::user()->nombres }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item navbar-itemnavbar-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Salir') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
             </div>
-        </nav>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                            {{ __('Salir') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    @endauth
 
-        <main class="py-4">
-            <div class="container-fluid">
-                @if (session()->has('error'))
+        @auth
+        <div id="layoutSidenav">
+
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion" style="background-image: linear-gradient(to top, #00c6fb 0%, #3075e4 100%);
+                color: rgb(0, 0, 0);">
+
+                    <div class="sb-sidenav-menu" >
+                        <div class="nav" style="color: azure">
+                            <div class="sb-sidenav-menu-heading">Principal</div>
+                            <a class="nav-link" href="{{ url('/plataforma') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                                Inicio
+                            </a>
+                            @auth
+
+                                @if (Auth::user()->rol == 'jefe')
+                                    <div class="sb-sidenav-menu-heading">Menú del trabajador</div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTrabajos" aria-expanded="false"
+                                        aria-controls="collapseTrabajos">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-briefcase"></i></div>
+                                        Trabajos
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseTrabajos" aria-labelledby="headingOne"
+                                        data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.mistrabajos') }}">Todos
+                                                mis
+                                                trabajos</a>
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.trabajos.todosencurso') }}">Trabajos en
+                                                curso</a>
+                                            <a class="nav-link" href="#">Ver
+                                                ordenes de trabajo</a>
+
+                                        </nav>
+                                    </div>
+
+                                    <div class="sb-sidenav-menu-heading">Menú del administrador</div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseAdminTrabajos" aria-expanded="false"
+                                        aria-controls="collapseAdminTrabajos">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-users-crown"></i></div>
+                                        Administrar trabajos
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseAdminTrabajos" aria-labelledby="headingOne"
+                                        data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.trabajos.editar') }}">Editar trabajo</a>
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.trabajos.index') }}">Suspender
+                                                trabajo</a>
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.trabajos.index') }}">Cancelar trabajo</a>
+
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.trabajos.create') }}">Registrar nuevo
+                                                trabajo</a>
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.create') }}">Informes
+                                                de trabajos</a>
+
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.trabajoshoy') }}">Ver
+                                                trabajos del
+                                                día</a>
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.trabajos.todosencurso') }}">Mostrar cantidad de
+                                                trabajos realizados por empleado</a>
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.trabajos.todosencurso') }}">Mostrar estimación
+                                                de sueldo de empleados</a>
+
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseEmpleados" aria-expanded="false"
+                                        aria-controls="collapseEmpleados">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
+                                        Empleados
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseEmpleados" aria-labelledby="headingOne"
+                                        data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link"
+                                                href="{{ route('register') }}">Registrar nuevo
+                                                empleado</a>
+                                            <a class="nav-link" href="#">Ver Empleados</a>
+                                             </nav>
+                                    </div>
+
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseCotizaciones" aria-expanded="false"
+                                        aria-controls="collapseCotizaciones">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-money-check-edit-alt"></i></div>
+                                        Cotizaciones
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseCotizaciones" aria-labelledby="headingOne"
+                                        data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.cotizaciones.create') }}">Crear cotización</a>
+
+                                            <a class="nav-link" href="{{ route('plataforma.cotizaciones.index') }}">Ver
+                                                cotizaciones</a>
+
+                                            <a class="nav-link" href="{{ route('plataforma.clientes.index') }}">Marcar
+                                                cotización</a>
+                                            <a class="nav-link" href="{{ route('plataforma.productos.index') }}">Ver
+                                                productos para cotización</a>
+
+                                        </nav>
+                                    </div>
+
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseGastos" aria-expanded="false"
+                                        aria-controls="collapseGastos">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-comment-dollar"></i></div>
+                                        Gastos
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseGastos" aria-labelledby="headingOne"
+                                        data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.gastos.create') }}">Crear gasto</a>
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.gastos.editar') }}">Editar gasto</a>
+                                            <a class="nav-link" href="{{ route('plataforma.gastos.eliminar') }}">Eliminar
+                                                gasto</a>
+                                            <a class="nav-link" href="{{ route('plataforma.gastos.informe') }}">Generar
+                                                informe de los
+                                                gastos del mes</a>
+
+                                        </nav>
+                                    </div>
+
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseClientes" aria-expanded="false"
+                                        aria-controls="collapseClientes">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-user-tag"></i></div>
+                                        Clientes
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseClientes" aria-labelledby="headingOne"
+                                        data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.clientes.create') }}">Registrar cliente</a>
+
+                                            <a class="nav-link" href="{{ route('plataforma.clientes.index') }}">Ver
+                                                clientes</a>
+
+                                        </nav>
+                                    </div>
+                                @endif
+
+                                @if (Auth::user()->rol == 'trabajador')
+                                    <div class="sb-sidenav-menu-heading">Menú del trabajador</div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTrabajos" aria-expanded="false"
+                                        aria-controls="collapseTrabajos">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-briefcase"></i></div>
+                                        Trabajos
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseTrabajos" aria-labelledby="headingOne"
+                                        data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.trabajos.mistrabajos') }}">Todos mis
+                                                trabajos</a>
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.trabajos.todosencurso') }}">Trabajos en
+                                                curso</a>
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.create') }}">Ver
+                                                ordenes de trabajo</a>
+
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseGastos" aria-expanded="false"
+                                        aria-controls="collapseGastos">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-briefcase"></i></div>
+                                        Gastos
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseGastos" aria-labelledby="headingOne"
+                                        data-bs-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link"
+                                                href="{{ route('plataforma.gastos.create') }}">Crear gasto</a>
+                                        </nav>
+                                    </div>
+                                @endif
+
+                            </div>
+                        </div>
+                        <div class="sb-sidenav-footer" style="background-color: #00c3fe">
+                            <div class="small">Iniciaste sesión como:</div>
+                            {{ Auth::user()->nombres }} {{ Auth::user()->apellidos }}
+                        </div>
+                    @endauth
+
+                </nav>
+            </div>
+
+            <div id="layoutSidenav_content">
+                <main class="py-4">
+                    <div class="container-fluid">
+                        @if (session()->has('error'))
+                            <div class="alert alert-danger">
+                                {{ session()->get('error') }}
+                            </div>
+                        @endif
+                        @if (session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
+                            </div>
+                        @endif
+
+                        @if (isset($errors) && $errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @yield('content')
+
+                </main>
+
+            </div>
+        </div>
+
+
+    </div>
+    @else
+</nav>
+    <main class="py-4" style="padding-top: 10px">
+        <div class="container-fluid">
+            @if (session()->has('error'))
                 <div class="alert alert-danger">
-                    {{session()->get('error')}}
+                    {{ session()->get('error') }}
                 </div>
             @endif
             @if (session()->has('success'))
                 <div class="alert alert-success">
-                    {{session()->get('success')}}
+                    {{ session()->get('success') }}
                 </div>
             @endif
 
@@ -155,7 +340,7 @@
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
-                            <li>{{$error}}</li>
+                            <li>{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -163,7 +348,8 @@
 
             @yield('content')
 
-        </main>
-    </div>
+    </main>
+    @endauth
 </body>
+
 </html>

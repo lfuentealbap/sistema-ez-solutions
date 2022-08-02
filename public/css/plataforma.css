@@ -43,3 +43,6 @@ background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, F
 .cuerpo-acordeon{
     background-color: #70d36f;
 }
+.sidebar-plataforma{
+    background-color: #005bea;
+}

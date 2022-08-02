@@ -12,8 +12,8 @@
                     $contadorT = 0;
                 @endphp
 
-                <div class="table-responsive rounded" style="background-color: lightblue;">
-                    <table class="table table-bordered border-primary">
+                <div class="table-responsive rounded">
+                    <table class="table table-bordered border-primary" id="misTrabajos">
                         <thead class="thead-light">
                             <tr>
                                 <th>Trabajo</th>
@@ -76,4 +76,5 @@
 
 
     </div>
+
 @endsection

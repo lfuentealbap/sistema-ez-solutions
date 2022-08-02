@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Gasto extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $fillable = [
         'nombre_gasto',
         'detalle',
         'monto',
-        'rut_trabajdor',
+        'tipo',
+        'rut_trabajador',
         'fecha_gasto',
 
     ];

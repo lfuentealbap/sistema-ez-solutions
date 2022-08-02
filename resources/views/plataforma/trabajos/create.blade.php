@@ -9,8 +9,16 @@
         <input type="text" class="form-control" name="titulo" value="{{old('titulo')}}" required>
     </div>
     <div class="form-row">
-        <label for="description">Descripcion</label>
+        <label for="descripcion">Descripcion</label>
         <input type="text" class="form-control" name="descripcion" value="{{old('descripcion')}}" required>
+    </div>
+    <div class="form-row">
+        <label for="ciudad">Ciudad</label>
+        <input type="text" class="form-control" name="ciudad" value="{{old('ciudad')}}" required>
+    </div>
+    <div class="form-row">
+        <label for="direccion">Dirección</label>
+        <input type="text" class="form-control" name="direccion" value="{{old('direccion')}}" required>
     </div>
     <div class="form-row">
         <label for="fecha_inicio">Fecha de Inicio</label>

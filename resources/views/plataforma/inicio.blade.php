@@ -37,7 +37,7 @@
                                             <a href="{{ route('plataforma.trabajos.show', [
                                                 'trabajo' => $trabajo->id,
                                             ]) }}"
-                                                class="card-link">Ver detalles</a>
+                                                class="btn btn-primary ">Ver detalles</a>
                                             @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
                                                 <a href="#" class="card-link">Finalizar</a>
                                             @endif

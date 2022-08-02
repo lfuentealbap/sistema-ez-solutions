@@ -11,6 +11,8 @@ class Trabajo extends Model
     protected $fillable = [
         'titulo',
         'descripcion',
+        'ciudad',
+        'direccion',
         'fecha_inicio',
         'fecha_termino',
         'pago',

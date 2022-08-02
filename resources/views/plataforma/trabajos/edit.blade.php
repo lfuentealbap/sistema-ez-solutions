@@ -14,6 +14,14 @@
         <input type="text" class="form-control" name="descripcion" value="{{old('descripcion') ?? $trabajo->descripcion}}" required>
     </div>
     <div class="form-row">
+        <label for="ciudad">Ciudad</label>
+        <input type="text" class="form-control" name="ciudad" value="{{old('ciudad') ?? $trabajo->ciudad}}" required>
+    </div>
+    <div class="form-row">
+        <label for="direccion">Direccion</label>
+        <input type="text" class="form-control" name="direccion" value="{{old('direccion') ?? $trabajo->direccion}}" required>
+    </div>
+    <div class="form-row">
         <label for="fecha_inicio">Fecha de Inicio</label>
         <input type="datetime-local" class="form-control" name="fecha_inicio" value="{{old('fecha_inicio') ?? $inicio}}" required>
     </div>

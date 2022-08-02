@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('monto')->unsigned();
             $table->string('rut_trabajador');
             $table->timestamp('fecha_gasto');
-            $table->foreign('rut_trabajador')->references('rut')->on('trabajadores');
+            $table->foreign('rut_trabajador')->references('rut')->on('users');
         });
     }
 
