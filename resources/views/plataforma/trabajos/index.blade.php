@@ -19,6 +19,7 @@
                         <th>Descripcion</th>
                         <th>Empleado asignado</th>
                         <th>Fecha de finalización</th>
+                        <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -75,7 +76,7 @@
                                             <input type="hidden" class="form-control" name="fecha_inicio" value="{{$trabajo->fecha_inicio}}" required>
                                             <input type="hidden"  class="form-control" name="fecha_termino" value="{{$trabajo->fecha_termino}}" required>
 
-                                        <button type="submit" class="btn btn-warning"><i class="fas fa-align-slash"></i> Cancelar</button>
+                                        <button type="submit" class="btn btn-dark"><i class="fas fa-align-slash"></i> Cancelar</button>
                                 </form>
                             @endif
 

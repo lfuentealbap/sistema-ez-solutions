@@ -4,6 +4,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\CotizacionController;
 use App\Http\Controllers\CotizacionProductoController;
 use App\Http\Controllers\GastoController;
+use App\Http\Controllers\OTController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProductoCotizacionController;
@@ -84,6 +85,18 @@ Route::match(['put', 'patch'],'plataforma/gastos/{gasto}', [GastoController::cla
 Route::delete('plataforma/gastos/{gasto}', [GastoController::class, 'destroy'])->name('plataforma.gastos.destroy');
 Route::get('imprimirGastos', [GastoController::class, 'imprimir'])->name('plataforma.gastos.imprimir');
 
+//ordenes de trabajo
+Route::get('plataforma/ot',[OTController::class, 'index'])->name('plataforma.ot.index');
+Route::get('plataforma/ot/editar',[OTController::class, 'editar'])->name('plataforma.ot.editar');
+Route::get('plataforma/ot/eliminar',[OTController::class, 'eliminar'])->name('plataforma.ot.eliminar');
+Route::get('plataforma/ot/informe',[OTController::class, 'informe'])->name('plataforma.ot.informe');
+Route::get('plataforma/ot/create/{trabajo}', [OTController::class, 'create'])->name('plataforma.ot.create');
+Route::post('plataforma/ot', [OTController::class, 'store'])->name('ot.store');
+Route::get('plataforma/ot/{ot}', [OTController::class, 'show'] )->name('plataforma.ot.show');
+Route::get('plataforma/ot/{ot}/edit', [OTController::class, 'edit'])->name('plataforma.ot.edit');
+Route::match(['put', 'patch'],'plataforma/ot/{ot}', [OTController::class, 'update'])->name('plataforma.ot.update');
+Route::delete('plataforma/ot/{ot}', [OTController::class, 'destroy'])->name('plataforma.ot.destroy');
+Route::get('imprimirOT/{ot}', [OTController::class, 'imprimir'])->name('plataforma.ot.imprimir');
 
 Auth::routes();
 

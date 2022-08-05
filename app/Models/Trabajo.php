@@ -32,4 +32,8 @@ class Trabajo extends Model
 
         return $this->belongsTo(Area::class, 'id_area');
     }
+    public function ordenes_trabajos()
+    { //relacion con orden_trabajo;
+        return $this->hasOne(OT::class, 'id_trabajo');
+    }
 }

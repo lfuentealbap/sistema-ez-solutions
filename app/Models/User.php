@@ -65,4 +65,8 @@ class User extends Authenticatable
     { //relacion con id personalizada;
         return $this->hasMany(Gasto::class, 'rut_trabajador');
     }
+    public function ordenes_trabajos()
+    { //relacion con id personalizada;
+        return $this->hasMany(OT::class, 'rut_trabajador');
+    }
 }

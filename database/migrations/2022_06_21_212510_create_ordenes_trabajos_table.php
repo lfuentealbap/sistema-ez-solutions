@@ -17,20 +17,21 @@ return new class extends Migration
             $table->id();
             $table->timestamp('fecha');
             $table->string('nombre_colaborador');
-            $table->string('rut_cliente');
             $table->string('rut_trabajador');
             $table->string('direccion');
             $table->string('ciudad');
             $table->string('tipo_requerimiento');
-            $table->string('detalles_equipo');
+            $table->string('detalles_equipo_antiguo')->nullable();
+            $table->string('detalles_equipo_nuevo')->nullable();
             $table->string('descripcion_solucion');
-            $table->text('observaciones');
+            $table->text('observaciones')->nullable();
+            $table->text('firma');
             $table->bigInteger('id_area')->unsigned();
+            $table->bigInteger('id_trabajo')->unsigned();
             $table->timestamps();
-
             $table->foreign('id_area')->references('id')->on('areas');
-            $table->foreign('rut_cliente')->references('rut')->on('clientes');
-            $table->foreign('rut_trabajador')->references('rut')->on('trabajadores');
+            $table->foreign('id_trabajo')->references('id')->on('trabajos');
+            $table->foreign('rut_trabajador')->references('rut')->on('users');
         });
     }
 

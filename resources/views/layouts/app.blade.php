@@ -20,7 +20,9 @@
     <script src="{{ asset('js/datatables.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap5.js') }}"></script>
     <script src="{{ asset('js/tablas.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
+    <script src="{{ asset('js/signature_pad.js') }}"></script>
     <!--Datatables -->
 
     <!-- Fonts -->

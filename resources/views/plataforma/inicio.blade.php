@@ -39,7 +39,8 @@
                                             ]) }}"
                                                 class="btn btn-primary ">Ver detalles</a>
                                             @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
-                                                <a href="#" class="card-link">Finalizar</a>
+                                            <a class="btn btn-success" href="{{ url()->previous() }}"><i class="fas fa-check"></i>
+                                                Finalizar</a>
                                             @endif
 
                                         </div>
