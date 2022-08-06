@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cotizacion_producto', function (Blueprint $table) {
+            $table->id();
             $table->bigInteger('id_cotizacion')->unsigned();
             $table->integer('codigo_producto')->unsigned();
             $table->integer('cantidad')->unsigned();

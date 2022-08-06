@@ -24,6 +24,7 @@ class ClienteRequest extends FormRequest
     public function rules()
     {
         return [
+            'rut' => ['required','max:255'],
             'nombre_completo' => ['required','max:255'],
             'direccion' => ['max:1000'],
             'ciudad' => ['required', 'max:255'],

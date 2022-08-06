@@ -19,7 +19,6 @@
                         <th>Nombre</th>
                         <th>Descripción</th>
                         <th>Valor</th>
-                        <th>Stock</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -30,7 +29,6 @@
                             <td>{{$producto->nombre}}</td>
                             <td>{{$producto->descripcion}}</td>
                             <td>{{$producto->valor}}</td>
-                            <td>{{$producto->stock}}</td>
                             <td>
                                 <a class="btn btn-info" href="{{ route('plataforma.productos.show', [
                                     'producto' => $producto->codigo]) }}"><i class="fas fa-eye"></i> Ver</a>

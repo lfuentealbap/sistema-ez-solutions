@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AprobarRequest;
+use App\Http\Requests\CalculoCotizacionRequest;
+use App\Http\Requests\CotizacionProductoRequest;
 use App\Http\Requests\CotizacionRequest;
+use App\Http\Requests\RechazarRequest;
 use App\Models\Cliente;
 use App\Models\Cotizacion;
+use App\Models\CotizacionProducto;
 use App\Models\Producto;
 use App\Models\User;
 use Carbon\Carbon;
@@ -27,6 +32,15 @@ class CotizacionController extends Controller
         ]);
 
     }
+    public function marcar(){
+        //$products = DB::table('products')->get();
+        //$products = Product::all();
+        //dd($products);
+        return view('plataforma.cotizaciones.marcar')->with([
+            'cotizaciones' => Cotizacion::all(), 'clientes' => Cliente::all(),
+        ]);
+
+    }
 
     public function create(){
 
@@ -37,81 +51,108 @@ class CotizacionController extends Controller
     }
 
     public function store(CotizacionRequest $request){
-        //return "Formulario para crear  un producto";
-        /*$product = Product::create([
-            'title' => request()->title,
-            'description' => request()->description,
-            'price' => request()->price,
-            'stock' => request()->stock,
-            'status' => request()->status,
-        ]);*/
-
-        /* Reglas estan en ProductRequest
-        $rules = [
-            'title' => ['required','max:255'],
-            'description' => ['required','max:1000'],
-            'price' => ['required','min:1'],
-            'stock' => ['required','min:0'],
-            'status' => ['required','in:available,unavailable'],
-        ];
-
-        request()->validate($rules);*/
-        //if agregada a la funcion withValidator() de ProductRequest
-        //if(/*request()*/$request->status == 'available' && /*request()*/$request->stock == 0){
-            //session()->flash('error', 'If available must have stock');//en ves de flash era put
-            //return redirect()->back()->withInput(request()->all())->withErrors('If available must have stock');
-        //}
-        //session()->forget('error');
 
     $cotizacion = Cotizacion::create(/*request()->all()*/$request->validated());
 
         //session()->flash('success', 'The new product with id '.$product->id.'was created');
         //return redirect()->back();
-        return redirect()->route('plataforma.productos.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué creada exitosamente');
+        return redirect()->route('plataforma.cotizaciones.continuacion',[
+            'cotizacion'=> $cotizacion->id,//Product::findOrFail($product),
+        ]);
     }
+    public function continuacion(Cotizacion $cotizacion) {
+
+
+        return view('plataforma.cotizaciones.continuacion')->with([
+            'cotizacion'=> $cotizacion, 'productos' => Producto::all(), 'cotizacion_producto' => CotizacionProducto::all(), 'clientes'=> Cliente::all(),
+        ]);
+    }
+    public function insertarProducto(CotizacionProductoRequest $request){
+        $productos = Producto::all();
+
+        foreach($productos as $producto){
+            if($request->codigo_producto == $producto->codigo){
+                $request->subtotal = ($request->cantidad) * ($producto->valor);
+            }
+        }
+
+        $cotizacion_producto = new CotizacionProducto();
+        $cotizacion_producto->id_cotizacion = $request->id_cotizacion;
+        $cotizacion_producto->codigo_producto = $request->codigo_producto;
+        $cotizacion_producto->cantidad = $request->cantidad;
+        $cotizacion_producto->subtotal = $request->subtotal;
+        $cotizacion_producto->save();
+
+        $total = 0;
+        $cp = CotizacionProducto::all();
+        foreach($cp as $p){
+            if($p->id_cotizacion == $cotizacion_producto->id_cotizacion){
+                $total = $total + $p->subtotal;
+            }
+        }
+        $iva = ($total)*0.19;
+        $neto = $total - $iva;
+        $cotizacion = Cotizacion::where("id", $cotizacion_producto->id_cotizacion )->update(["neto" => $neto, "iva" =>$iva, "total"=>$total]);
+
+            return redirect()->route('plataforma.cotizaciones.continuacion',[
+                'cotizacion'=> $cotizacion_producto->id_cotizacion,
+            ]);
+        }
 
     public function show(Cotizacion $cotizacion){
-        //$producto = DB::table('productos')->where('codigo', $producto)->get();
-        //$product = DB::table('products')->find($product);
-        //Product $product sustituye; $product= Product::findOrFail($product); //originalmente es ::find
-        //dd($producto);
 
-        return view('plataforma.productos.show')->with([
-            'cotizacion'=> $cotizacion,
-            'html' => "<h2>Subtitle</h2>",
+
+        return view('plataforma.cotizaciones.show')->with([
+            'cotizacion'=> $cotizacion,'productos' => Producto::all(), 'cotizacion_producto' => CotizacionProducto::all(), 'clientes'=> Cliente::all(),
         ]);
-        //return "Mostrando producto con nombre {$producto}";
+
     }
 
-    public function edit(Cotizacion $cotizacion){
+    public function aprobar(AprobarRequest $request, Cotizacion $cotizacion){
 
-        return view('plataforma.productos.edit')->with([
-            'cotizacion'=> $cotizacion,//Product::findOrFail($product),
-        ]);
-    }
-
-    public function update(CotizacionRequest $request, Cotizacion $cotizacion){
-        //return "Actualizando producto con nombre {$product}";
-        /* Las siguientes reglas estan en ProductRequest
-        $rules = [
-            'title' => ['required','max:255'],
-            'description' => ['required','max:1000'],
-            'price' => ['required','min:1'],
-            'stock' => ['required','min:0'],
-            'status' => ['required','in:available,unavailable'],
-        ];
-
-        request()->validate($rules);*/
-
-        //$product= Product::findOrFail($product);
     $cotizacion->update(/*request()->all()*/$request->validated());
-        return redirect()->route('plataforma.productos.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué editado exitosamente');
+        return redirect()->route('plataforma.cotizaciones.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué aprobada exitosamente');
     }
+    public function rechazar(RechazarRequest $request, Cotizacion $cotizacion){
+
+        $cotizacion->update(/*request()->all()*/$request->validated());
+            return redirect()->route('plataforma.cotizaciones.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué rechazada exitosamente');
+        }
+    public function update(CotizacionRequest $request, Cotizacion $cotizacion){
+
+        $cotizacion->update(/*request()->all()*/$request->validated());
+            return redirect()->route('plataforma.cotizaciones.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué editado exitosamente');
+        }
 
     public function destroy(Cotizacion $cotizacion){
-        //$producto= Producto::findOrFail($producto->codigo);
+        $cp = CotizacionProducto::all();
+        foreach($cp as $p){
+            if($p->id_cotizacion == $cotizacion->id){
+                $p->delete();
+            }
+        }
         $cotizacion->delete();
-        return redirect()->route('plataforma.productos.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué eliminado exitosamente');
+        return redirect()->route('plataforma.cotizaciones.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué eliminado exitosamente');
+    }
+    public function eliminarP(CotizacionProducto $cotizacion_producto){
+        //$producto= Producto::findOrFail($producto->codigo);
+        $id = $cotizacion_producto->id_cotizacion;
+        $cotizacion_producto->delete();
+        $total = 0;
+        $cp = CotizacionProducto::all();
+        foreach($cp as $p){
+            if($p->id_cotizacion == $cotizacion_producto->id_cotizacion){
+                $total = $total + $p->subtotal;
+            }
+        }
+        $iva = ($total)*0.19;
+        $neto = $total - $iva;
+        $cotizacion = Cotizacion::where("id", $cotizacion_producto->id_cotizacion )->update(["neto" => $neto, "iva" =>$iva, "total"=>$total]);
+
+
+        return redirect()->route('plataforma.cotizaciones.continuacion',[
+            'cotizacion'=> $id,
+        ]);
     }
 }
 

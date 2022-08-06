@@ -14,7 +14,6 @@ class Producto extends Model
         'nombre',
         'descripcion',
         'valor',
-        'stock',
     ];
     //relacion muchos a muchos con cotizacion
     public function cotizaciones(){

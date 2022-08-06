@@ -16,6 +16,7 @@ class Cotizacion extends Model
         'neto',
         'iva',
         'total',
+        'descuento',
         'rut_cliente',
 
     ];

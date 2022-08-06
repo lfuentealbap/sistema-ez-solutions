@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CotizacionRequest extends FormRequest
+class TrabajadorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class CotizacionRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,13 +24,7 @@ class CotizacionRequest extends FormRequest
     public function rules()
     {
         return [
-        'fecha_creacion' => ['required'],
-        'fecha_expiracion'=> ['required'],
-        'estado',
-        'neto',
-        'iva',
-        'total',
-        'rut_cliente' => ['required'],
+            //
         ];
     }
 }

@@ -27,7 +27,7 @@ return new class extends Migration
             $table->bigInteger('id_area')->unsigned();
             $table->timestamps();
 
-            $table->foreign('rut_trabajador')->references('rut')->on('users');
+            $table->foreign('rut_trabajador')->references('rut')->on('trabajadores');
             $table->foreign('id_area')->references('id')->on('areas');
 
         });

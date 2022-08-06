@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->timestamp('fecha_creacion');
             $table->timestamp('fecha_expiracion');
-            $table->integer('neto')->unsigned();
-            $table->integer('iva')->unsigned();
-            $table->integer('total')->unsigned();
+            $table->integer('neto')->unsigned()->nullable();
+            $table->integer('iva')->unsigned()->nullable();
+            $table->integer('total')->unsigned()->nullable();
+            $table->integer('descuento')->unsigned()->nullable();
             $table->string('estado')->default('pendiente');
             $table->string('rut_cliente');
             $table->timestamps();

@@ -8,7 +8,9 @@ use App\Http\Controllers\OTController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProductoCotizacionController;
+use App\Http\Controllers\TrabajadorController;
 use App\Http\Controllers\TrabajoController;
+use App\Models\Cotizacion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -48,10 +50,25 @@ Route::get('plataforma/clientes/{cliente}/edit', [ClienteController::class, 'edi
 Route::match(['put', 'patch'],'plataforma/clientes/{cliente}', [ClienteController::class, 'update'])->name('plataforma.clientes.update');
 Route::delete('plataforma/clientes/{cliente}', [ClienteController::class, 'destroy'])->name('plataforma.clientes.destroy');
 
+//trabajadores
+Route::get('plataforma/trabajadores',[TrabajadorController::class, 'index'])->name('plataforma.trabajadores.index');
+Route::get('plataforma/trabajadores/{trabajador}', [TrabajadorController::class, 'show'] )->name('plataforma.trabajadores.show');
+Route::get('plataforma/trabajadores/{trabajador}/edit', [TrabajadorController::class, 'edit'])->name('plataforma.trabajadores.edit');
+Route::match(['put', 'patch'],'plataforma/trabajadores/{trabajador}', [TrabajadorController::class, 'update'])->name('plataforma.trabajadores.update');
+Route::delete('plataforma/trabajadores/{trabajador}', [TrabajadorController::class, 'destroy'])->name('plataforma.trabajadores.destroy');
+
 //cotizaciones
 Route::get('plataforma/cotizaciones',[CotizacionController::class, 'index'])->name('plataforma.cotizaciones.index');
+Route::get('plataforma/cotizaciones/marcar',[CotizacionController::class, 'marcar'])->name('plataforma.cotizaciones.marcar');
 Route::get('plataforma/cotizaciones/create', [CotizacionController::class, 'create'])->name('plataforma.cotizaciones.create');
-Route::post('plataforma/cotizaciones', [ProductoCotizacionController::class, 'store'])->name('cotizaciones.productos.store');
+Route::get('plataforma/cotizaciones/create/{cotizacion}', [CotizacionController::class, 'continuacion'])->name('plataforma.cotizaciones.continuacion');
+Route::post('plataforma/cotizaciones/insertar', [CotizacionController::class, 'insertarProducto'])->name('cotizaciones.insertar.store');
+Route::post('plataforma/cotizaciones', [CotizacionController::class, 'store'])->name('cotizaciones.store');
+Route::delete('plataforma/cotizaciones/{cotizacion}', [CotizacionController::class, 'destroy'])->name('plataforma.cotizaciones.destroy');
+Route::delete('plataforma/cotizaciones/producto/{cotizacion_producto}', [CotizacionController::class, 'eliminarP'])->name('plataforma.cotizaciones.eliminarP');
+Route::get('plataforma/cotizaciones/{cotizacion}', [CotizacionController::class, 'show'] )->name('plataforma.cotizaciones.show');
+Route::match(['put', 'patch'],'plataforma/cotizaciones/aprobar/{cotizacion}', [CotizacionController::class, 'aprobar'])->name('plataforma.cotizaciones.aprobar');
+Route::match(['put', 'patch'],'plataforma/cotizaciones/rechazar/{cotizacion}', [CotizacionController::class, 'rechazar'])->name('plataforma.cotizaciones.rechazar');
 
 //trabajos
 Route::get('plataforma/trabajos',[TrabajoController::class, 'index'])->name('plataforma.trabajos.index');

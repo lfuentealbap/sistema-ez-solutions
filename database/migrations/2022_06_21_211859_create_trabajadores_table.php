@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('trabajadores', function (Blueprint $table) {
+        Schema::create('trabajadore', function (Blueprint $table) {
             $table->string('rut')->primary();
             $table->string('nombres');
             $table->string('apellidos');

@@ -17,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = "trabajadores";
     protected $primaryKey = "rut";
     protected $keyType = 'string';
     protected $fillable = [
@@ -30,7 +31,6 @@ class User extends Authenticatable
         'telefono',
         'email',
         'password',
-        'foto',
     ];
 
     /**

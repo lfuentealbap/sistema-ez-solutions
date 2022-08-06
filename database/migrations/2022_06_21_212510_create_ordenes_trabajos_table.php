@@ -31,7 +31,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('id_area')->references('id')->on('areas');
             $table->foreign('id_trabajo')->references('id')->on('trabajos');
-            $table->foreign('rut_trabajador')->references('rut')->on('users');
+            $table->foreign('rut_trabajador')->references('rut')->on('trabajadores');
         });
     }
 
