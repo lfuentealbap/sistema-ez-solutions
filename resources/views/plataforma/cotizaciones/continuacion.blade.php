@@ -92,64 +92,74 @@
 </div>
 
 
-                        <div class="row mb-3">
-                            <label for="descuento" class="col-md-4 col-form-label text-md-end">Descuento(%):</label>
-                            <div class="col-md-6">
-                                <input type="number" class="form-control" name="descuento"
-                                    value="0" step="0.01" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="apiva" class="col-md-4 col-form-label text-md-end">Desea aplicar el IVA?:</label>
-                            <div class="col-md-6">
-                                <select class="form-select" id="apiva" name="apiva">
-                                    <option selected value="si">Si</option>
-                                    <option value="no">No</option>
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-
-                                <div class="col"></div>
-                                <div class="col"></div>
-                                <div class="col" style="border: 1px solid black; text-align: right">
-                                    <strong>Neto:</strong> $@if ($cotizacion->neto==null)
-                                        0
-                                        @else
-                                        {{$cotizacion->neto}}
-                                        @endif
-                                    <br>
-                                    <strong>IVA:</strong> $@if ($cotizacion->iva==null)
-                                    0
-                                    @else
-                                    {{$cotizacion->iva}}
-                                    @endif
-                                <br>
-                                <strong>Descuento:</strong> $@if ($cotizacion->descuento==null)
-                                    0
-                                    @else
-                                    {{$cotizacion->descuento}}
-                                    @endif
-                                <br>
-                                <strong>Total:</strong> $@if ($cotizacion->total==null)
-                                        0
-                                        @else
-                                        {{$cotizacion->total}}
-                                        @endif
+<form class="d-inline"
+action="{{ route('plataforma.cotizaciones.guardar', [
+    'cotizacion' => $cotizacion->id,
+]) }}"
+method="post">
+@csrf
+@method('put')
+                            <div class="row mb-3">
+                                <label for="descuento" class="col-md-4 col-form-label text-md-end">Descuento(%):</label>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control" name="descuento"
+                                        value="0" step="0.01" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="container">
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalDeshacer">
-                                Deshacer cotización</button>
-                                @if ($cotizacion->total != null)
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal">
-                                    Guardar cotización</button>
-                                @endif
+                            <div class="row mb-3">
+                                <label for="apiva" class="col-md-4 col-form-label text-md-end">Desea aplicar el IVA?:</label>
+                                <div class="col-md-6">
+                                    <select class="form-select" id="apiva" name="apiva">
+                                        <option selected value="si">Si</option>
+                                        <option value="no">No</option>
 
-                        </div>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col"></div>
+                                    <div class="col"></div>
+                                    <div class="col" style="border: 1px solid black; text-align: right">
+                                        <strong>Neto:</strong> $@if ($cotizacion->neto==null)
+                                            0
+                                            @else
+                                            {{$cotizacion->neto}}
+                                            @endif
+                                        <br>
+                                        <strong>IVA:</strong> $@if ($cotizacion->iva==null)
+                                        0
+                                        @else
+                                        {{$cotizacion->iva}}
+                                        @endif
+                                    <br>
+                                    <strong>Descuento:</strong> $@if ($cotizacion->descuento==null)
+                                        0
+                                        @else
+                                        {{$cotizacion->descuento}}
+                                        @endif
+                                    <br>
+                                    <strong>Total:</strong> $@if ($cotizacion->total==null)
+                                            0
+                                            @else
+                                            {{$cotizacion->total}}
+                                            @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalDeshacer">
+                                    Deshacer cotización</button>
+                                    @if ($cotizacion->total != null)
+                                    <button type="submit" class="btn btn-success" data-bs-toggle="modal">
+                                        Guardar cotización</button>
+                                    @endif
+
+                            </div>
+
+
+                        </form>
 
                     </div>
                 </div>
@@ -188,7 +198,7 @@
                                 <div class="col">
                                     <label for="codigo">Cantidad:</label>
                                     <div class="col-md-6">
-                                        <input type="number" class="form-control" name="cantidad" value="0" required>
+                                        <input type="number" class="form-control" name="cantidad" value="1" required>
                                         <input type="hidden" class="form-control" name="subtotal" value="">
                                         <input type="hidden" class="form-control" name="neto" value="">
                                         <input type="hidden" class="form-control" name="iva" value="">

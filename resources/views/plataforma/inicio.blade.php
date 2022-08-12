@@ -13,14 +13,14 @@
                     @php
                         $contadorT = 0;
                     @endphp
-                    @foreach ($trabajos as $trabajo)
-                        @if ($trabajo->rut_trabajador == Auth::user()->rut)
-                            <div class="row">
-                                <div class="col">
+                    <div class="row">
+                        @foreach ($trabajos as $trabajo)
+                            @if ($trabajo->rut_trabajador == Auth::user()->rut)
+                                <div class="col-sm-6">
                                     <div class="card" style="width: 18rem;">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $trabajo->titulo }}</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">
+                                            <h6 class="card-text">
                                                 @if ($trabajo->estado == 'en curso')
                                                     <span class="badge bg-primary">En curso</span>
                                                 @elseif ($trabajo->estado == 'finalizado')
@@ -34,13 +34,16 @@
                                                 @endif
                                             </h6>
                                             <p class="card-text">{{ $trabajo->descripcion }}.</p>
+                                            <p class="card-text"><strong>Ubicación:</strong> {{ $trabajo->direccion }},
+                                                {{ $trabajo->direccion }}</p>
                                             <a href="{{ route('plataforma.trabajos.show', [
                                                 'trabajo' => $trabajo->id,
                                             ]) }}"
                                                 class="btn btn-primary ">Ver detalles</a>
                                             @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
-                                            <a class="btn btn-success" href="{{ url()->previous() }}"><i class="fas fa-check"></i>
-                                                Finalizar</a>
+                                                <a class="btn btn-success" href="{{ url()->previous() }}"><i
+                                                        class="fas fa-check"></i>
+                                                    Finalizar</a>
                                             @endif
 
                                         </div>
@@ -49,10 +52,9 @@
                                         $contadorT = $contadorT + 1;
                                     @endphp
                                 </div>
-                            </div>
-                        @endif
-                    @endforeach
-
+                            @endif
+                        @endforeach
+                    </div>
                     @if ($contadorT == 0)
                         <div class="alert alert-warning">
                             <p>No hay trabajos registrados</p>
@@ -69,58 +71,116 @@
 
     @if (Auth::user()->rol == 'trabajador')
         <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Mis Trabajos</h4>
-                </div>
-                <div class="card-body">
-                    @php
-                        $contadorT = 0;
-                    @endphp
-                    @foreach ($trabajos as $trabajo)
-                        @if ($trabajo->rut_trabajador == Auth::user()->rut)
-                                <div class="col">
-                                    <div class="card" style="width: 18rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ $trabajo->titulo }}</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">
-                                                @if ($trabajo->estado == 'en curso')
-                                                    <span class="badge bg-primary">En curso</span>
-                                                @elseif ($trabajo->estado == 'finalizado')
-                                                    <span class="badge bg-success">Finalizado</span>
-                                                @elseif ($trabajo->estado == 'suspendido')
-                                                    <span class="badge bg-danger">Suspendido</span>
-                                                @elseif ($trabajo->estado == 'cancelado')
-                                                    <span class="badge bg-secondary">Cancelado</span>
-                                                @elseif ($trabajo->estado == 'atrasado')
-                                                    <span class="badge bg-warning">Atrasado</span>
-                                                @endif
-                                            </h6>
-                                            <p class="card-text">{{ $trabajo->descripcion }}.</p>
-                                            <a href="{{ route('plataforma.trabajos.show', [
-                                                'trabajo' => $trabajo->id,
-                                            ]) }}"
-                                                class="card-link">Ver detalles</a>
-                                            @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
-                                                <a href="#" class="card-link">Finalizar</a>
-                                            @endif
-                                        </div>
-                                    @php
-                                        $contadorT = $contadorT + 1;
-                                    @endphp
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-trabajos-tab" data-bs-toggle="tab" data-bs-target="#nav-trabajos"
+                        type="button" role="tab" aria-controls="nav-trabajos" aria-selected="true">Trabajos</button>
+                    <button class="nav-link" id="nav-sueldo-tab" data-bs-toggle="tab" data-bs-target="#nav-sueldo"
+                        type="button" role="tab" aria-controls="nav-sueldo" aria-selected="false">Sueldo</button>
 
-                    @if ($contadorT == 0)
-                        <div class="alert alert-warning">
-                            <p>No hay trabajos registrados</p>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-trabajos" role="tabpanel" aria-labelledby="nav-trabajos-tab">
+                    <div class="container">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Mis Trabajos</h4>
+                            </div>
+                            <div class="card-body">
+                                @php
+                                    $contadorT = 0;
+                                @endphp
+                                <div class="row">
+                                    @foreach ($trabajos as $trabajo)
+                                        @if ($trabajo->rut_trabajador == Auth::user()->rut)
+                                            <div class="col-sm-6">
+                                                <div class="card" style="width: 18rem;">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ $trabajo->titulo }}</h5>
+                                                        <h6 class="card-text">
+                                                            @if ($trabajo->estado == 'en curso')
+                                                                <span class="badge bg-primary">En curso</span>
+                                                            @elseif ($trabajo->estado == 'finalizado')
+                                                                <span class="badge bg-success">Finalizado</span>
+                                                            @elseif ($trabajo->estado == 'suspendido')
+                                                                <span class="badge bg-danger">Suspendido</span>
+                                                            @elseif ($trabajo->estado == 'cancelado')
+                                                                <span class="badge bg-secondary">Cancelado</span>
+                                                            @elseif ($trabajo->estado == 'atrasado')
+                                                                <span class="badge bg-warning">Atrasado</span>
+                                                            @endif
+                                                        </h6>
+                                                        <p class="card-text">{{ $trabajo->descripcion }}.</p>
+                                                        <p class="card-text"><strong>Ubicación:</strong>
+                                                            {{ $trabajo->direccion }}, {{ $trabajo->direccion }}</p>
+                                                        <a href="{{ route('plataforma.trabajos.show', [
+                                                            'trabajo' => $trabajo->id,
+                                                        ]) }}"
+                                                            class="btn btn-primary ">Ver detalles</a>
+                                                        @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
+                                                            <button type="button" class="btn btn-success"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#modalFinalizar{{ $trabajo->id }}"><i
+                                                                    class="fas fa-check"></i>
+                                                                Finalizar</button>
+                                                        @endif
+
+                                                    </div>
+                                                </div>
+                                                @php
+                                                    $contadorT = $contadorT + 1;
+                                                @endphp
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </div>
+                                @if ($contadorT == 0)
+                                    <div class="alert alert-warning">
+                                        <p>No hay trabajos registrados</p>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
-                    @endif
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-sueldo" role="tabpanel" aria-labelledby="nav-sueldo-tab">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Mi sueldo</h4>
+                        </div>
+                        <div class="card-body">
+                            Mi sueldo es de <strong>$20000 </strong>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
     @endif
-
+    <!-- Modal -->
+    @foreach ($trabajos as $trabajo)
+        <div class="modal fade" id="modalFinalizar{{ $trabajo->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Finalizar Trabajo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Está segur@ de finalizar el trabajo <strong>{{ $trabajo->titulo }}</strong>?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                        <a class="btn btn-success"
+                            href="{{ route('plataforma.ot.create', [
+                                'trabajo' => $trabajo->id,
+                            ]) }}">Finalizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection

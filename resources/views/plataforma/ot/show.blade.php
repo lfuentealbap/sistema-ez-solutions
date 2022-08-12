@@ -6,7 +6,7 @@
 </div>
 <br>
     <div class="container">
-        <a class="btn btn-primary" href="#" role="button"><i class="fas fa-arrow-left"></i> Volver </a>
+        <a class="btn btn-primary" href="{{ url()->previous() }}" role="button"><i class="fas fa-arrow-left"></i> Volver </a>
         <a class="btn btn-success" href="{{ route('plataforma.ot.imprimir', [
             'ot' => $ot->id]) }}" role="button"><i class="fas fa-file-pdf"></i> Exportar a PDF</a>
     </div>

@@ -67,8 +67,10 @@ Route::post('plataforma/cotizaciones', [CotizacionController::class, 'store'])->
 Route::delete('plataforma/cotizaciones/{cotizacion}', [CotizacionController::class, 'destroy'])->name('plataforma.cotizaciones.destroy');
 Route::delete('plataforma/cotizaciones/producto/{cotizacion_producto}', [CotizacionController::class, 'eliminarP'])->name('plataforma.cotizaciones.eliminarP');
 Route::get('plataforma/cotizaciones/{cotizacion}', [CotizacionController::class, 'show'] )->name('plataforma.cotizaciones.show');
+Route::match(['put', 'patch'],'plataforma/cotizaciones/guardar/{cotizacion}', [CotizacionController::class, 'guardar'])->name('plataforma.cotizaciones.guardar');
 Route::match(['put', 'patch'],'plataforma/cotizaciones/aprobar/{cotizacion}', [CotizacionController::class, 'aprobar'])->name('plataforma.cotizaciones.aprobar');
 Route::match(['put', 'patch'],'plataforma/cotizaciones/rechazar/{cotizacion}', [CotizacionController::class, 'rechazar'])->name('plataforma.cotizaciones.rechazar');
+Route::get('exportarCotizacion/{cotizacion}', [CotizacionController::class, 'imprimir'])->name('plataforma.cotizaciones.imprimir');
 
 //trabajos
 Route::get('plataforma/trabajos',[TrabajoController::class, 'index'])->name('plataforma.trabajos.index');

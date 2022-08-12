@@ -7,7 +7,8 @@
                 Volver</a></div>
             <div class="col"></div>
             <div class="col"></div>
-            <div class="col"> <a class="btn btn-primary" href="#" role="button"><i class="fas fa-file-pdf"></i>
+            <div class="col"> <a class="btn btn-primary" href="{{ route('plataforma.cotizaciones.imprimir', [
+                'cotizacion' => $cotizacion->id]) }}" role="button"><i class="fas fa-file-pdf"></i>
                     Exportar a PDF</a></div>
         </div>
 <br>
@@ -124,7 +125,7 @@
                 <label for="stock" class="col-sm-2 col-form-label">Total:</label>
                 <div class="col-sm-10">
                     <input type="text" readonly class="form-control" id="cliente"
-                        value="{{ $cotizacion->descuento }}" disabled>
+                        value="{{ $cotizacion->total }}" disabled>
                 </div>
             </div>
         </div>

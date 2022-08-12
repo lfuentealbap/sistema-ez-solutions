@@ -25,7 +25,7 @@
                         <tr>
                             <td>{{$orden_trabajo->id}}</td>
                             <td>{{$orden_trabajo->trabajo->titulo}}</td>
-                            <td>${{$orden_trabajo->trabajador->nombres}} {{$orden_trabajo->trabajador->apellidos}}</td>
+                            <td>{{$orden_trabajo->trabajador->nombres}} {{$orden_trabajo->trabajador->apellidos}}</td>
                             <td>
                                 @php
 
@@ -37,14 +37,9 @@
                             <td>
                                 <a class="btn btn-info" href="{{ route('plataforma.ot.show', [
                                     'ot' => $orden_trabajo->id]) }}"><i class="fas fa-eye"></i> Ver</a>
-                                <a class="btn btn-primary" href="{{ route('plataforma.ot.edit', [
-                                    'ot' => $orden_trabajo->id]) }}"><i class="fas fa-edit"></i> Editar</a>
-                                <form class="d-inline" action="{{route('plataforma.ot.destroy', [
-                                    'ot' => $orden_trabajo->id])}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
-                                </form>
+                                    <a class="btn btn-success" href="{{ route('plataforma.ot.imprimir', [
+                                        'ot' => $orden_trabajo->id]) }}" role="button"><i class="fas fa-file-pdf"></i> Exportar a PDF</a>
+
 
                             </td>
                         </tr>

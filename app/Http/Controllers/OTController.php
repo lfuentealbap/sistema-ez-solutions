@@ -71,7 +71,7 @@ class OTController extends Controller
         $fileData = base64_decode($img);
         $fileName = $ot->firma.'.png';
         file_put_contents($fileName, $fileData);
-
+        $trabajo = Trabajo::where("id", $request->id_trabajo )->update(["estado" => $request->estado]);
         return redirect()->route('plataforma.ot.index')->withSuccess('La orden de trabajo n°'.$ot->id.' fué creado exitosamente');
     }
 

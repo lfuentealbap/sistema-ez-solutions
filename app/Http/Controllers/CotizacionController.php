@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AprobarRequest;
 use App\Http\Requests\CalculoCotizacionRequest;
+use App\Http\Requests\CotizacionGuardarRequest;
 use App\Http\Requests\CotizacionProductoRequest;
 use App\Http\Requests\CotizacionRequest;
 use App\Http\Requests\RechazarRequest;
@@ -15,6 +16,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CotizacionController extends Controller
 {
@@ -40,6 +42,15 @@ class CotizacionController extends Controller
             'cotizaciones' => Cotizacion::all(), 'clientes' => Cliente::all(),
         ]);
 
+    }
+    public function imprimir(Cotizacion $cotizacion){
+        $productos = Producto::all();
+        $cotizacion_producto = CotizacionProducto::all();
+        $clientes = Cliente::all();
+        $data = ['cotizacion' =>$cotizacion, 'productos' => $productos, 'cotizacion_producto' =>$cotizacion_producto, 'clientes' => $clientes];
+
+        $pdf = PDF::loadView('plataforma.cotizaciones.imprimir', $data);
+        return $pdf->download('Cotizacion_'.$cotizacion->id.'.pdf');
     }
 
     public function create(){
@@ -133,6 +144,23 @@ class CotizacionController extends Controller
         }
         $cotizacion->delete();
         return redirect()->route('plataforma.cotizaciones.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué eliminado exitosamente');
+    }
+    public function guardar(CotizacionGuardarRequest $request, Cotizacion $cotizacion){
+
+        $total = $cotizacion->total;
+        $descuento = $total *($request->descuento/100);
+        if ($request->apiva == "si"){
+            $iva = ($total)*0.19;
+        }else{
+            $iva = ($total)*0;
+        }
+
+        $neto = $total - $iva;
+        $total = $neto + $iva - $descuento;
+        $cotizacion_g = Cotizacion::where("id", $cotizacion->id )->update(["neto" => $neto, "iva" =>$iva, "descuento" =>$descuento, "total"=>$total]);
+
+        return redirect()->route('plataforma.cotizaciones.show', [
+            'cotizacion' => $cotizacion->id ]);
     }
     public function eliminarP(CotizacionProducto $cotizacion_producto){
         //$producto= Producto::findOrFail($producto->codigo);

@@ -117,6 +117,7 @@
 
                                     }}">
                                     <input type="hidden" name="base64" value="" id="base64">
+                                    <input type="hidden" name="estado" value="finalizado" >
                                 </div>
                             </div>
 
