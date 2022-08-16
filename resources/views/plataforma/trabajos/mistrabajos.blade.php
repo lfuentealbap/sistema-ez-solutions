@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Lista de mis trabajos</h1>
-    <div class="container">
         <div class="card">
             <div class="card-header">
-                <h4>Mis Trabajos</h4>
+                <h4>Todos mis Trabajos</h4>
             </div>
             <div class="card-body">
                 @php
@@ -14,7 +12,7 @@
 
                 <div class="table-responsive rounded">
                     <table class="table table-bordered border-primary" id="misTrabajos">
-                        <thead class="thead-light">
+                        <thead class="thead-light" style="padding-top; 2px;">
                             <tr>
                                 <th>Trabajo</th>
                                 <th>Descripcion</th>
@@ -43,7 +41,12 @@
                                                 <span class="badge bg-warning">Atrasado</span>
                                             @endif
                                         </td>
-                                        <td>{{ $trabajo->fecha_termino }}</td>
+                                        <td>
+                                            @php
+
+                                                echo \Carbon\Carbon::parse($trabajo->fecha_termino)->format('d-m-Y H:i');
+                                            @endphp
+                                             </td>
                                         <td>
                                             <a class="btn btn-info"
                                                 href="{{ route('plataforma.trabajos.show', [
@@ -75,6 +78,6 @@
 
 
 
-    </div>
+
 
 @endsection

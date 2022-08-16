@@ -30,7 +30,12 @@
                             <td>{{ $trabajo->titulo }}</td>
                             <td>{{$trabajo->descripcion}}</td>
                             <td>{{$trabajo->trabajador->nombres}} {{$trabajo->trabajador->apellidos}}</td>
-                            <td>{{$trabajo->fecha_termino}}</td>
+                            <td>
+                                @php
+
+                                    echo \Carbon\Carbon::parse($trabajo->fecha_termino)->format('d-m-Y H:i');
+                                @endphp
+                                 </td>
                             <td>
                                 @if($trabajo->estado == "en curso")
                                 <span class="badge bg-primary">En curso</span>

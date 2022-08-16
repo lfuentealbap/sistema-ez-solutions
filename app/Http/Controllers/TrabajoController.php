@@ -81,9 +81,14 @@ class TrabajoController extends Controller
     public function hoy(){
         //$products = DB::table('products')->get();
         //$products = Product::all();
-        //dd($products);
+        $hoy = Carbon::parse(Carbon::now())->format('d-m-Y');
+        $trabajos = Trabajo::all();
         return view('plataforma.trabajos.trabajoshoy')->with([
-            'trabajos' => Trabajo::all(),
+            'trabajos' => Trabajo::all()->filter(function($trabajo) {
+                if (Carbon::now()->between($trabajo->fecha_inicio, $trabajo->fecha_termino)) {
+                  return $trabajo;
+                }
+              }),
         ]);
 
     }

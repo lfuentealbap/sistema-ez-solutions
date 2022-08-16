@@ -82,7 +82,7 @@
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-trabajos" role="tabpanel" aria-labelledby="nav-trabajos-tab">
-                    <div class="container">
+
                         <div class="card">
                             <div class="card-header">
                                 <h4>Mis Trabajos</h4>
@@ -94,8 +94,8 @@
                                 <div class="row">
                                     @foreach ($trabajos as $trabajo)
                                         @if ($trabajo->rut_trabajador == Auth::user()->rut)
-                                            <div class="col-sm-6">
-                                                <div class="card" style="width: 18rem;">
+                                            <div class="col">
+                                                <div class="card" style="margin-top:5px;">
                                                     <div class="card-body">
                                                         <h5 class="card-title">{{ $trabajo->titulo }}</h5>
                                                         <h6 class="card-text">
@@ -142,7 +142,7 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
+
                 </div>
                 <div class="tab-pane fade" id="nav-sueldo" role="tabpanel" aria-labelledby="nav-sueldo-tab">
                 <div class="container">
