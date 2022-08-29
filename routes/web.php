@@ -82,6 +82,8 @@ Route::get('plataforma/trabajos/todosencurso',[TrabajoController::class, 'todosE
 Route::get('plataforma/trabajos/mistrabajos',[TrabajoController::class, 'mistrabajos'])->name('plataforma.trabajos.mistrabajos');
 Route::get('plataforma/trabajos/trabajoshoy',[TrabajoController::class, 'hoy'])->name('plataforma.trabajos.trabajoshoy');
 Route::get('plataforma/trabajos/finalizado',[TrabajoController::class, 'finalizado'])->name('plataforma.trabajos.finalizados');
+Route::get('plataforma/trabajos/cantidad',[TrabajoController::class, 'cantidadT'])->name('plataforma.trabajos.cantidadT');
+Route::get('plataforma/trabajos/sueldos',[TrabajoController::class, 'sueldos'])->name('plataforma.trabajos.sueldos');
 Route::get('plataforma/trabajos/create', [TrabajoController::class, 'create'])->name('plataforma.trabajos.create');
 Route::post('plataforma/trabajos', [TrabajoController::class, 'store'])->name('trabajos.store');
 Route::get('plataforma/trabajos/{trabajo}', [TrabajoController::class, 'show'] )->name('plataforma.trabajos.show');

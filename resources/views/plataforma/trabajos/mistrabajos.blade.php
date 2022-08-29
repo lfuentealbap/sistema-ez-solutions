@@ -23,7 +23,7 @@
                         </thead>
                         <tbody>
                             @foreach ($trabajos as $trabajo)
-                                @if ($trabajo->rut_trabajador == Auth::user()->rut)
+                                @if ($trabajo->rut_trabajador == Auth::user()->rut && ($trabajo->estado == "en curso" || $trabajo->estado == "atrasado"))
                                     <tr>
 
                                         <td>{{ $trabajo->titulo }}</td>

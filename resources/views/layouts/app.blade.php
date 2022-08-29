@@ -11,10 +11,8 @@
     <title>{{ __('Plataforma de EZ Solutions') }}</title>
 
     <!-- Scripts -->
-    <script
-  src="https://code.jquery.com/jquery-3.6.0.js"
-  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/validarRut.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -24,8 +22,8 @@
     <script src="{{ asset('js/tablas.js') }}"></script>
     <script src="{{ asset('js/signature_pad.js') }}"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <!--Datatables -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -38,7 +36,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/plataforma.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles.css')}}" rel="stylesheet" >
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('css/datatables.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dataTables.bootstrap.css') }}" rel="stylesheet">
 
@@ -47,48 +45,51 @@
 <body class="fondo-plataforma sb-nav-fixed">
 
     @auth
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark navbar-plataforma">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="{{ url('/plataforma') }}"><img src="{{ asset('img/inicio/logo.png') }}"
-            style="width: 30px; height: 20px;" alt="EZ"></img>{{ __('Plataforma') }}
-    </a>
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <div class="input-group">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark navbar-plataforma">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="{{ url('/plataforma') }}"><img src="{{ asset('img/inicio/logo.png') }}"
+                    style="width: 30px; height: 20px;" alt="EZ"></img>{{ __('Plataforma') }}
+            </a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                    class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
 
-            </div>
-        </form>
-        <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                            {{ __('Salir') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+                                {{ __('Salir') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
     @endauth
 
-        @auth
+    @auth
         <div id="layoutSidenav">
 
             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion" style="background-image: linear-gradient(to top, #00c6fb 0%, #3075e4 100%);
+                <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion"
+                    style="background-image: linear-gradient(to top, #00c6fb 0%, #3075e4 100%);
                 color: rgb(0, 0, 0);">
 
-                    <div class="sb-sidenav-menu" >
+                    <div class="sb-sidenav-menu">
                         <div class="nav" style="color: azure">
                             <div class="sb-sidenav-menu-heading">Principal</div>
                             <a class="nav-link" href="{{ url('/plataforma') }}">
@@ -112,8 +113,8 @@
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.mistrabajos') }}">Todos
                                                 mis
                                                 trabajos</a>
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.trabajos.todosencurso') }}">Trabajos en
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.todosencurso') }}">Trabajos
+                                                en
                                                 curso</a>
                                             <a class="nav-link" href="{{ route('plataforma.ot.index') }}">Ver
                                                 ordenes de trabajo</a>
@@ -132,16 +133,17 @@
                                     <div class="collapse" id="collapseAdminTrabajos" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.trabajos.editar') }}">Editar trabajo</a>
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.index') }}">Ver todos los trabajos</a>
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.editar') }}">Editar
+                                                trabajo</a>
                                             <a class="nav-link"
                                                 href="{{ route('plataforma.trabajos.suspenderT') }}">Suspender
                                                 trabajo</a>
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.trabajos.cancelarT') }}">Cancelar trabajo</a>
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.cancelarT') }}">Cancelar
+                                                trabajo</a>
 
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.trabajos.create') }}">Registrar nuevo
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.create') }}">Registrar
+                                                nuevo
                                                 trabajo</a>
                                             <a class="nav-link" href="#">Informes
                                                 de trabajos</a>
@@ -149,11 +151,10 @@
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.trabajoshoy') }}">Ver
                                                 trabajos del
                                                 día</a>
-                                            <a class="nav-link"
-                                                href="#">Mostrar cantidad de
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.cantidadT') }}">Mostrar
+                                                cantidad de
                                                 trabajos realizados por empleado</a>
-                                            <a class="nav-link"
-                                                href="#">Mostrar estimación
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.sueldos') }}">Mostrar estimación
                                                 de sueldo de empleados</a>
 
                                         </nav>
@@ -168,11 +169,11 @@
                                     <div class="collapse" id="collapseEmpleados" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('register') }}">Registrar nuevo
+                                            <a class="nav-link" href="{{ route('register') }}">Registrar nuevo
                                                 empleado</a>
-                                            <a class="nav-link" href="{{ route('plataforma.trabajadores.index') }}">Ver Empleados</a>
-                                             </nav>
+                                            <a class="nav-link" href="{{ route('plataforma.trabajadores.index') }}">Ver
+                                                Empleados</a>
+                                        </nav>
                                     </div>
 
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -185,8 +186,8 @@
                                     <div class="collapse" id="collapseCotizaciones" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.cotizaciones.create') }}">Crear cotización</a>
+                                            <a class="nav-link" href="{{ route('plataforma.cotizaciones.create') }}">Crear
+                                                cotización</a>
 
                                             <a class="nav-link" href="{{ route('plataforma.cotizaciones.index') }}">Ver
                                                 cotizaciones</a>
@@ -209,10 +210,10 @@
                                     <div class="collapse" id="collapseGastos" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.gastos.create') }}">Crear gasto</a>
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.gastos.editar') }}">Editar gasto</a>
+                                            <a class="nav-link" href="{{ route('plataforma.gastos.create') }}">Crear
+                                                gasto</a>
+                                            <a class="nav-link" href="{{ route('plataforma.gastos.editar') }}">Editar
+                                                gasto</a>
                                             <a class="nav-link" href="{{ route('plataforma.gastos.eliminar') }}">Eliminar
                                                 gasto</a>
                                             <a class="nav-link" href="{{ route('plataforma.gastos.informe') }}">Generar
@@ -232,8 +233,8 @@
                                     <div class="collapse" id="collapseClientes" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.clientes.create') }}">Registrar cliente</a>
+                                            <a class="nav-link" href="{{ route('plataforma.clientes.create') }}">Registrar
+                                                cliente</a>
 
                                             <a class="nav-link" href="{{ route('plataforma.clientes.index') }}">Ver
                                                 clientes</a>
@@ -242,8 +243,6 @@
                                     </div>
                                 @endif
                                 @if (Auth::user()->rol == 'secretaria')
-
-
                                     <div class="sb-sidenav-menu-heading">Menú de secretari@</div>
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                                         data-bs-target="#collapseAdminTrabajos" aria-expanded="false"
@@ -255,6 +254,7 @@
                                     <div class="collapse" id="collapseAdminTrabajos" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.index') }}">Ver todos los trabajos</a>
                                             <a class="nav-link" href="{{ route('plataforma.ot.index') }}">Ver
                                                 ordenes de trabajo</a>
 
@@ -264,12 +264,11 @@
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.trabajoshoy') }}">Ver
                                                 trabajos del
                                                 día</a>
-                                            <a class="nav-link"
-                                                href="#">Mostrar cantidad de
-                                                trabajos realizados por empleado</a>
-                                            <a class="nav-link"
-                                                href="#">Mostrar estimación
-                                                de sueldo de empleados</a>
+                                                <a class="nav-link" href="{{ route('plataforma.trabajos.cantidadT') }}">Mostrar
+                                                    cantidad de
+                                                    trabajos realizados por empleado</a>
+                                                <a class="nav-link" href="{{ route('plataforma.trabajos.sueldos') }}">Mostrar estimación
+                                                    de sueldo de empleados</a>
 
                                         </nav>
                                     </div>
@@ -283,11 +282,11 @@
                                     <div class="collapse" id="collapseEmpleados" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('register') }}">Registrar nuevo
+                                            <a class="nav-link" href="{{ route('register') }}">Registrar nuevo
                                                 empleado</a>
-                                            <a class="nav-link" href="{{ route('plataforma.trabajadores.index') }}">Ver Empleados</a>
-                                             </nav>
+                                            <a class="nav-link" href="{{ route('plataforma.trabajadores.index') }}">Ver
+                                                Empleados</a>
+                                        </nav>
                                     </div>
 
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -300,8 +299,8 @@
                                     <div class="collapse" id="collapseCotizaciones" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.cotizaciones.create') }}">Crear cotización</a>
+                                            <a class="nav-link" href="{{ route('plataforma.cotizaciones.create') }}">Crear
+                                                cotización</a>
 
                                             <a class="nav-link" href="{{ route('plataforma.cotizaciones.index') }}">Ver
                                                 cotizaciones</a>
@@ -324,10 +323,10 @@
                                     <div class="collapse" id="collapseGastos" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.gastos.create') }}">Crear gasto</a>
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.gastos.editar') }}">Editar gasto</a>
+                                            <a class="nav-link" href="{{ route('plataforma.gastos.create') }}">Crear
+                                                gasto</a>
+                                            <a class="nav-link" href="{{ route('plataforma.gastos.editar') }}">Editar
+                                                gasto</a>
                                             <a class="nav-link" href="{{ route('plataforma.gastos.eliminar') }}">Eliminar
                                                 gasto</a>
                                             <a class="nav-link" href="{{ route('plataforma.gastos.informe') }}">Generar
@@ -347,8 +346,8 @@
                                     <div class="collapse" id="collapseClientes" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.clientes.create') }}">Registrar cliente</a>
+                                            <a class="nav-link" href="{{ route('plataforma.clientes.create') }}">Registrar
+                                                cliente</a>
 
                                             <a class="nav-link" href="{{ route('plataforma.clientes.index') }}">Ver
                                                 clientes</a>
@@ -369,8 +368,8 @@
                                     <div class="collapse" id="collapseTrabajos" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.trabajos.mistrabajos') }}">Todos mis
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.mistrabajos') }}">Todos
+                                                mis
                                                 trabajos</a>
                                             <a class="nav-link"
                                                 href="{{ route('plataforma.trabajos.todosencurso') }}">Trabajos en
@@ -390,8 +389,8 @@
                                     <div class="collapse" id="collapseGastos" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link"
-                                                href="{{ route('plataforma.gastos.create') }}">Crear gasto</a>
+                                            <a class="nav-link" href="{{ route('plataforma.gastos.create') }}">Crear
+                                                gasto</a>
                                         </nav>
                                     </div>
                                 @endif
@@ -439,36 +438,37 @@
         </div>
 
 
-    </div>
+        </div>
     @else
-</nav>
-    <main class="py-4" style="padding-top: 10px">
-        <div class="container-fluid">
-            @if (session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('error') }}
-                </div>
-            @endif
-            @if (session()->has('success'))
-                <div class="alert alert-success">
-                    {{ session()->get('success') }}
-                </div>
-            @endif
+        </nav>
+        <main class="py-4" style="padding-top: 10px">
+            <div class="container-fluid">
+                @if (session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
+                @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
 
-            @if (isset($errors) && $errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+                @if (isset($errors) && $errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
-            @yield('content')
+                @yield('content')
 
-    </main>
+        </main>
+
     @endauth
 </body>
-
+@yield('script')
 </html>

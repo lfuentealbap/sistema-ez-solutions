@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Lista de trabajos en curso</h1>
 
         <div class="container">
             <div class="card">
                 <div class="card-header">
-                    <h4>Mis Trabajos en curso</h4>
+                    <h3>Mis Trabajos en curso</h3>
                 </div>
                 <div class="card-body">
                     @php

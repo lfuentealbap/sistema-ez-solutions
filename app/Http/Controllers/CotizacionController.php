@@ -22,22 +22,17 @@ class CotizacionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');//->only('index'); ->except(['index','create']);
+        $this->middleware('auth');
     }
 
     public function index(){
-        //$products = DB::table('products')->get();
-        //$products = Product::all();
-        //dd($products);
         return view('plataforma.cotizaciones.index')->with([
             'cotizaciones' => Cotizacion::all(), 'clientes' => Cliente::all(),
         ]);
 
     }
     public function marcar(){
-        //$products = DB::table('products')->get();
-        //$products = Product::all();
-        //dd($products);
+
         return view('plataforma.cotizaciones.marcar')->with([
             'cotizaciones' => Cotizacion::all(), 'clientes' => Cliente::all(),
         ]);
@@ -63,19 +58,17 @@ class CotizacionController extends Controller
 
     public function store(CotizacionRequest $request){
 
-    $cotizacion = Cotizacion::create(/*request()->all()*/$request->validated());
+    $cotizacion = Cotizacion::create($request->validated());
 
-        //session()->flash('success', 'The new product with id '.$product->id.'was created');
-        //return redirect()->back();
         return redirect()->route('plataforma.cotizaciones.continuacion',[
-            'cotizacion'=> $cotizacion->id,//Product::findOrFail($product),
+            'cotizacion'=> $cotizacion->id,
         ]);
     }
     public function continuacion(Cotizacion $cotizacion) {
 
 
         return view('plataforma.cotizaciones.continuacion')->with([
-            'cotizacion'=> $cotizacion, 'productos' => Producto::all(), 'cotizacion_producto' => CotizacionProducto::all(), 'clientes'=> Cliente::all(),
+            'cotizacion'=> $cotizacion, 'productos' => Producto::all(), 'cotizacion_producto' => CotizacionProducto::all()->where('id_cotizacion', $cotizacion->id), 'clientes'=> Cliente::all(),
         ]);
     }
     public function insertarProducto(CotizacionProductoRequest $request){
@@ -121,17 +114,17 @@ class CotizacionController extends Controller
 
     public function aprobar(AprobarRequest $request, Cotizacion $cotizacion){
 
-    $cotizacion->update(/*request()->all()*/$request->validated());
+    $cotizacion->update($request->validated());
         return redirect()->route('plataforma.cotizaciones.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué aprobada exitosamente');
     }
     public function rechazar(RechazarRequest $request, Cotizacion $cotizacion){
 
-        $cotizacion->update(/*request()->all()*/$request->validated());
+        $cotizacion->update($request->validated());
             return redirect()->route('plataforma.cotizaciones.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué rechazada exitosamente');
         }
     public function update(CotizacionRequest $request, Cotizacion $cotizacion){
 
-        $cotizacion->update(/*request()->all()*/$request->validated());
+        $cotizacion->update($request->validated());
             return redirect()->route('plataforma.cotizaciones.index')->withSuccess('La cotización n°'.$cotizacion->id.' fué editado exitosamente');
         }
 
@@ -155,7 +148,7 @@ class CotizacionController extends Controller
             $iva = ($total)*0;
         }
 
-        $neto = $total - $iva;
+        $neto = $total - ($total*0.19);
         $total = $neto + $iva - $descuento;
         $cotizacion_g = Cotizacion::where("id", $cotizacion->id )->update(["neto" => $neto, "iva" =>$iva, "descuento" =>$descuento, "total"=>$total]);
 
@@ -163,7 +156,7 @@ class CotizacionController extends Controller
             'cotizacion' => $cotizacion->id ]);
     }
     public function eliminarP(CotizacionProducto $cotizacion_producto){
-        //$producto= Producto::findOrFail($producto->codigo);
+
         $id = $cotizacion_producto->id_cotizacion;
         $cotizacion_producto->delete();
         $total = 0;

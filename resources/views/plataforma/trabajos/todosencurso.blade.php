@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Lista de trabajos en curso</h1>
 
     @if (Auth::user()->rol == 'jefe')
         <div class="container">
             <div class="card">
                 <div class="card-header">
-                    <h4>Trabajos de hoy</h4>
+                    <h4>Cantidad de trabajos realizados por empleado</h4>
                 </div>
                 @php
                     $contadorT = 0;

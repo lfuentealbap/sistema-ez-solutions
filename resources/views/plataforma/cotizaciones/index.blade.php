@@ -27,8 +27,14 @@
                     @foreach ($cotizaciones as $cotizacion)
                         <tr>
                             <td>{{$cotizacion->id}}</td>
-                            <td>{{$cotizacion->fecha_creacion}}</td>
-                            <td>{{$cotizacion->fecha_expiracion}}</td>
+                            <td>@php
+
+                                echo \Carbon\Carbon::parse($cotizacion->fecha_creacion)->format('d-m-Y');
+                            @endphp </td>
+                            <td>@php
+
+                                echo \Carbon\Carbon::parse($cotizacion->fecha_expiracion)->format('d-m-Y');
+                            @endphp</td>
                             <td>{{$cotizacion->cliente->nombre_completo}}</td>
                             <td>
                                 @if($cotizacion->estado == "pendiente")

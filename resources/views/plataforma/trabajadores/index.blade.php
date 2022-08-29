@@ -30,7 +30,7 @@
                                 <tr>
 
                                     <td>{{ $trabajador->rut }}</td>
-                                    <td>{{ $trabajador->nombres }} {{ $trabajador->nombres }}</td>
+                                    <td>{{ $trabajador->nombres }} {{ $trabajador->apellidos }}</td>
                                     <td>{{ $trabajador->direccion }}</td>
                                     <td>{{ $trabajador->ciudad }}</td>
                                     <td>{{ $trabajador->email }}</td>
