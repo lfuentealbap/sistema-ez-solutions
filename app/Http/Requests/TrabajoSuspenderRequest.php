@@ -25,6 +25,7 @@ class TrabajoSuspenderRequest extends FormRequest
     {
         return [
             'estado' => ['required','max:255'],
+            'motivo' => ['required'],
             'fecha_inicio' => ['required'],
             'fecha_termino' => ['required'],
 

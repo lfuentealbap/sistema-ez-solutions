@@ -20,9 +20,10 @@ class TrabajoCanceladoMailable extends Mailable
      *
      * @return void
      */
-    public function __construct($trabajo)
+    public function __construct($trabajo, $motivo)
     {
         $this->contenido = $trabajo;
+        $this->contenido['motivo'] = $motivo;
         $this->contenido['fecha_inicio'] = Carbon::parse($this->contenido['fecha_inicio'])->format('d-m-Y H:i:s');
         $this->contenido['fecha_termino'] = Carbon::parse($this->contenido['fecha_termino'])->format('d-m-Y H:i:s');
     }

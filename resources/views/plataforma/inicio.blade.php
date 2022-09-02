@@ -149,7 +149,12 @@
                                 <h4>Mi sueldo</h4>
                             </div>
                             <div class="card-body">
-                                Mi sueldo es de <strong>$20000 </strong>
+                                @foreach ($sueldos as $sueldo)
+                                    @if ($sueldo->rut_trabajador == Auth::user()->rut)
+                                    Mi sueldo es de <strong>${{$sueldo->sueldo}} </strong>
+                                    @endif
+                                @endforeach
+
                             </div>
                         </div>
                     </div>

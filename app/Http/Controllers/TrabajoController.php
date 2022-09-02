@@ -25,6 +25,8 @@ class TrabajoController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        //Además, verifica automáticamente si un trabajo en curso excedió la fecha de término
+        //Para cambiar su estado a atrasado
         $hoy = Carbon::parse(Carbon::now());
         $trb = Trabajo::all();
         foreach($trb as $tr){
@@ -226,10 +228,10 @@ class TrabajoController extends Controller
         $trabajadores = User::all();
         foreach($trabajadores as $trabajador){
             if($trabajador->rut == $trabajo->rut_trabajador){
-                Mail::to($trabajador->email)->send(new TrabajoSuspendidoMailable($trabajo));
+                Mail::to($trabajador->email)->send(new TrabajoSuspendidoMailable($trabajo, $request->motivo));
             }
         }
-        $trabajo->update($request->validated());
+        $trabajo1 = Trabajo::where("id", $trabajo->id )->update(["estado" => $request->estado, "fecha_inicio" => $request->fecha_inicio, "fecha_termino" => $request->fecha_termino]);
         return redirect()->back()->withSuccess('El trabajo: "'.$trabajo->titulo.'" fué suspendido exitosamente');
     }
     //Actualiza el estado de un trabajo a atrasado
@@ -242,10 +244,10 @@ class TrabajoController extends Controller
         $trabajadores = User::all();
         foreach($trabajadores as $trabajador){
             if($trabajador->rut == $trabajo->rut_trabajador){
-                Mail::to($trabajador->email)->send(new TrabajoCanceladoMailable($trabajo));
+                Mail::to($trabajador->email)->send(new TrabajoCanceladoMailable($trabajo, $request->motivo));
             }
         }
-        $trabajo->update($request->validated());
+        $trabajo1 = Trabajo::where("id", $trabajo->id )->update(["estado" => $request->estado, "fecha_inicio" => $request->fecha_inicio, "fecha_termino" => $request->fecha_termino]);
         return redirect()->back()->withSuccess('El trabajo: "'.$trabajo->titulo.'" fué cancelado exitosamente');
     }
 
