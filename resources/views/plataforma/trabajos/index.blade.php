@@ -72,7 +72,7 @@
                                         @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
                                             <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                 data-bs-target="#modalSuspender{{ $trabajo->id }}"><i
-                                                    class="fas fa-power-off"></i>
+                                                    class="fas fa-power-off"></i>Suspender</button>
                                         @endif
                                         @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
                                             <button type="button" class="btn btn-dark" data-bs-toggle="modal"
