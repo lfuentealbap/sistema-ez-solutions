@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
                     @foreach ($trabajos as $trabajo)
-                    @if ($trabajo->estado != "cancelado" && $trabajo->estado != "finalizado")
+                    @if ($trabajo->estado == "en curso" || $trabajo->estado == "atrasado")
                         <tr>
 
                             <td>{{ $trabajo->titulo }}</td>
