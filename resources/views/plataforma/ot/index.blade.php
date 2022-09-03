@@ -2,11 +2,7 @@
 
 @section('content')
     <h1>Todos las órdenes de trabajo</h1>
-    @if ($ot->isEmpty())
-        <div class="alert alert-warning">
-            No hay órdenes de trabajo registrados
-        </div>
-    @else
+
         @if (Auth::user()->rol == 'trabajador')
         <div class="table-responsive rounded">
             <table class="table table-bordered">
@@ -25,7 +21,7 @@
                         $contadorOT = 0;
                     @endphp
                     @foreach ($ot as $orden_trabajo)
-                        @if ($orden_trabajo->rut_trabajador == Auth:::user()->rut)
+                        @if ($orden_trabajo->rut_trabajador == Auth::user()->rut)
                         <tr>
                             <td>{{$orden_trabajo->id}}</td>
                             <td>{{$orden_trabajo->trabajo->titulo}}</td>
@@ -47,6 +43,9 @@
 
                             </td>
                         </tr>
+                        @php
+                        $contadorOT = $contadorOT+1;
+                    @endphp
                         @endif
                     @endforeach
                 </tbody>
@@ -102,6 +101,6 @@
         @endif
 
 
-    @endif
+
 
 @endsection

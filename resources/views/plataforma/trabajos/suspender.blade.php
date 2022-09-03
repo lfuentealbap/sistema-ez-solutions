@@ -3,8 +3,6 @@
 @section('content')
     <h1>Suspender trabajos</h1>
 
-    <a class="btn btn-success mb-3" href="{{ route('plataforma.trabajos.create') }}"><i class="fas fa-file-plus"></i> Crear</a>
-
     @if ($trabajos->isEmpty())
         <div class="alert alert-warning">
             No hay trabajos registrados

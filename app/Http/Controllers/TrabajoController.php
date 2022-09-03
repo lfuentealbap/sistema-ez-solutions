@@ -118,7 +118,7 @@ class TrabajoController extends Controller
 
 
             'filter_field' => 'fecha_termino',
-            'filter_days' => 30,
+            //'filter_days' => 30,
             'filter_period' => 'month',
             'where_raw' => 'estado = "finalizado"',
         ];

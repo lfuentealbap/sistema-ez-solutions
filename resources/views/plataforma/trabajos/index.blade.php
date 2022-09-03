@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a class="btn btn-success mb-3" href="{{ route('plataforma.trabajos.create') }}"><i class="fas fa-file-plus"></i> Registrar nuevo trabajo</a>
     <div class="card">
         <div class="card-header">
             <h4>Lista de todos los trabajos registrados</h4>
