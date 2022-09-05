@@ -102,10 +102,9 @@
             <div>
                 <h5>{{ $trabajador->nombres }} {{ $trabajador->apellidos }}:</h5>
             </div>
-
             <div>
                 @foreach ($trabajos as $tra)
-                {{--@if (($trabajador->rut == $tra->trabajador->rut) && ($tra->cantidad !=0))--}}
+                @if (($trabajador->rut == $tra->trabajador->rut) && ($tra->cantidad !="0"))
                 <table style="border-collapse: collapse;">
                     <thead style="border: 1px solid black;">
                         <tr style="border: 1px solid black;">
@@ -114,7 +113,7 @@
                             <th style="border: 1px solid black; padding: 5px;">Fecha término</th>
                         </tr>
                     </thead>
-                {{--@endif--}}
+                @endif
                 @endforeach
 
                     <tbody style="border: 1px solid black;">
