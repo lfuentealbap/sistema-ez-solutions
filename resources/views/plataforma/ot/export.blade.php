@@ -8,19 +8,20 @@
 </head>
 <body>
     <div style="background-color: white">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;" alt="EZ"></img>
+        <div>
+
+                <div style="width:30%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
+                    <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;"
+                        alt="EZ">{{ __(' Servicios informáticos') }}
                 </div>
-                <div class="col">
+                <div style="width:30%;"">
                     <h3>ORDEN DE TRABAJO</h3>
                 </div>
-                <div class="col" style="border: 3px solid red; text-align: center">
-                    <br>
+                <div style="border: 3px solid red; text-align: center; width:30%;">
+
                     <h5>Orden N°{{ $ot->id }} </h5>
                 </div>
-            </div>
+
         </div>
         <div class="container">
             <div class="row">
