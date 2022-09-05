@@ -10,7 +10,7 @@
 
 <body style="background-color: white;">
 
-    <div style="width: 100%; display:block; vertical-align: top;">
+    <div style="width: 100%; display:table; vertical-align: top;">
         <div
             style="float:left; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
             <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px;" alt="EZ">
@@ -91,17 +91,16 @@
 
     <div style="border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif; height: 200px;">
         <div style="width: 100%; border: 2px solid rgb(0, 145, 255);">
-            <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Descripcion de la solución: </strong>
+            <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Observaciones: </strong>
             </div>
             {{ $ot->observaciones }}
         </div>
     </div>
     <br>
-    <div
-        style="display: block;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+    <div style="display: block;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
         <div>
             <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="200px">
-            <br>
+
             <strong style="border-top: 1px solid black;">Firma colaborador </strong>
         </div>
 
