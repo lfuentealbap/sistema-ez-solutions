@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px;">
+    <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle;">
         <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;"
-            alt="EZ">{{ __(' EZ Solutions') }}
+            alt="EZ">{{ __(' Servicios informáticos') }}
     </div>
     <div style="text-align: center;">
         <h2>Informe de rendimiento del mes de @php
@@ -95,10 +95,8 @@
     <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
         <h4>Trabajos realizados por empleado en el mes</h4>
     </div>
-
     @foreach ($trabajos as $trabaj)
         @if ($trabaj->trabajador->rol == 'jefe' || $trabaj->trabajador->rol == 'trabajador')
-            <br>
             <div>
                 <h5>{{ $trabaj->trabajador->nombres }} {{ $trabaj->trabajador->apellidos }}:</h5>
             </div>
@@ -136,8 +134,5 @@
 
 
 </body>
-
-
-
 
 </html>
