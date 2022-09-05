@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Orden de trabajo</title>
 </head>
+
 <body>
     <div style="background-color: white">
-        <div>
+        <span>
+            <span
+                style="width:30%; margin-left: 0; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
+                <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;"
+                    alt="EZ">{{ __(' Servicios informáticos') }}
+            </span>
+            <span style="width:30%; margin:0;">
+                <h3>ORDEN DE TRABAJO</h3>
+            </span>
+            <span style="border: 3px solid red; text-align: center; width:30%; margin-right:0;">
 
-                <div style="width:30%; margin-left: 0; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
-                    <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;"
-                        alt="EZ">{{ __(' Servicios informáticos') }}
-                </div>
-                <div style="width:30%; margin:0;">
-                    <h3>ORDEN DE TRABAJO</h3>
-                </div>
-                <div style="border: 3px solid red; text-align: center; width:30%; margin-right:0;">
+                <h5>Orden N°{{ $ot->id }} </h5>
+            </span>
 
-                    <h5>Orden N°{{ $ot->id }} </h5>
-                </div>
-
-        </div>
+        </span>
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -126,8 +128,8 @@
 
                 </div>
                 <div class="col">
-                    <img src="{{ asset($ot->firma.'.png') }}" alt="">
-                   <br>
+                    <img src="{{ asset($ot->firma . '.png') }}" alt="">
+                    <br>
                     <strong>Firma colaborador </strong>
                 </div>
                 <div class="col">
@@ -138,4 +140,5 @@
     </div>
 
 </body>
+
 </html>
