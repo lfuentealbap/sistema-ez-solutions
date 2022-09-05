@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 14px">
-        <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;" alt="EZ">{{__(' EZ Solutions')}}
+    <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px;">
+        <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;" alt="EZ">{{ __(' EZ Solutions')}}
     </div>
     <div style="text-align: center;">
         <h2>Informe de rendimiento del mes de @php
@@ -63,7 +63,7 @@
             @endphp
         @endforeach
         <div>
-            <table style="border: 1px solid black;">
+            <table style="border-collapse: collapse;">
                 <thead style="border: 1px solid black;">
                     <tr style="border: 1px solid black;">
                         <th style="width: 60%; border: 1px solid black; padding: 5px;">Nombre del trabajador</th>
@@ -98,7 +98,7 @@
         <br>
         <div><h5>{{ $trabajador->nombres }} {{ $trabajador->apellidos }}:</h5></div>
         <div>
-            <table style="border: 1px solid black;">
+            <table style="border-collapse: collapse;">
                 <thead style="border: 1px solid black;">
                     <tr style="border: 1px solid black;">
                         <th style="width: 60%; border: 1px solid black; padding: 5px;">Trabajo</th>
@@ -122,8 +122,9 @@
                     @endforeach
                 </tbody>
             </table>
-        @endif
             <hr>
+        @endif
+
         @endforeach
     </div>
 
