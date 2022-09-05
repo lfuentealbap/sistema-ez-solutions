@@ -106,9 +106,6 @@
             <div>
                 @foreach ($trabajos as $tra)
                 @if (($trabajador->rut == $tra->trabajador->rut) && ($tra->cantidad !='0'))
-
-                @endif
-                @endforeach
                 <table style="border-collapse: collapse;">
                     <thead style="border: 1px solid black;">
                         <tr style="border: 1px solid black;">
@@ -117,6 +114,9 @@
                             <th style="border: 1px solid black; padding: 5px;">Fecha término</th>
                         </tr>
                     </thead>
+                @endif
+                @endforeach
+
                     <tbody style="border: 1px solid black;">
 
                         @foreach ($trabajos1 as $trabajo)
