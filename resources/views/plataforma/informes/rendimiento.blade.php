@@ -6,48 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Informe de rendimiento del mes</title>
-    <style>
-        .pie-chart {
-            width: 600px;
-            height: 400px;
-            margin: 0 auto;
-        }
 
-        .text-center {
-            text-align: center;
-        }
-
-        table {
-            border-collapse: collapse;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        th,
-        td {
-            padding: 5px;
-        }
-
-        .table-responsive {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .borde {
-            border: 1px solid black;
-        }
-    </style>
 </head>
 
 <body>
-    <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
-        <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;" alt="EZ"> EZ Solutions
+    <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 14px">
+        <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;" alt="EZ">{{__(' EZ Solutions')}}
     </div>
-    <div class="text-center">
+    <div style="text-align: center;">
         <h1>Informe de rendimiento del mes de @php
             $mes = \Carbon\Carbon::parse(\Carbon\Carbon::now())->format('m');
             $anio = \Carbon\Carbon::parse(\Carbon\Carbon::now())->format('Y');
@@ -86,7 +52,7 @@
             }
             if($mes == '12'){
                 echo "Diciembre";
-            } echo 'del '.$anio;
+            } echo ' del '.$anio;
         @endphp </h1>
         @php
             $total = 0;
@@ -99,19 +65,19 @@
         <div>
             <table class="table-responsive">
                 <thead>
-                    <tr>
-                        <th style="width: 60%;">Nombre del trabajador</th>
-                        <th>Total trabajos</th>
-                        <th>% equivalente general</th>
+                    <tr style="border: 1px solid black;">
+                        <th style="width: 60%; border: 1px solid black;">Nombre del trabajador</th>
+                        <th style="border: 1px solid black;">Total trabajos</th>
+                        <th style="border: 1px solid black;">% equivalente general</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     @foreach ($trabajos as $trabajo)
                         <tr>
-                            <td>{{ $trabajo->trabajador->nombres }} {{ $trabajo->trabajador->apellidos }}</td>
-                            <td>{{ $trabajo->cantidad }}</td>
-                            <td>@php
+                            <td style="border: 1px solid black;">{{ $trabajo->trabajador->nombres }} {{ $trabajo->trabajador->apellidos }}</td>
+                            <td style="border: 1px solid black;">{{ $trabajo->cantidad }}</td>
+                            <td style="border: 1px solid black;">@php
                                 $porcentaje = ($trabajo->cantidad*100)/$total;
                                 echo round($porcentaje, 2).'%'
                             @endphp</td>
@@ -129,25 +95,25 @@
 
         @foreach ($trabajadores as $trabajador)
         @if ($trabajador->rol == 'jefe' || $trabajador->rol == 'trabajador')
-        <hr>
-        <div><h6>{{ $trabajador->nombres }} {{ $trabajador->apellidos }}:</h6></div>
+        <br>
+        <div><h5>{{ $trabajador->nombres }} {{ $trabajador->apellidos }}:</h5></div>
         <div>
             <table class="table-responsive">
                 <thead>
                     <tr>
-                        <th style="width: 60%;">Trabajo</th>
-                        <th>Dirección</th>
-                        <th>Fecha término</th>
+                        <th style="width: 60%; border: 1px solid black;">Trabajo</th>
+                        <th style="border: 1px solid black;">Dirección</th>
+                        <th style="border: 1px solid black;">Fecha término</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach ($trabajos as $trabajo)
+                    @foreach ($trabajos1 as $trabajo)
                         @if ($trabajo->trabajador->rut == $trabajador->rut)
                         <tr>
-                            <td>{{ $trabajo->titulo }} </td>
-                            <td>{{ $trabajo->direccion }}, {{ $trabajo->ciudad }}</td>
-                            <td>@php
+                            <td style="border: 1px solid black;">{{ $trabajo->titulo }} </td>
+                            <td style="border: 1px solid black;">{{ $trabajo->direccion }}, {{ $trabajo->ciudad }}</td>
+                            <td style="border: 1px solid black;">@php
 
                                 echo \Carbon\Carbon::parse($trabajo->fecha_termino)->format('d-m-Y');
                             @endphp</td>
@@ -157,7 +123,7 @@
                 </tbody>
             </table>
         @endif
-
+            <hr>
         @endforeach
     </div>
 
