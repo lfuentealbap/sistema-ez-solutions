@@ -12,13 +12,13 @@
 
     <div style="width: 100%">
         <div
-            style="width:30%; margin-left: 0px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
-            <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;" alt="EZ">
+            style="width:120px; margin-left: 0px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
+            <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 50px;" alt="EZ">
         </div>
-        <div style="width:30%; margin:0px auto ;">
+        <div style="margin:0px auto ;">
             <h3>ORDEN DE TRABAJO</h3>
         </div>
-        <div style="border: 3px solid red; text-align: center; width:30%; height:50px; margin-right:0px;">
+        <div style="border: 3px solid red; text-align: center; width:150px; height:50px; margin-right:0px;">
             <h5>Orden N°{{ $ot->id }} </h5>
         </div>
 
