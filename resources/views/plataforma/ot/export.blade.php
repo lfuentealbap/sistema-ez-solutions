@@ -13,13 +13,13 @@
     <div style="width: 100%; display:block; vertical-align: top;">
         <div
             style="margin-left: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
-            <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 50px;" alt="EZ">
+            <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px;" alt="EZ">
         </div>
-        <div style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto;margin-left: auto;">
+        <div style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto; margin-left: auto; text-align: center;">
             <h3>ORDEN DE TRABAJO</h3>
         </div>
         <div
-            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:55px; margin-right: auto;">
+            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:55px; float:right">
             <h5>Orden N°{{ $ot->id }} </h5>
         </div>
 
@@ -48,7 +48,7 @@
             {{ $ot->trabajador->nombres }} {{ $ot->trabajador->apellidos }}
         </div>
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
-            <div style="background-color: rgb(0, 145, 255); color: white; margin-right: auto;"><strong>Nombre colaborador:
+            <div style="background-color: rgb(0, 145, 255); color: white; float:right;"><strong>Nombre colaborador:
                 </strong></div>
             {{ $ot->nombre_colaborador }}
         </div>
@@ -59,7 +59,7 @@
             {{ $ot->direccion }}
         </div>
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
-            <div style="background-color: rgb(0, 145, 255); color: white;margin-right: auto;"><strong>Ciudad: </strong></div>
+            <div style="background-color: rgb(0, 145, 255); color: white;float:right"><strong>Ciudad: </strong></div>
             {{ $ot->ciudad }}
         </div>
     </div>
@@ -70,7 +70,7 @@
             {{ $ot->detalles_equipo_antiguo }}
         </div>
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
-            <div style="background-color: rgb(0, 145, 255); color: white;margin-right: auto;"><strong>Detalles equipo nuevo:
+            <div style="background-color: rgb(0, 145, 255); color: white;float:right"><strong>Detalles equipo nuevo:
                 </strong></div>
             {{ $ot->detalles_equipo_nuevo }}
         </div>
