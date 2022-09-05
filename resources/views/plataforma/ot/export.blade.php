@@ -10,14 +10,14 @@
     <div style="background-color: white">
         <div>
 
-                <div style="width:30%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
+                <div style="width:30%; margin-left: 0; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
                     <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;"
                         alt="EZ">{{ __(' Servicios informáticos') }}
                 </div>
-                <div style="width:30%;"">
+                <div style="width:30%; margin:0;">
                     <h3>ORDEN DE TRABAJO</h3>
                 </div>
-                <div style="border: 3px solid red; text-align: center; width:30%;">
+                <div style="border: 3px solid red; text-align: center; width:30%; margin-right:0;">
 
                     <h5>Orden N°{{ $ot->id }} </h5>
                 </div>
