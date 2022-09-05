@@ -105,7 +105,7 @@
 
             <div>
                 @foreach ($trabajos as $tra)
-                @if (($trabajador->rut == $tra->trabajador->rut) && ($tra->cantidad !=0))
+                @if (($trabajador->rut == $tra->trabajador->rut) && ($tra->cantidad !='0'))
 
                 @endif
                 @endforeach
