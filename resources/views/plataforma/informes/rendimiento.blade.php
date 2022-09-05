@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle;">
+    <div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
         <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;"
             alt="EZ">{{ __(' Servicios informáticos') }}
     </div>
@@ -127,7 +127,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <hr>
+
             </div>
         @endif
     @endforeach
