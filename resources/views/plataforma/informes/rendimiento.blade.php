@@ -96,15 +96,13 @@
         <h4>Trabajos realizados por empleado en el mes</h4>
     </div>
 
-    @foreach ($trabajadores as $trabajador)
-        @if ($trabajador->rol == 'jefe' || $trabajador->rol == 'trabajador')
+    @foreach ($trabajos as $trabaj)
+        @if ($trabaj->trabajador->rol == 'jefe' || $trabaj->trabajador->rol == 'trabajador')
             <br>
             <div>
-                <h5>{{ $trabajador->nombres }} {{ $trabajador->apellidos }}:</h5>
+                <h5>{{ $trabaj->trabajador->nombres }} {{ $trabaj->trabajador->apellidos }}:</h5>
             </div>
             <div>
-                @foreach ($trabajos as $tra)
-                @if (($trabajador->rut == $tra->trabajador->rut) && ($tra->cantidad !="0"))
                 <table style="border-collapse: collapse;">
                     <thead style="border: 1px solid black;">
                         <tr style="border: 1px solid black;">
@@ -113,13 +111,11 @@
                             <th style="border: 1px solid black; padding: 5px;">Fecha término</th>
                         </tr>
                     </thead>
-                @endif
-                @endforeach
 
                     <tbody style="border: 1px solid black;">
 
                         @foreach ($trabajos1 as $trabajo)
-                            @if ($trabajo->trabajador->rut == $trabajador->rut)
+                            @if ($trabajo->trabajador->rut == $trabaj->trabajador->rut)
                                 <tr style="border: 1px solid black;">
                                     <td style="border: 1px solid black; padding: 5px;">{{ $trabajo->titulo }} </td>
                                     <td style="border: 1px solid black; padding: 5px;">{{ $trabajo->direccion }},
