@@ -10,7 +10,7 @@
 
 <body style="background-color: white;">
 
-    <div style="display:table; vertical-align: middle;">
+    <div style="width: 100%; display:table; vertical-align: middle;">
         <div
             style="float:left; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
             <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px;" alt="EZ">
@@ -20,7 +20,7 @@
             <h3>ORDEN DE TRABAJO</h3>
         </div>
         <div
-            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:55px; float:right">
+            style="margin-top: 0px auto; border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:55px; float:right">
             <h5>Orden N°{{ $ot->id }} </h5>
         </div>
 
