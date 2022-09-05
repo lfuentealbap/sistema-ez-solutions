@@ -63,15 +63,15 @@
             @endphp
         @endforeach
         <div>
-            <table class="table-responsive">
-                <thead>
+            <table style="border: 1px solid black;">
+                <thead style="border: 1px solid black;">
                     <tr style="border: 1px solid black;">
                         <th style="width: 60%; border: 1px solid black; padding: 5px;">Nombre del trabajador</th>
                         <th style="border: 1px solid black; padding: 5px;">Total trabajos</th>
                         <th style="border: 1px solid black; padding: 5px;">% equivalente general</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="border: 1px solid black;">
 
                     @foreach ($trabajos as $trabajo)
                         <tr style="border: 1px solid black;">
@@ -98,15 +98,15 @@
         <br>
         <div><h5>{{ $trabajador->nombres }} {{ $trabajador->apellidos }}:</h5></div>
         <div>
-            <table class="table-responsive">
-                <thead>
+            <table style="border: 1px solid black;">
+                <thead style="border: 1px solid black;">
                     <tr style="border: 1px solid black;">
                         <th style="width: 60%; border: 1px solid black; padding: 5px;">Trabajo</th>
                         <th style="border: 1px solid black; padding: 5px;">Dirección</th>
                         <th style="border: 1px solid black; padding: 5px;">Fecha término</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="border: 1px solid black;">
 
                     @foreach ($trabajos1 as $trabajo)
                         @if ($trabajo->trabajador->rut == $trabajador->rut)
