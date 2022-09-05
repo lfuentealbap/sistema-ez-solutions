@@ -89,9 +89,10 @@
 
     <br>
 
-    <div style="border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif;height: 180px;">
+    <div style="border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif; height: 200px;">
         <div style="width: 100%; border: 2px solid rgb(0, 145, 255);">
-            <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Observaciones: </strong></div>
+            <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Descripcion de la solución: </strong>
+            </div>
             {{ $ot->observaciones }}
         </div>
     </div>
