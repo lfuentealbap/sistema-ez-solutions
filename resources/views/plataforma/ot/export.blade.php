@@ -10,7 +10,7 @@
 
 <body style="background-color: white;">
 
-    <div style="width: 100%; display:flex; vertical-align: top;">
+    <div style="width: 100%; display:block; vertical-align: top;">
         <div
             style="margin-left: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
             <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 50px;" alt="EZ">
@@ -27,7 +27,7 @@
     <br>
     <br>
 
-    <div style="width: 100%; border-collapse: collapse; display: flex; font-family: Arial, Helvetica, sans-serif;">
+    <div style="width: 100%; border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif;">
         <div style="width: 50%; border: 1px solid white;">
             <strong>Tipo requerimiento:</strong>
             {{ $ot->tipo_requerimiento }}
@@ -42,7 +42,7 @@
 
     <br>
 
-    <div style="width: 100%; border-collapse: collapse; display: flex; font-family: Arial, Helvetica, sans-serif;">
+    <div style="width: 100%; border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif;">
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
             <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Nombre técnico: </strong></div>
             {{ $ot->trabajador->nombres }} {{ $ot->trabajador->apellidos }}
@@ -53,7 +53,7 @@
             {{ $ot->nombre_colaborador }}
         </div>
     </div>
-    <div style="width: 100%; border-collapse: collapse; display: flex; font-family: Arial, Helvetica, sans-serif;">
+    <div style="width: 100%; border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif;">
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
             <div style="background-color: rgb(0, 145, 255); color: white; "><strong>Dirección: </strong></div>
             {{ $ot->direccion }}
@@ -63,7 +63,7 @@
             {{ $ot->ciudad }}
         </div>
     </div>
-    <div style="width: 100%; border-collapse: collapse; display: flex; font-family: Arial, Helvetica, sans-serif;">
+    <div style="width: 100%; border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif;">
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
             <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Detalles equipo antiguo: </strong>
             </div>
@@ -78,7 +78,7 @@
     </div>
 
     <br>
-    <div style="border-collapse: collapse; display: flex; font-family: Arial, Helvetica, sans-serif; height: 200px;">
+    <div style="border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif; height: 200px;">
         <div style="width: 100%; border: 2px solid rgb(0, 145, 255);">
             <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Descripcion de la solución: </strong>
             </div>
@@ -88,7 +88,7 @@
 
     <br>
 
-    <div style="border-collapse: collapse; display: flex; font-family: Arial, Helvetica, sans-serif;height: 180px;">
+    <div style="border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif;height: 180px;">
         <div style="width: 100%; border: 2px solid rgb(0, 145, 255);">
             <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Observaciones: </strong></div>
             {{ $ot->observaciones }}
