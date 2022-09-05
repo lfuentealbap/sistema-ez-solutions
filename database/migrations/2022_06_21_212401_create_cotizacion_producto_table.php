@@ -20,8 +20,8 @@ return new class extends Migration
             $table->integer('cantidad')->unsigned();
             $table->integer('subtotal')->unsigned();
 
-            $table->foreign('id_cotizacion')->references('id')->on('cotizaciones');
-            $table->foreign('codigo_producto')->references('codigo')->on('productos');
+            $table->foreign('id_cotizacion')->references('id')->on('cotizaciones')->onDelete('cascade');
+            $table->foreign('codigo_producto')->references('codigo')->on('productos')->onDelete('cascade');
         });
     }
 

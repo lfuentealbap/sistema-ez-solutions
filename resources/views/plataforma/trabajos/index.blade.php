@@ -54,12 +54,16 @@
                                             href="{{ route('plataforma.trabajos.show', [
                                                 'trabajo' => $trabajo->id,
                                             ]) }}"><i
-                                                class="fas fa-eye"></i> Ver</a>
+                                                class="fas fa-eye" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="Ver trabajo"></i></a>
                                         <a class="btn btn-primary"
                                             href="{{ route('plataforma.trabajos.edit', [
                                                 'trabajo' => $trabajo->id,
                                             ]) }}"><i
-                                                class="fas fa-edit"></i> Editar</a>
+                                                class="fas fa-edit" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="Editar trabajo"></i></a>
                                         <form class="d-inline"
                                             action="{{ route('plataforma.trabajos.destroy', [
                                                 'trabajo' => $trabajo->id,
@@ -67,17 +71,23 @@
                                             method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
-                                                Eliminar</button>
+                                            <button type="submit" class="btn btn-danger"data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-custom-class="custom-tooltip"
+                                            data-bs-title="Eliminar trabajo"><i class="fas fa-trash-alt"></i>
+                                                </button>
                                         </form>
                                         @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#modalSuspender{{ $trabajo->id }}"><i
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip modal"
+                                                data-bs-target="#modalSuspender{{ $trabajo->id }}"  data-bs-placement="top"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="Suspender trabajo"><i
                                                     class="fas fa-power-off"></i>Suspender</button>
                                         @endif
                                         @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
-                                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                                                data-bs-target="#modalCancelar{{ $trabajo->id }}"><i
+                                            <button type="button" class="btn btn-dark" data-bs-toggle="tooltip modal"
+                                                data-bs-target="#modalCancelar{{ $trabajo->id }}"  data-bs-placement="top"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="Cancelar trabajo"><i
                                                     class="fas fa-ban"></i>
                                                 Cancelar</button>
                                         @endif
@@ -165,3 +175,4 @@
         </div>
     @endforeach
 @endsection
+

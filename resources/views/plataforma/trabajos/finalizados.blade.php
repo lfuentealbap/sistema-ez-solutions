@@ -52,7 +52,9 @@
                                         <a class="btn btn-info"
                                             href="{{ route('plataforma.trabajos.show', [
                                                 'trabajo' => $trabajo->id,
-                                            ]) }}"><i
+                                            ]) }}" data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="Ver trabajo"><i
                                                 class="fas fa-eye"></i> Ver</a>
 
 

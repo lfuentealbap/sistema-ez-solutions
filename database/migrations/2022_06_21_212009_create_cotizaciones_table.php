@@ -23,9 +23,9 @@ return new class extends Migration
             $table->integer('descuento')->unsigned()->nullable();
             $table->string('estado')->default('pendiente');
             $table->string('rut_cliente');
-            $table->timestamps();
 
-            $table->foreign('rut_cliente')->references('rut')->on('clientes');
+
+            $table->foreign('rut_cliente')->references('rut')->on('clientes')->onDelete('cascade');;
         });
     }
 

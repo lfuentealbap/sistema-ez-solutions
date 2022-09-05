@@ -48,7 +48,7 @@
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark navbar-plataforma">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="{{ url('/plataforma') }}"><img src="{{ asset('img/inicio/logo.png') }}"
-                    style="width: 30px; height: 20px;" alt="EZ"></img>{{ __('Plataforma') }}
+                    style="width: 30px; height: 20px;" alt="EZ">{{ __('Plataforma') }}
             </a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
@@ -212,6 +212,8 @@
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="{{ route('plataforma.gastos.create') }}">Crear
                                                 gasto</a>
+                                                <a class="nav-link" href="{{ route('plataforma.gastos.index') }}">Ver
+                                                    gastos</a>
                                             <a class="nav-link" href="{{ route('plataforma.gastos.editar') }}">Editar
                                                 gasto</a>
                                             <a class="nav-link" href="{{ route('plataforma.gastos.eliminar') }}">Eliminar
@@ -325,6 +327,8 @@
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="{{ route('plataforma.gastos.create') }}">Crear
                                                 gasto</a>
+                                                <a class="nav-link" href="{{ route('plataforma.gastos.index') }}">Ver
+                                                    gastos</a>
                                             <a class="nav-link" href="{{ route('plataforma.gastos.editar') }}">Editar
                                                 gasto</a>
                                             <a class="nav-link" href="{{ route('plataforma.gastos.eliminar') }}">Eliminar

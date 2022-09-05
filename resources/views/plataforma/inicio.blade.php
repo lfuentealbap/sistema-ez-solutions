@@ -35,7 +35,7 @@
                                             </h6>
                                             <p class="card-text">{{ $trabajo->descripcion }}.</p>
                                             <p class="card-text"><strong>Ubicación:</strong>
-                                                {{ $trabajo->direccion }}, {{ $trabajo->direccion }}</p>
+                                                {{ $trabajo->direccion }}, {{ $trabajo->ciudad }}</p>
                                             <a href="{{ route('plataforma.trabajos.show', [
                                                 'trabajo' => $trabajo->id,
                                             ]) }}"
@@ -92,8 +92,8 @@
                             <div class="row">
                                 @foreach ($trabajos as $trabajo)
                                     @if ($trabajo->rut_trabajador == Auth::user()->rut)
-                                        <div class="col">
-                                            <div class="card" style="margin-top:5px;">
+                                        <div class="col" >
+                                            <div class="card" style="margin-top:5px; width: 190px">
                                                 <div class="card-body">
                                                     <h5 class="card-title">{{ $trabajo->titulo }}</h5>
                                                     <h6 class="card-text">
@@ -111,7 +111,7 @@
                                                     </h6>
                                                     <p class="card-text">{{ $trabajo->descripcion }}.</p>
                                                     <p class="card-text"><strong>Ubicación:</strong>
-                                                        {{ $trabajo->direccion }}, {{ $trabajo->direccion }}</p>
+                                                        {{ $trabajo->direccion }}, {{ $trabajo->ciudad }}</p>
                                                     <a href="{{ route('plataforma.trabajos.show', [
                                                         'trabajo' => $trabajo->id,
                                                     ]) }}"

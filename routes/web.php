@@ -92,6 +92,7 @@ Route::match(['put', 'patch'],'plataforma/trabajos/{trabajo}', [TrabajoControlle
 Route::delete('plataforma/trabajos/{trabajo}', [TrabajoController::class, 'destroy'])->name('plataforma.trabajos.destroy');
 Route::match(['put', 'patch'],'plataforma/trabajos/suspender/{trabajo}', [TrabajoController::class, 'suspender'])->name('plataforma.trabajos.suspender');
 Route::match(['put', 'patch'],'plataforma/trabajos/cancelar/{trabajo}', [TrabajoController::class, 'cancelar'])->name('plataforma.trabajos.cancelar');
+Route::get('imprimirRendimiento', [PDFController::class, 'informeRendimiento'])->name('plataforma.trabajos.rendimiento');
 
 //gastos
 Route::get('plataforma/gastos',[GastoController::class, 'index'])->name('plataforma.gastos.index');

@@ -43,13 +43,18 @@
                                                     <span class="badge bg-warning">Atrasado</span>
                                                 @endif
                                             </td>
-                                            <td>{{ $trabajo->fecha_termino }}</td>
+                                            <td>@php
+
+                                                echo \Carbon\Carbon::parse($trabajo->fecha_termino)->format('d-m-Y H:i');
+                                            @endphp</td>
                                             <td>
                                                 <a class="btn btn-info"
                                                     href="{{ route('plataforma.trabajos.show', [
                                                         'trabajo' => $trabajo->id,
-                                                    ]) }}"><i
-                                                        class="fas fa-eye"></i> Ver</a>
+                                                    ]) }}" data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="Ver trabajo"><i
+                                                        class="fas fa-eye"></i></a>
 
 
                                             </td>

@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">{{ __('Editar Gasto') }}</div>
+                        <div class="card-header">{{ __('Editar gasto') }}</div>
 
                         <div class="card-body">
                             <div class="row mb-3">
@@ -37,10 +37,10 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="detalle" class="col-md-4 col-form-label text-md-end">Descripcion</label>
+                                <label for="detalle" class="col-md-4 col-form-label text-md-end">Detalle</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="detalle"
-                                        value="{{ old('detalle') ?? $gasto->detalle }}">
+                                    <textarea type="text" class="form-control" name="detalle"
+                                        > {{ old('detalle') ?? $gasto->detalle }} </textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">

@@ -12,10 +12,10 @@
     <div style="background-color: white">
         <div>
             <div>
-                <div ">
-                    <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;" alt="EZ"></img>
+                <div>
+                    <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;" alt="EZ">
                 </div>
-                <div >
+                <div>
                     <h3>COTIZACIÓN DE SERVICIO</h3>
                 </div>
                 <div  style="border: 3px solid red; text-align: center">
@@ -26,13 +26,13 @@
         </div>
         <div >
             <div >
-                <div >
+                <div>
 
                 </div>
-                <div >
+                <div>
 
                 </div>
-                <div >
+                <div>
                     <strong>Fecha:</strong> @php
 
                         echo \Carbon\Carbon::parse($cotizacion->fecha_creacion)->format('d/m/Y');
@@ -44,27 +44,27 @@
         <br>
         <div  style="border: 1px solid black;">
             <div >
-                <div >
+                <div>
                     <strong>Nombre:</strong> Eduardo Zambrano
                 </div>
             </div>
             <div >
-                <div >
+                <div>
                     <strong>Dirección:</strong> Cerro Murrinumo 462
                 </div>
             </div>
             <div >
-                <div >
+                <div>
                     <strong>Ciudad:</strong> Chillán
                 </div>
             </div>
             <div >
-                <div >
+                <div>
                     <strong>Teléfono:</strong> +56987339973
                 </div>
             </div>
             <div >
-                <div >
+                <div>
                     <strong>E-mail:</strong> soporte@ezsolutions.cl
                 </div>
             </div>
@@ -72,14 +72,14 @@
         <br>
         <div  style="border: 1px solid black;">
             <div >
-                <div >
+                <div>
                     <strong>Nombre Cliente: </strong>
 
                     {{ $cotizacion->cliente->nombre_completo }}
                 </div>
             </div>
             <div >
-                <div >
+                <div>
                     <strong>Dirección Cliente: </strong>
 
                     {{ $cotizacion->cliente->direccion }}
@@ -93,7 +93,7 @@
                 </div>
             </div>
             <div >
-                <div >
+                <div>
                     <strong>Teléfono Cliente: </strong>
 
                     {{ $cotizacion->cliente->telefono }}

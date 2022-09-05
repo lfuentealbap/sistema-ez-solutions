@@ -29,9 +29,9 @@ return new class extends Migration
             $table->bigInteger('id_area')->unsigned();
             $table->bigInteger('id_trabajo')->unsigned();
             $table->timestamps();
-            $table->foreign('id_area')->references('id')->on('areas');
-            $table->foreign('id_trabajo')->references('id')->on('trabajos');
-            $table->foreign('rut_trabajador')->references('rut')->on('trabajadores');
+            $table->foreign('id_area')->references('id')->on('areas')->onDelete('cascade');
+            $table->foreign('id_trabajo')->references('id')->on('trabajos')->onDelete('cascade');
+            $table->foreign('rut_trabajador')->references('rut')->on('trabajadores')->onDelete('cascade');
         });
     }
 
