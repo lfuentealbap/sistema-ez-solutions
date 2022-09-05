@@ -105,7 +105,7 @@
 
             <div>
                 @foreach ($trabajos as $tra)
-                @if (($trabajador->rut == $tra->trabajador->rut) && ($tra->cantidad !='0'))
+                @if (($trabajador->rut == $tra->trabajador->rut) && ($tra->cantidad !=0))
                 <table style="border-collapse: collapse;">
                     <thead style="border: 1px solid black;">
                         <tr style="border: 1px solid black;">
