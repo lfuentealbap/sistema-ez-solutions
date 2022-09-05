@@ -66,7 +66,7 @@
         @endforeach
 
         <div>
-            <table style="border-collapse: collapse;">
+            <table style="border-collapse: collapse; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
                 <thead style="border: 1px solid black;">
                     <tr style="border: 1px solid black;">
                         <th style="width: 60%; border: 1px solid black; padding: 5px;">Nombre del trabajador</th>
@@ -98,10 +98,10 @@
     @foreach ($trabajos as $trabaj)
         @if ($trabaj->trabajador->rol == 'jefe' || $trabaj->trabajador->rol == 'trabajador')
             <div>
-                <h5>{{ $trabaj->trabajador->nombres }} {{ $trabaj->trabajador->apellidos }}:</h5>
+                <h5 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{ $trabaj->trabajador->nombres }} {{ $trabaj->trabajador->apellidos }}:</h5>
             </div>
             <div>
-                <table style="border-collapse: collapse;">
+                <table style="border-collapse: collapse; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
                     <thead style="border: 1px solid black;">
                         <tr style="border: 1px solid black;">
                             <th style="width: 60%; border: 1px solid black; padding: 5px;">Trabajo</th>
