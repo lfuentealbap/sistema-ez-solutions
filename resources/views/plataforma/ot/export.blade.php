@@ -10,7 +10,7 @@
 
 <body>
     <div style="background-color: white">
-        <span>
+        <div style="width: 100%">
             <span
                 style="width:30%; margin-left: 0; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
                 <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;"
@@ -19,12 +19,11 @@
             <span style="width:30%; margin:0;">
                 <h3>ORDEN DE TRABAJO</h3>
             </span>
-            <span style="border: 3px solid red; text-align: center; width:30%; margin-right:0;">
-
+            <span style="border: 3px solid red; text-align: center; width:30%; height:10px; margin-right:0;">
                 <h5>Orden N°{{ $ot->id }} </h5>
             </span>
 
-        </span>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col">
