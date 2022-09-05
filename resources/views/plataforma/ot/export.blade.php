@@ -12,10 +12,11 @@
 
     <div style="width: 100%; display:block; vertical-align: top;">
         <div
-            style="margin-left: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
+            style="float:left; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
             <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px;" alt="EZ">
         </div>
-        <div style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto; margin-left: auto; text-align: center;">
+        <div
+            style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto; margin-left: auto; text-align: center;">
             <h3>ORDEN DE TRABAJO</h3>
         </div>
         <div
@@ -27,7 +28,7 @@
     <br>
     <br>
 
-    <div style="width: 100%; border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif;">
+    <div style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
         <div style="width: 50%; border: 1px solid white;">
             <strong>Tipo requerimiento:</strong>
             {{ $ot->tipo_requerimiento }}
@@ -42,7 +43,7 @@
 
     <br>
 
-    <div style="width: 100%; border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif;">
+    <div style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
             <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Nombre técnico: </strong></div>
             {{ $ot->trabajador->nombres }} {{ $ot->trabajador->apellidos }}
@@ -53,7 +54,7 @@
             {{ $ot->nombre_colaborador }}
         </div>
     </div>
-    <div style="width: 100%; border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif;">
+    <div style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
             <div style="background-color: rgb(0, 145, 255); color: white; "><strong>Dirección: </strong></div>
             {{ $ot->direccion }}
@@ -63,7 +64,7 @@
             {{ $ot->ciudad }}
         </div>
     </div>
-    <div style="width: 100%; border-collapse: collapse; display: block; font-family: Arial, Helvetica, sans-serif;">
+    <div style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
             <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Detalles equipo antiguo: </strong>
             </div>
@@ -92,20 +93,19 @@
         <div style="width: 100%; border: 2px solid rgb(0, 145, 255);">
             <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Observaciones: </strong></div>
             {{ $ot->observaciones }}
-
-        </div>
-
-        <br>
-        <div
-            style="display: block;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
-            <div>
-                <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="200px">
-                <br>
-                <strong style="border-top: 1px solid black;">Firma colaborador </strong>
-            </div>
-
         </div>
     </div>
+    <br>
+    <div
+        style="display: block;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+        <div>
+            <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="200px">
+            <br>
+            <strong style="border-top: 1px solid black;">Firma colaborador </strong>
+        </div>
+
+    </div>
+
 
 
 </body>
