@@ -14,7 +14,7 @@
         <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;" alt="EZ">{{__(' EZ Solutions')}}
     </div>
     <div style="text-align: center;">
-        <h1>Informe de rendimiento del mes de @php
+        <h2>Informe de rendimiento del mes de @php
             $mes = \Carbon\Carbon::parse(\Carbon\Carbon::now())->format('m');
             $anio = \Carbon\Carbon::parse(\Carbon\Carbon::now())->format('Y');
             if($mes == '01'){
@@ -53,7 +53,7 @@
             if($mes == '12'){
                 echo "Diciembre";
             } echo ' del '.$anio;
-        @endphp </h1>
+        @endphp </h2>
         @php
             $total = 0;
         @endphp
@@ -66,18 +66,18 @@
             <table class="table-responsive">
                 <thead>
                     <tr style="border: 1px solid black;">
-                        <th style="width: 60%; border: 1px solid black;">Nombre del trabajador</th>
-                        <th style="border: 1px solid black;">Total trabajos</th>
-                        <th style="border: 1px solid black;">% equivalente general</th>
+                        <th style="width: 60%; border: 1px solid black; padding: 5px;">Nombre del trabajador</th>
+                        <th style="border: 1px solid black; padding: 5px;">Total trabajos</th>
+                        <th style="border: 1px solid black; padding: 5px;">% equivalente general</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     @foreach ($trabajos as $trabajo)
-                        <tr>
-                            <td style="border: 1px solid black;">{{ $trabajo->trabajador->nombres }} {{ $trabajo->trabajador->apellidos }}</td>
-                            <td style="border: 1px solid black;">{{ $trabajo->cantidad }}</td>
-                            <td style="border: 1px solid black;">@php
+                        <tr style="border: 1px solid black;">
+                            <td style="border: 1px solid black; padding: 5px;">{{ $trabajo->trabajador->nombres }} {{ $trabajo->trabajador->apellidos }}</td>
+                            <td style="border: 1px solid black; padding: 5px;">{{ $trabajo->cantidad }}</td>
+                            <td style="border: 1px solid black; padding: 5px;">@php
                                 $porcentaje = ($trabajo->cantidad*100)/$total;
                                 echo round($porcentaje, 2).'%'
                             @endphp</td>
@@ -100,20 +100,20 @@
         <div>
             <table class="table-responsive">
                 <thead>
-                    <tr>
-                        <th style="width: 60%; border: 1px solid black;">Trabajo</th>
-                        <th style="border: 1px solid black;">Dirección</th>
-                        <th style="border: 1px solid black;">Fecha término</th>
+                    <tr style="border: 1px solid black;">
+                        <th style="width: 60%; border: 1px solid black; padding: 5px;">Trabajo</th>
+                        <th style="border: 1px solid black; padding: 5px;">Dirección</th>
+                        <th style="border: 1px solid black; padding: 5px;">Fecha término</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     @foreach ($trabajos1 as $trabajo)
                         @if ($trabajo->trabajador->rut == $trabajador->rut)
-                        <tr>
-                            <td style="border: 1px solid black;">{{ $trabajo->titulo }} </td>
-                            <td style="border: 1px solid black;">{{ $trabajo->direccion }}, {{ $trabajo->ciudad }}</td>
-                            <td style="border: 1px solid black;">@php
+                        <tr style="border: 1px solid black;">
+                            <td style="border: 1px solid black; padding: 5px;">{{ $trabajo->titulo }} </td>
+                            <td style="border: 1px solid black; padding: 5px;">{{ $trabajo->direccion }}, {{ $trabajo->ciudad }}</td>
+                            <td style="border: 1px solid black; padding: 5px;">@php
 
                                 echo \Carbon\Carbon::parse($trabajo->fecha_termino)->format('d-m-Y');
                             @endphp</td>
