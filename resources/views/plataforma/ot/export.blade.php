@@ -15,11 +15,11 @@
             style="margin-left: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
             <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 50px;" alt="EZ">
         </div>
-        <div style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        <div style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto;margin-left: auto;">
             <h3>ORDEN DE TRABAJO</h3>
         </div>
         <div
-            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:55px; float: right; margin-right: 0;">
+            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:55px; margin-right: auto;">
             <h5>Orden N°{{ $ot->id }} </h5>
         </div>
 
@@ -32,10 +32,10 @@
             <strong>Tipo requerimiento:</strong>
             {{ $ot->tipo_requerimiento }}
         </div>
-        <div style="width: 50%;border: 1px solid white; float: right;">
+        <div style="width: 50%;border: 1px solid white; margin-right: auto;">
             <strong>Fecha:</strong> @php
 
-            echo \Carbon\Carbon::parse($ot->fecha)->format('d/m/Y');
+                echo \Carbon\Carbon::parse($ot->fecha)->format('d/m/Y');
             @endphp
         </div>
     </div>
@@ -48,7 +48,8 @@
             {{ $ot->trabajador->nombres }} {{ $ot->trabajador->apellidos }}
         </div>
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
-            <div style="background-color: rgb(0, 145, 255); color: white; float: right;"><strong>Nombre colaborador: </strong></div>
+            <div style="background-color: rgb(0, 145, 255); color: white; margin-right: auto;"><strong>Nombre colaborador:
+                </strong></div>
             {{ $ot->nombre_colaborador }}
         </div>
     </div>
@@ -58,41 +59,45 @@
             {{ $ot->direccion }}
         </div>
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
-            <div style="background-color: rgb(0, 145, 255); color: white;float: right;"><strong>Ciudad: </strong></div>
+            <div style="background-color: rgb(0, 145, 255); color: white;margin-right: auto;"><strong>Ciudad: </strong></div>
             {{ $ot->ciudad }}
         </div>
     </div>
     <div style="width: 100%; border-collapse: collapse; display: flex; font-family: Arial, Helvetica, sans-serif;">
         <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
-            <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Detalles equipo antiguo: </strong></div>
-                {{ $ot->detalles_equipo_antiguo }}
+            <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Detalles equipo antiguo: </strong>
             </div>
-            <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
-                <div style="background-color: rgb(0, 145, 255); color: white;float: right;"><strong>Detalles equipo nuevo: </strong></div>
-                {{ $ot->detalles_equipo_nuevo }}
-            </div>
+            {{ $ot->detalles_equipo_antiguo }}
+        </div>
+        <div style="width: 50%;border: 1px solid rgb(0, 145, 255);">
+            <div style="background-color: rgb(0, 145, 255); color: white;margin-right: auto;"><strong>Detalles equipo nuevo:
+                </strong></div>
+            {{ $ot->detalles_equipo_nuevo }}
         </div>
     </div>
+    </div>
 
-<br>
+    <br>
     <div style="border-collapse: collapse; display: flex; font-family: Arial, Helvetica, sans-serif; height: 200px;">
         <div style="width: 100%; border: 2px solid rgb(0, 145, 255);">
-            <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Descripcion de la solución: </strong></div>
-                {{ $ot->descripcion_solucion }}
+            <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Descripcion de la solución: </strong>
             </div>
+            {{ $ot->descripcion_solucion }}
         </div>
+    </div>
 
     <br>
 
     <div style="border-collapse: collapse; display: flex; font-family: Arial, Helvetica, sans-serif;height: 180px;">
         <div style="width: 100%; border: 2px solid rgb(0, 145, 255);">
             <div style="background-color: rgb(0, 145, 255); color: white;"><strong>Observaciones: </strong></div>
-                {{ $ot->observaciones }}
-            </div>
+            {{ $ot->observaciones }}
+
         </div>
 
-<br>
-    <div style="display: block;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+        <br>
+        <div
+            style="display: block;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
             <div>
                 <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="200px">
                 <br>
