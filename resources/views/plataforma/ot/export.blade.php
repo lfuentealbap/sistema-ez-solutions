@@ -10,7 +10,7 @@
 
 <body style="background-color: white;">
 
-    <div style="width: 100%; display:table; vertical-align: middle;">
+    <div style="display:table; vertical-align: middle;">
         <div
             style="float:left; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
             <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px;" alt="EZ">
@@ -100,7 +100,7 @@
     <div style="display: block;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
         <div>
             <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="200px">
-
+<br>
             <strong style="border-top: 1px solid black;">Firma colaborador </strong>
         </div>
 
