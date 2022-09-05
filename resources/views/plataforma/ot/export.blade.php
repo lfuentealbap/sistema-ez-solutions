@@ -92,8 +92,8 @@
         </div>
 
 <br>
-    <div style="display: flex; font-family: Arial, Helvetica, sans-serif;">
-            <div style="margin-bottom: 0px auto;">
+    <div style="display: block;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+            <div>
                 <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="200px">
                 <br>
                 <strong style="border-top: 1px solid black;">Firma colaborador </strong>
