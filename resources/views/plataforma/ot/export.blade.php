@@ -100,7 +100,7 @@
     </table>
 
     <br>
-    <table style="width: 100%;border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;margin-bottom: 300px;">
+    <table style="width: 100%;border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;margin-bottom: 200px;">
         <thead style="width: 100%; border: 2px solid rgb(0, 145, 255);">
             <th style="width: 100%;background-color: rgb(0, 145, 255); color: white;"><strong>Observaciones: </strong>
             </th>
@@ -111,7 +111,7 @@
     </table>
     <div
         style="display: block;margin-bottom: auto ;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
-        <div style="border-bottom: 1px solid black;">
+        <div style="border-bottom: 1px solid black;width: 150px">
             <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="150px">
         </div>
         <div><strong>Firma colaborador </strong></div>
