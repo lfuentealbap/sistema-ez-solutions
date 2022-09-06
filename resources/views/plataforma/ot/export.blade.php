@@ -82,8 +82,8 @@
                 </strong></th>
         </thead>
         <tbody style=" border: 1px solid rgb(0, 145, 255);">
-            <td style=" border: 1px solid rgb(0, 145, 255);">{{ $ot->detalles_equipo_antiguo }}</td>
-            <td style=" border: 1px solid rgb(0, 145, 255);">{{ $ot->detalles_equipo_nuevo }}</td>
+            <td style=" border: 1px solid rgb(0, 145, 255);height: 100px;">{{ $ot->detalles_equipo_antiguo }}</td>
+            <td style=" border: 1px solid rgb(0, 145, 255);height: 100px;">{{ $ot->detalles_equipo_nuevo }}</td>
         </tbody>
     </table>
     <br>
@@ -94,7 +94,7 @@
             </th>
         </thead>
         <tbody style="width: 100%; border: 2px solid rgb(0, 145, 255);">
-            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);">{{ $ot->descripcion_solucion }}</td>
+            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);height: 100px;">{{ $ot->descripcion_solucion }}</td>
         </tbody>
     </table>
 
@@ -105,13 +105,14 @@
             </th>
         </thead>
         <tbody style="width: 100%; border: 2px solid rgb(0, 145, 255);">
-            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);">{{ $ot->observaciones }}</td>
+            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);height: 100px;">{{ $ot->observaciones }}</td>
         </tbody>
     </table>
     <div
         style="display: block;margin-bottom: auto ;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
         <div>
             <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="150px">
+            <br>
             <strong style="border-top: 1px solid black;">Firma colaborador </strong>
         </div>
 
@@ -119,3 +120,4 @@
 </body>
 
 </html>
+
