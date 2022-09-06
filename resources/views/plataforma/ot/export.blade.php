@@ -46,9 +46,9 @@
 
     <table style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
         <thead style=" border: 1px solid rgb(0, 145, 255); text-align: left;">
-            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;"><strong>Nombre técnico:
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Nombre técnico:
                 </strong></th>
-            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;"><strong>Nombre
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Nombre
                     colaborador:
                 </strong></th>
         </thead>
@@ -60,9 +60,9 @@
     </table>
     <table style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
         <thead style=" border: 1px solid rgb(0, 145, 255); text-align: left;">
-            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;"><strong>Dirección:
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Dirección:
                 </strong></th>
-            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;"><strong>Ciudad:
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Ciudad:
                 </strong></th>
         </thead>
         <tbody style=" border: 1px solid rgb(0, 145, 255);">
@@ -72,9 +72,9 @@
     </table>
     <table style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
         <thead style=" border: 1px solid rgb(0, 145, 255); text-align: left;">
-            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;"><strong>Detalles equipo antiguo:
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Detalles equipo antiguo:
                 </strong></th>
-            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;"><strong>Detalles equipo
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Detalles equipo
                     nuevo:
                 </strong></th>
         </thead>
@@ -105,11 +105,6 @@
             <td style="width: 100%; border: 2px solid rgb(0, 145, 255);">{{ $ot->observaciones }}</td>
         </tbody>
     </table>
-
-    <br>
-
-
-
 
 </body>
 <footer
