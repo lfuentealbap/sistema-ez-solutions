@@ -82,8 +82,8 @@
                 </strong></th>
         </thead>
         <tbody style=" border: 1px solid rgb(0, 145, 255);">
-            <td style=" border: 1px solid rgb(0, 145, 255);height: 100px;">{{ $ot->detalles_equipo_antiguo }}</td>
-            <td style=" border: 1px solid rgb(0, 145, 255);height: 100px;">{{ $ot->detalles_equipo_nuevo }}</td>
+            <td style=" border: 1px solid rgb(0, 145, 255);height: 100px; vertical-align: text-top">{{ $ot->detalles_equipo_antiguo }}</td>
+            <td style=" border: 1px solid rgb(0, 145, 255);height: 100px; vertical-align: text-top">{{ $ot->detalles_equipo_nuevo }}</td>
         </tbody>
     </table>
     <br>
@@ -94,7 +94,7 @@
             </th>
         </thead>
         <tbody style="width: 100%; border: 2px solid rgb(0, 145, 255);">
-            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);height: 100px;">{{ $ot->descripcion_solucion }}
+            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);height: 100px; vertical-align: text-top">{{ $ot->descripcion_solucion }}
             </td>
         </tbody>
     </table>
@@ -106,7 +106,7 @@
             </th>
         </thead>
         <tbody style="width: 100%; border: 2px solid rgb(0, 145, 255);">
-            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);height: 100px;">{{ $ot->observaciones }}</td>
+            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);height: 100px; vertical-align: text-top">{{ $ot->observaciones }}</td>
         </tbody>
     </table>
     <div
