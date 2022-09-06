@@ -20,7 +20,7 @@
             <h3>ORDEN DE TRABAJO</h3>
         </td>
         <td
-            style="width: 20%; border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:55px;">
+            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:55px;">
             <h5>Orden N°{{ $ot->id }} </h5>
         </td>
 
