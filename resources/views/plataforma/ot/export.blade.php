@@ -112,7 +112,7 @@
     <div
         style="display: block;margin-bottom: auto ;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
         <div>
-            <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="150px">
+            <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="130px">
         </div>
         <strong style="border-top: 1px solid black;">Firma colaborador </strong>
 
