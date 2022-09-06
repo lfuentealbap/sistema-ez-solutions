@@ -94,12 +94,13 @@
             </th>
         </thead>
         <tbody style="width: 100%; border: 2px solid rgb(0, 145, 255);">
-            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);height: 100px;">{{ $ot->descripcion_solucion }}</td>
+            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);height: 100px;">{{ $ot->descripcion_solucion }}
+            </td>
         </tbody>
     </table>
 
     <br>
-    <table style="width: 100%;border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
+    <table style="width: 100%;border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;margin-bottom: 300px;">
         <thead style="width: 100%; border: 2px solid rgb(0, 145, 255);">
             <th style="width: 100%;background-color: rgb(0, 145, 255); color: white;"><strong>Observaciones: </strong>
             </th>
@@ -110,14 +111,12 @@
     </table>
     <div
         style="display: block;margin-bottom: auto ;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
-        <div>
+        <div style="border-bottom: 1px solid black;">
             <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="150px">
-            <br>
-            <strong style="border-top: 1px solid black;">Firma colaborador </strong>
         </div>
+        <div><strong>Firma colaborador </strong></div>
 
     </div>
 </body>
 
 </html>
-
