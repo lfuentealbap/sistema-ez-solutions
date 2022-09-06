@@ -20,7 +20,7 @@
             <h3>ORDEN DE TRABAJO</h3>
         </td>
         <td
-            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:40px;">
+            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:200px; height:40px;">
             <h5>Orden N°{{ $ot->id }} </h5>
         </td>
 
@@ -109,10 +109,10 @@
         </tbody>
     </table>
     <div
-        style="display: block;margin-bottom: 10px ;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+        style="display: block;margin-bottom: auto ;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
         <div>
-            <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="200px">
-            <br>
+            <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="180px">
+            <p></p>
             <strong style="border-top: 1px solid black;">Firma colaborador </strong>
         </div>
 
