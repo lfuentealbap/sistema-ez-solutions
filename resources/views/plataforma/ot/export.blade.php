@@ -20,7 +20,7 @@
             <h3>ORDEN DE TRABAJO</h3>
         </td>
         <td
-            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:55px;">
+            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:150px; height:40px;">
             <h5>Orden N°{{ $ot->id }} </h5>
         </td>
 
@@ -37,7 +37,7 @@
         <td style="width: 50%;border: 1px solid white; text-align: right; margin-top: 0px auto;">
             <strong>Fecha:</strong> @php
 
-            echo \Carbon\Carbon::parse($ot->fecha)->format('d/m/Y');
+                echo \Carbon\Carbon::parse($ot->fecha)->format('d/m/Y');
             @endphp
         </td>
     </table>
@@ -46,15 +46,16 @@
 
     <table style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
         <thead style=" border: 1px solid rgb(0, 145, 255); text-align: left;">
-            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Nombre técnico:
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Nombre
+                    técnico:
                 </strong></th>
             <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Nombre
                     colaborador:
                 </strong></th>
         </thead>
         <tbody style=" border: 1px solid rgb(0, 145, 255);">
-            <td style=" border: 1px solid rgb(0, 145, 255);">{{ $ot->trabajador->nombres }} {{
-                $ot->trabajador->apellidos }}</td>
+            <td style=" border: 1px solid rgb(0, 145, 255);">{{ $ot->trabajador->nombres }}
+                {{ $ot->trabajador->apellidos }}</td>
             <td style=" border: 1px solid rgb(0, 145, 255);">{{ $ot->nombre_colaborador }}</td>
         </tbody>
     </table>
@@ -72,9 +73,11 @@
     </table>
     <table style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
         <thead style=" border: 1px solid rgb(0, 145, 255); text-align: left;">
-            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Detalles equipo antiguo:
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Detalles
+                    equipo antiguo:
                 </strong></th>
-            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Detalles equipo
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Detalles
+                    equipo
                     nuevo:
                 </strong></th>
         </thead>
@@ -105,9 +108,7 @@
             <td style="width: 100%; border: 2px solid rgb(0, 145, 255);">{{ $ot->observaciones }}</td>
         </tbody>
     </table>
-
-</body>
-<footer
+    <div
         style="display: block;margin-bottom: 10px ;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
         <div>
             <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="200px">
@@ -115,5 +116,7 @@
             <strong style="border-top: 1px solid black;">Firma colaborador </strong>
         </div>
 
-</footer>
+    </div>
+</body>
+
 </html>
