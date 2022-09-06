@@ -13,7 +13,7 @@
     <table style="width: 100%; overflow: visible ; vertical-align: middle;">
         <td
             style="width: 10%; float:left; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
-            <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px;" alt="EZ">
+            <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px; width: 60px" alt="EZ">
         </td>
         <td
             style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto; margin-left: auto; text-align: center;">
@@ -108,7 +108,7 @@
 
 </body>
 <footer
-        style="display: block;margin-bottom: auto ;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+        style="display: block;margin-bottom: 10px ;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
         <div>
             <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="200px">
             <br>
