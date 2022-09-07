@@ -33,4 +33,12 @@ class PDFController extends Controller
         $pdf = Pdf::loadView('plataforma.informes.rendimiento', $data);
      return $pdf->download('informe-rendimiento-mes.pdf');
     }
+    public function informeRealizados(){
+        $mes = Carbon::now('m');
+        $trabajos = Trabajo::whereMonth('fecha_termino', '=', $mes)->select('*')->where('estado', 'finalizado')->get();
+        $trabajadores = User::all();
+        $data = ['trabajos' => $trabajos, 'trabajadores'=> $trabajadores];
+        $pdf = Pdf::loadView('plataforma.informes.trealizados', $data);
+     return $pdf->download('informe-trabajos-realizados-mes.pdf');
+    }
 }
