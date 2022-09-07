@@ -59,10 +59,6 @@
         @endphp </h2>
 
         <br>
-
-        <div>
-            <h5 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">:</h5>
-        </div>
         <div>
             <table
                 style="border-collapse: collapse; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
