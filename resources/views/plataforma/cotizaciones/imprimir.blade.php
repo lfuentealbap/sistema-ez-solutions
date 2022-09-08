@@ -46,7 +46,7 @@
                 <thead>
                     <th style="width: 40%; background-color: darkturquoise; float:left;">Datos empresa:</th>
                     <th style="width: 20%;"></th>
-                    <th style="width: 40%; background-color: darkturquoise; float:right">Datos cliente:</th>
+                    <th style="width: 40%; background-color: darkturquoise; float:right; margin-right: 0px auto;">Datos cliente:</th>
                 </thead>
                 <tbody>
                     <tr>
