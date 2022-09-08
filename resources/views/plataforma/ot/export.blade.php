@@ -5,154 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cotización</title>
+    <title>Orden de trabajo</title>
 </head>
 
-<body>
-    <div style="background-color: white">
-        <table style="width: 100%; overflow: visible ; vertical-align: middle;">
-            <td
-                style="width: 10%; float:left; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
-                <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px; width: 60px" alt="EZ">
+<body style="background-color: white;">
+
+    <table style="width: 100%; overflow: visible ; vertical-align: middle;">
+        <td
+            style="width: 10%; float:left; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
+            <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px; width: 60px" alt="EZ">
+        </td>
+        <td
+            style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto; margin-left: auto; text-align: center;">
+            <h3>ORDEN DE TRABAJO</h3>
+        </td>
+        <td
+            style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:200px; height:40px;">
+            <h5>Orden N°{{ $ot->id }} </h5>
+        </td>
+
+    </table>
+    <br>
+    <br>
+
+    <table
+        style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; vertical-align: middle;">
+        <td style="width: 50%; border: 1px solid white; text-align: left; margin-top: 0px auto;">
+            <strong>Tipo requerimiento:</strong>
+            {{ $ot->tipo_requerimiento }}
+        </td>
+        <td style="width: 50%;border: 1px solid white; text-align: right; margin-top: 0px auto;">
+            <strong>Fecha:</strong> @php
+
+                echo \Carbon\Carbon::parse($ot->fecha)->format('d/m/Y');
+            @endphp
+        </td>
+    </table>
+
+    <br>
+
+    <table style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
+        <thead style=" border: 1px solid rgb(0, 145, 255); text-align: left;">
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Nombre
+                    técnico:
+                </strong></th>
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Nombre
+                    colaborador:
+                </strong></th>
+        </thead>
+        <tbody style=" border: 1px solid rgb(0, 145, 255);">
+            <td style=" border: 1px solid rgb(0, 145, 255);">{{ $ot->trabajador->nombres }}
+                {{ $ot->trabajador->apellidos }}</td>
+            <td style=" border: 1px solid rgb(0, 145, 255);">{{ $ot->nombre_colaborador }}</td>
+        </tbody>
+    </table>
+    <table style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
+        <thead style=" border: 1px solid rgb(0, 145, 255); text-align: left;">
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Dirección:
+                </strong></th>
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%;text-align: left;"><strong>Ciudad:
+                </strong></th>
+        </thead>
+        <tbody style=" border: 1px solid rgb(0, 145, 255);">
+            <td style=" border: 1px solid rgb(0, 145, 255);">{{ $ot->direccion }}</td>
+            <td style=" border: 1px solid rgb(0, 145, 255);">{{ $ot->ciudad }}</td>
+        </tbody>
+    </table>
+    <table style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
+        <thead style=" border: 1px solid rgb(0, 145, 255); text-align: left;">
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Detalles
+                    equipo antiguo:
+                </strong></th>
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Detalles
+                    equipo
+                    nuevo:
+                </strong></th>
+        </thead>
+        <tbody style=" border: 1px solid rgb(0, 145, 255);">
+            <td style=" border: 1px solid rgb(0, 145, 255);height: 100px; vertical-align: text-top">{{ $ot->detalles_equipo_antiguo }}</td>
+            <td style=" border: 1px solid rgb(0, 145, 255);height: 100px; vertical-align: text-top">{{ $ot->detalles_equipo_nuevo }}</td>
+        </tbody>
+    </table>
+    <br>
+    <table style="width: 100%;border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
+        <thead style="width: 100%; border: 2px solid rgb(0, 145, 255);">
+            <th style="width: 100%;background-color: rgb(0, 145, 255); color: white;"><strong>Descripcion de la
+                    solución: </strong>
+            </th>
+        </thead>
+        <tbody style="width: 100%; border: 2px solid rgb(0, 145, 255);">
+            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);height: 100px; vertical-align: text-top">{{ $ot->descripcion_solucion }}
             </td>
-            <td
-                style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto; margin-left: auto; text-align: center;">
-                <h3>COTIZACIÓN DE SERVICIO</h3>
-            </td>
-            <td
-                style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:200px; height:40px;">
-                <h5>Cotización N°{{ $cotizacion->id }} </h5>
-            </td>
+        </tbody>
+    </table>
 
-        </table>
-        <table
-            style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; vertical-align: middle;">
-            <td style="width: 50%; border: 1px solid white; text-align: left; margin-top: 0px auto;">
-                <strong></strong>
-            </td>
-            <td style="width: 50%;border: 1px solid white; text-align: right; margin-top: 0px auto;">
-                <strong>Fecha:</strong> @php
-
-                echo \Carbon\Carbon::parse($cotizacion->fecha_creacion)->format('d/m/Y');
-                @endphp
-            </td>
-        </table>
-        <br>
-        <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top;">
-            <thead>
-                <th style="width: 40%; background-color: darkturquoise;">Datos empresa:</th>
-                <th style="width: 40%; background-color: darkturquoise;">Datos cliente:</th>
-            </thead>
-            <tbody style="border: 1px solid black;font-size: 12px;">
-                <tr>
-                    <td><strong>Nombre:</strong> Eduardo Zambrano</td>
-                    <td><strong>Nombre Cliente: </strong>
-
-                        {{ $cotizacion->cliente->nombre_completo }}</td>
-
-                </tr>
-                <tr>
-                    <td><strong>Dirección:</strong> Cerro Murrinumo 462</td>
-                    <td><strong>Dirección Cliente: </strong>
-
-                        {{ $cotizacion->cliente->direccion }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Ciudad:</strong> Chillán</td>
-                    <td> <strong>Ciudad Cliente: </strong>
-
-                        {{ $cotizacion->cliente->ciudad }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Teléfono:</strong> +56987339973</td>
-                    <td><strong>Teléfono Cliente: </strong>
-
-                        {{ $cotizacion->cliente->telefono }}</td>
-                </tr>
-                <tr>
-                    <td><strong>E-mail:</strong> soporte@ezsolutions.cl</td>
-                    <td><strong>E-mail Cliente: </strong>
-
-                        {{ $cotizacion->cliente->email }}</td>
-                </tr>
-
-            </tbody>
-        </table>
-        <br>
-        <br>
-        <div style="height: 400px;">
-            <table style="border-collapse: collapse;">
-                <thead style="font-family: Arial, Helvetica, sans-serif;">
-                    <tr>
-                        <th style="border: 2px solid black; width: 5%;">Código</th>
-                        <th style="border: 2px solid black;">Nombre</th>
-                        <th style="border: 2px solid black; width: 5%;">Cantidad</th>
-                        <th style="border: 2px solid black; width: 20%;">Precio</th>
-                        <th style="border: 2px solid black;width: 20%;">Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody style="border: 2px solid black; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
-
-                    @foreach ($cotizacion_producto as $cp)
-                    <tr style="border: 1px solid black;">
-                        <td style="border: 1px solid black;"> {{ $cp->codigo_producto }} </td>
-                        @foreach ($productos as $producto)
-                        @if ($cp->codigo_producto == $producto->codigo)
-                        <td style="border: 1px solid black;"> {{ $producto->nombre }} </td>
-                        @endif
-                        @endforeach
-                        <td style="border: 1px solid black;"> {{ $cp->cantidad }} </td>
-                        @foreach ($productos as $producto)
-                        @if ($cp->codigo_producto == $producto->codigo)
-                        <td style="border: 1px solid black;"> {{ $producto->valor }} </td>
-                        @endif
-                        @endforeach
-                        <td style="border: 1px solid black;"> {{ $cp->subtotal }} </td>
-
-                    </tr>
-                    @endforeach
-            </table>
+    <br>
+    <table style="width: 100%;border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;margin-bottom: 150px;">
+        <thead style="width: 100%; border: 2px solid rgb(0, 145, 255);">
+            <th style="width: 100%;background-color: rgb(0, 145, 255); color: white;"><strong>Observaciones: </strong>
+            </th>
+        </thead>
+        <tbody style="width: 100%; border: 2px solid rgb(0, 145, 255);">
+            <td style="width: 100%; border: 2px solid rgb(0, 145, 255);height: 100px; vertical-align: text-top">{{ $ot->observaciones }}</td>
+        </tbody>
+    </table>
+    <div
+        style="display: block;margin-bottom: auto ;margin-left: auto; margin-right: auto; font-size: 16px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+        <div>
+            <img src="{{ asset($ot->firma . '.png') }}" alt="firma" height="130px">
         </div>
-        <br>
-        <table style=" width: 100%; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 14px;">
-            <td style="width: 70%;"></td>
-            <td style="width: 30%; border: 3px solid black;">
-                <strong> Neto: </strong>${{ $cotizacion->neto }} <br>
-                <strong>IVA: </strong>${{ $cotizacion->iva }} <br>
-                <strong>Descuentos: </strong>${{ $cotizacion->descuento }} <br>
-                <strong>Total: </strong>${{ $cotizacion->total }}
-            </td>
-        </table>
-        <br>
-        <table style=" width: 100%;">
-            <thead>
-                 <th style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif;">Términos y condiciones</th>
-                 <th></th>
-            </thead>
+        <strong style="border-top: 1px solid black;">Firma colaborador </strong>
 
-            <td style="width: 70%;border: 3px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-                <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
-                <p>Plazo de entrega 2 Dias hábiles</p>
-                @if($cotizacion->iva == 0)
-                <p><i>Valor sin iva incluido</i></p>
-                @else
-                <p><i>Valor con iva incluido</i></p>
-                @endif
-                <p><strong>x</strong>______________________</p>
-                <p>Nombre: </p>
-            </td>
-
-        </table>
-        <div style="text-align: center; font-family: Arial, Helvetica, sans-serif;font-size: 12px;">
-            Si usted tiene alguna duda sobre esta cotización, por favor, póngase en contacto con nosotros <br>
- SERVICIOS INFORMATICOS | Teléfono: +56987339973 | E-mail: Soporte@ezsolutions.cl <br>
- <p style="color: blue;"> <i>Gracias por su preferencia !</i> </p>
-
-        </div>
     </div>
 </body>
-
-</body>
-
 
 </html>

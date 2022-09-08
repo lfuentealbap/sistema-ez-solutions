@@ -10,156 +10,146 @@
 
 <body>
     <div style="background-color: white">
-        <div>
-            <div>
-                <div>
-                    <img src="{{ asset('img/inicio/logo.png') }}" style="width: 100px; height: 80px;" alt="EZ">
-                </div>
-                <div>
-                    <h3>COTIZACIÓN DE SERVICIO</h3>
-                </div>
-                <div  style="border: 3px solid red; text-align: center">
-                    <br>
-                    <h5>COTIZACIÓN N°{{ $cotizacion->id }} </h5>
-                </div>
-            </div>
-        </div>
-        <div >
-            <div >
-                <div>
+        <table style="width: 100%; overflow: visible ; vertical-align: middle;">
+            <td
+                style="width: 10%; float:left; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
+                <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px; width: 60px" alt="EZ">
+            </td>
+            <td
+                style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto; margin-left: auto; text-align: center;">
+                <h3>COTIZACIÓN DE SERVICIO</h3>
+            </td>
+            <td
+                style="border: 3px solid red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; width:200px; height:40px;">
+                <h5>Cotización N°{{ $cotizacion->id }} </h5>
+            </td>
 
-                </div>
-                <div>
+        </table>
+        <table
+            style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; vertical-align: middle;">
+            <td style="width: 50%; border: 1px solid white; text-align: left; margin-top: 0px auto;">
+                <strong></strong>
+            </td>
+            <td style="width: 50%;border: 1px solid white; text-align: right; margin-top: 0px auto;">
+                <strong>Fecha:</strong> @php
 
-                </div>
-                <div>
-                    <strong>Fecha:</strong> @php
-
-                        echo \Carbon\Carbon::parse($cotizacion->fecha_creacion)->format('d/m/Y');
-                    @endphp
-                    <br>
-                </div>
-            </div>
-        </div>
+                echo \Carbon\Carbon::parse($cotizacion->fecha_creacion)->format('d/m/Y');
+                @endphp
+            </td>
+        </table>
         <br>
-        <div  style="border: 1px solid black;">
-            <div >
-                <div>
-                    <strong>Nombre:</strong> Eduardo Zambrano
-                </div>
-            </div>
-            <div >
-                <div>
-                    <strong>Dirección:</strong> Cerro Murrinumo 462
-                </div>
-            </div>
-            <div >
-                <div>
-                    <strong>Ciudad:</strong> Chillán
-                </div>
-            </div>
-            <div >
-                <div>
-                    <strong>Teléfono:</strong> +56987339973
-                </div>
-            </div>
-            <div >
-                <div>
-                    <strong>E-mail:</strong> soporte@ezsolutions.cl
-                </div>
-            </div>
-        </div>
-        <br>
-        <div  style="border: 1px solid black;">
-            <div >
-                <div>
-                    <strong>Nombre Cliente: </strong>
-
-                    {{ $cotizacion->cliente->nombre_completo }}
-                </div>
-            </div>
-            <div >
-                <div>
-                    <strong>Dirección Cliente: </strong>
-
-                    {{ $cotizacion->cliente->direccion }}
-                </div>
-            </div>
-            <div >
-                <div >
-                    <strong>Ciudad Cliente: </strong>
-
-                    {{ $cotizacion->cliente->ciudad }}
-                </div>
-            </div>
-            <div >
-                <div>
-                    <strong>Teléfono Cliente: </strong>
-
-                    {{ $cotizacion->cliente->telefono }}
-                </div>
-            </div>
-            <div >
-                <div >
-                    <strong>E-mail Cliente: </strong>
-
-                    {{ $cotizacion->cliente->email }}
-                </div>
-            </div>
-        </div>
-        <br>
-        <table >
+        <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top;">
             <thead>
-                <tr>
-                    <th >Código</th>
-                    <th>Nombre</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                    <th>Subtotal</th>
-                </tr>
+                <th style="width: 40%; background-color: darkturquoise;">Datos empresa:</th>
+                <th style="width: 40%; background-color: darkturquoise;">Datos cliente:</th>
             </thead>
-            <tbody>
+            <tbody style="border: 1px solid black;font-size: 12px;">
+                <tr>
+                    <td><strong>Nombre:</strong> Eduardo Zambrano</td>
+                    <td><strong>Nombre Cliente: </strong>
 
-                 @foreach ($cotizacion_producto as $cp)
+                        {{ $cotizacion->cliente->nombre_completo }}</td>
+
+                </tr>
+                <tr>
+                    <td><strong>Dirección:</strong> Cerro Murrinumo 462</td>
+                    <td><strong>Dirección Cliente: </strong>
+
+                        {{ $cotizacion->cliente->direccion }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Ciudad:</strong> Chillán</td>
+                    <td> <strong>Ciudad Cliente: </strong>
+
+                        {{ $cotizacion->cliente->ciudad }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Teléfono:</strong> +56987339973</td>
+                    <td><strong>Teléfono Cliente: </strong>
+
+                        {{ $cotizacion->cliente->telefono }}</td>
+                </tr>
+                <tr>
+                    <td><strong>E-mail:</strong> soporte@ezsolutions.cl</td>
+                    <td><strong>E-mail Cliente: </strong>
+
+                        {{ $cotizacion->cliente->email }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <div style="height: 400px;">
+            <table style="border-collapse: collapse;">
+                <thead style="font-family: Arial, Helvetica, sans-serif;">
                     <tr>
-                        <td> {{ $cp->codigo_producto }} </td>
+                        <th style="border: 2px solid black; width: 5%;">Código</th>
+                        <th style="border: 2px solid black;">Nombre</th>
+                        <th style="border: 2px solid black; width: 5%;">Cantidad</th>
+                        <th style="border: 2px solid black; width: 20%;">Precio</th>
+                        <th style="border: 2px solid black;width: 20%;">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody style="border: 2px solid black; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
+
+                    @foreach ($cotizacion_producto as $cp)
+                    <tr style="border: 1px solid black;">
+                        <td style="border: 1px solid black;"> {{ $cp->codigo_producto }} </td>
                         @foreach ($productos as $producto)
-                            @if ($cp->codigo_producto == $producto->codigo)
-                                <td> {{ $producto->nombre }} </td>
-                            @endif
+                        @if ($cp->codigo_producto == $producto->codigo)
+                        <td style="border: 1px solid black;"> {{ $producto->nombre }} </td>
+                        @endif
                         @endforeach
-                        <td> {{ $cp->cantidad }} </td>
+                        <td style="border: 1px solid black;"> {{ $cp->cantidad }} </td>
                         @foreach ($productos as $producto)
-                            @if ($cp->codigo_producto == $producto->codigo)
-                                <td> {{ $producto->valor }} </td>
-                            @endif
+                        @if ($cp->codigo_producto == $producto->codigo)
+                        <td style="border: 1px solid black;"> {{ $producto->valor }} </td>
+                        @endif
                         @endforeach
-                        <td> {{ $cp->subtotal }} </td>
+                        <td style="border: 1px solid black;"> {{ $cp->subtotal }} </td>
 
                     </tr>
                     @endforeach
-                    </table>
-                    <br>
-                    <div style="border: 1px solid black;">
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div>
-                                <strong>Neto: </strong>${{ $cotizacion->neto }}
-                                <br>
-                                <strong>IVA: </strong>${{ $cotizacion->iva }}
-                                <br>
-                                <strong>Descuentos: </strong>${{ $cotizacion->descuento }}
-                                <br>
-                                <strong>Total: </strong>${{ $cotizacion->total }}
-                            </div>
-                        </div>
+            </table>
+        </div>
+        <br>
+        <table style=" width: 100%; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 14px;">
+            <td style="width: 70%;"></td>
+            <td style="width: 30%; border: 3px solid black;">
+                <strong> Neto: </strong>${{ $cotizacion->neto }} <br>
+                <strong>IVA: </strong>${{ $cotizacion->iva }} <br>
+                <strong>Descuentos: </strong>${{ $cotizacion->descuento }} <br>
+                <strong>Total: </strong>${{ $cotizacion->total }}
+            </td>
+        </table>
+        <br>
+        <table style=" width: 100%;">
+            <thead>
+                 <th style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif;">Términos y condiciones</th>
+                 <th></th>
+            </thead>
 
+            <td style="width: 70%;border: 3px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+                <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
+                <p>Plazo de entrega 2 Dias hábiles</p>
+                @if($cotizacion->iva == 0)
+                <p><i>Valor sin iva incluido</i></p>
+                @else
+                <p><i>Valor con iva incluido</i></p>
+                @endif
+                <p><strong>x</strong>______________________</p>
+                <p>Nombre: </p>
+            </td>
 
-                    </div>
-                    <br>
+        </table>
+        <div style="text-align: center; font-family: Arial, Helvetica, sans-serif;font-size: 12px;">
+            Si usted tiene alguna duda sobre esta cotización, por favor, póngase en contacto con nosotros <br>
+ SERVICIOS INFORMATICOS | Teléfono: +56987339973 | E-mail: Soporte@ezsolutions.cl <br>
+ <p style="color: blue;"> <i>Gracias por su preferencia !</i> </p>
 
-                </div>
+        </div>
+    </div>
 </body>
 
 </body>
