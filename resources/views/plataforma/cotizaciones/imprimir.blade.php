@@ -38,7 +38,7 @@
             </td>
         </table>
 
-        <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 13px">
+        <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 13px; border-collapse: collapse;">
             <thead>
                 <th style="width: 40%; background-color: darkturquoise;">Datos empresa:</th>
                 <th style="width: 40%; background-color: darkturquoise;">Datos cliente:</th>
