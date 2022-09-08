@@ -38,12 +38,12 @@
             </td>
         </table>
         <br>
-        <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top;">
+        <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%;">
             <thead>
                 <th style="width: 40%; background-color: darkturquoise;">Datos empresa:</th>
                 <th style="width: 40%; background-color: darkturquoise;">Datos cliente:</th>
             </thead>
-            <tbody style="border: 1px solid black;font-size: 12px;">
+            <tbody >
                 <tr>
                     <td><strong>Nombre:</strong> Eduardo Zambrano</td>
                     <td><strong>Nombre Cliente: </strong>
@@ -80,8 +80,8 @@
         </table>
         <br>
         <br>
-        <div style="height: 400px;">
-            <table style="border-collapse: collapse;">
+        <div style="height: 380px;">
+            <table style="border-collapse: collapse; width: 100%;">
                 <thead style="font-family: Arial, Helvetica, sans-serif;">
                     <tr>
                         <th style="border: 2px solid black; width: 5%;">Código</th>
@@ -124,13 +124,13 @@
             </td>
         </table>
         <br>
-        <table style=" width: 100%;">
+        <table style=" width: 100%; border-collapse: collapse;">
             <thead>
-                 <th style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif;">Términos y condiciones</th>
+                 <th style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif; border: 2px solid darkturquoise;">Términos y condiciones</th>
                  <th></th>
             </thead>
 
-            <td style="width: 70%;border: 3px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+            <td style="width: 70%;border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
                 <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
                 <p>Plazo de entrega 2 Dias hábiles</p>
                 @if($cotizacion->iva == 0)
@@ -138,7 +138,7 @@
                 @else
                 <p><i>Valor con iva incluido</i></p>
                 @endif
-                <p><strong>x</strong>______________________</p>
+                <p><strong>x</strong>____________________________</p>
                 <p>Nombre: </p>
             </td>
 
