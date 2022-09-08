@@ -42,7 +42,7 @@
 
         <div>
             <table
-                style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 13px; border-collapse: collapse;">
+                style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 12px; border-collapse: collapse;">
 
                 <td style="width: 60%;border: 2px solid black; margin-top: 0px auto;">
                     <div style="width: 100%;background-color: darkturquoise; float:left; font-size: 14px;">
@@ -57,7 +57,7 @@
                     </div>
                 </td>
                 <td style="width: 40%;border: 2px solid black; margin-top: 0px auto;">
-                    <div style="width: 100%; background-color: darkturquoise; float:left; font-size: 14px;">
+                    <div style="width: 100%; background-color: darkturquoise; float:right; font-size: 14px;">
                         <strong>Datos cliente:</strong> </div>
                     <br>
                     <div>
