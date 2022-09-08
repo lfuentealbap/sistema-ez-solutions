@@ -8,7 +8,7 @@
     <title>Cotización</title>
 </head>
 
-<body>
+<body style="page-break-inside: avoid;">
     <div style="background-color: white">
         <table style="width: 100%; overflow: visible ; vertical-align: middle;">
             <td
