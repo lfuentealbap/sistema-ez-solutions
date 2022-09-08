@@ -78,9 +78,7 @@
                 </tbody>
             </table>
         </div>
-
-
-        <div style="height: 380px;">
+        <div style="height: 300px; margin-top: 0px auto">
             <table style="border-collapse: collapse; width: 100%;">
                 <thead style="font-family: Arial, Helvetica, sans-serif;">
                     <tr>
@@ -135,19 +133,21 @@
                         Términos y condiciones</th>
                     <th></th>
                 </thead>
+                <tbody>
+                    <td
+                        style="width: 60%;border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+                        <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
+                        <p>Plazo de entrega 2 Dias hábiles</p>
+                        @if ($cotizacion->iva == 0)
+                            <p><i>Valor sin iva incluido</i></p>
+                        @else
+                            <p><i>Valor con iva incluido</i></p>
+                        @endif
+                        <p><strong>x</strong>____________________________</p>
+                        <p>Nombre: </p>
+                    </td>
+                </tbody>
 
-                <td
-                    style="width: 60%;border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-                    <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
-                    <p>Plazo de entrega 2 Dias hábiles</p>
-                    @if ($cotizacion->iva == 0)
-                        <p><i>Valor sin iva incluido</i></p>
-                    @else
-                        <p><i>Valor con iva incluido</i></p>
-                    @endif
-                    <p><strong>x</strong>____________________________</p>
-                    <p>Nombre: </p>
-                </td>
 
             </table>
         </div>
