@@ -33,17 +33,16 @@
             <td style="width: 50%;border: 1px solid white; text-align: right; margin-top: 0px auto;">
                 <strong>Fecha:</strong> @php
 
-                echo \Carbon\Carbon::parse($cotizacion->fecha_creacion)->format('d/m/Y');
+                    echo \Carbon\Carbon::parse($cotizacion->fecha_creacion)->format('d/m/Y');
                 @endphp
             </td>
         </table>
-        <br>
         <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%;">
             <thead>
                 <th style="width: 40%; background-color: darkturquoise;">Datos empresa:</th>
                 <th style="width: 40%; background-color: darkturquoise;">Datos cliente:</th>
             </thead>
-            <tbody >
+            <tbody>
                 <tr>
                     <td><strong>Nombre:</strong> Eduardo Zambrano</td>
                     <td><strong>Nombre Cliente: </strong>
@@ -78,8 +77,7 @@
 
             </tbody>
         </table>
-        <br>
-        <br>
+
         <div style="height: 380px;">
             <table style="border-collapse: collapse; width: 100%;">
                 <thead style="font-family: Arial, Helvetica, sans-serif;">
@@ -94,27 +92,28 @@
                 <tbody style="border: 2px solid black; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 
                     @foreach ($cotizacion_producto as $cp)
-                    <tr style="border: 1px solid black;">
-                        <td style="border: 1px solid black;"> {{ $cp->codigo_producto }} </td>
-                        @foreach ($productos as $producto)
-                        @if ($cp->codigo_producto == $producto->codigo)
-                        <td style="border: 1px solid black;"> {{ $producto->nombre }} </td>
-                        @endif
-                        @endforeach
-                        <td style="border: 1px solid black;"> {{ $cp->cantidad }} </td>
-                        @foreach ($productos as $producto)
-                        @if ($cp->codigo_producto == $producto->codigo)
-                        <td style="border: 1px solid black;"> {{ $producto->valor }} </td>
-                        @endif
-                        @endforeach
-                        <td style="border: 1px solid black;"> {{ $cp->subtotal }} </td>
+                        <tr style="border: 1px solid black;">
+                            <td style="border: 1px solid black;"> {{ $cp->codigo_producto }} </td>
+                            @foreach ($productos as $producto)
+                                @if ($cp->codigo_producto == $producto->codigo)
+                                    <td style="border: 1px solid black;"> {{ $producto->nombre }} </td>
+                                @endif
+                            @endforeach
+                            <td style="border: 1px solid black;"> {{ $cp->cantidad }} </td>
+                            @foreach ($productos as $producto)
+                                @if ($cp->codigo_producto == $producto->codigo)
+                                    <td style="border: 1px solid black;"> ${{ $producto->valor }} </td>
+                                @endif
+                            @endforeach
+                            <td style="border: 1px solid black;"> ${{ $cp->subtotal }} </td>
 
-                    </tr>
+                        </tr>
                     @endforeach
             </table>
         </div>
         <br>
-        <table style=" width: 100%; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 14px;">
+        <table
+            style=" width: 100%; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 14px;">
             <td style="width: 70%;"></td>
             <td style="width: 30%; border: 3px solid black;">
                 <strong> Neto: </strong>${{ $cotizacion->neto }} <br>
@@ -126,17 +125,20 @@
         <br>
         <table style=" width: 100%; border-collapse: collapse;">
             <thead>
-                 <th style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif; border: 2px solid darkturquoise;">Términos y condiciones</th>
-                 <th></th>
+                <th
+                    style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif; border: 2px solid darkturquoise;">
+                    Términos y condiciones</th>
+                <th></th>
             </thead>
 
-            <td style="width: 70%;border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+            <td
+                style="width: 70%;border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
                 <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
                 <p>Plazo de entrega 2 Dias hábiles</p>
-                @if($cotizacion->iva == 0)
-                <p><i>Valor sin iva incluido</i></p>
+                @if ($cotizacion->iva == 0)
+                    <p><i>Valor sin iva incluido</i></p>
                 @else
-                <p><i>Valor con iva incluido</i></p>
+                    <p><i>Valor con iva incluido</i></p>
                 @endif
                 <p><strong>x</strong>____________________________</p>
                 <p>Nombre: </p>
@@ -145,14 +147,10 @@
         </table>
         <div style="text-align: center; font-family: Arial, Helvetica, sans-serif;font-size: 12px;">
             Si usted tiene alguna duda sobre esta cotización, por favor, póngase en contacto con nosotros <br>
- SERVICIOS INFORMATICOS | Teléfono: +56987339973 | E-mail: Soporte@ezsolutions.cl <br>
- <p style="color: blue;"> <i>Gracias por su preferencia !</i> </p>
+            SERVICIOS INFORMATICOS | Teléfono: +56987339973 | E-mail: Soporte@ezsolutions.cl <br>
+            <p style="color: blue;"> <i>Gracias por su preferencia !</i> </p>
 
         </div>
     </div>
 </body>
-
-</body>
-
-
 </html>
