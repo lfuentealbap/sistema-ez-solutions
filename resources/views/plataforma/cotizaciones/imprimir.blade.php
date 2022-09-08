@@ -85,8 +85,7 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div>
+
             <table style="border-collapse: collapse; width: 100%;">
                 <thead style="font-family: Arial, Helvetica, sans-serif;">
                     <tr>
