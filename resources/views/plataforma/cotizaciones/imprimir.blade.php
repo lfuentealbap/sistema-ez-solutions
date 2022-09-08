@@ -43,47 +43,37 @@
         <div>
             <table
                 style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 13px; border-collapse: collapse;">
-                <thead>
-                    <th style="width: 40%; background-color: darkturquoise; float:left;">Datos empresa:</th>
-                    <th style="width: 20%;"></th>
-                    <th style="width: 40%; background-color: darkturquoise; float:right; margin-right: 0px auto;">Datos cliente:</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Nombre:</strong> Eduardo Zambrano</td>
-                        <td style="width: 20%;"></td>
-                        <td><strong>Nombre Cliente: </strong>
-                            {{ $cotizacion->cliente->nombre_completo }}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Dirección:</strong> Cerro Murrinumo 462</td>
-                        <td style="width: 20%;"></td>
-                        <td><strong>Dirección Cliente: </strong>
-                            {{ $cotizacion->cliente->direccion }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ciudad:</strong> Chillán</td>
-                        <td style="width: 20%;"></td>
-                        <td> <strong>Ciudad Cliente: </strong>
 
-                            {{ $cotizacion->cliente->ciudad }}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Teléfono:</strong> +56987339973</td>
-                        <td style="width: 20%;"></td>
-                        <td><strong>Teléfono Cliente: </strong>
+                    <td style="width: 40%;border: 2px solid black; margin-top: 0px auto;">
+                        <div style="width: 100%;background-color: darkturquoise; float:left; font-size: 14px;"> <strong>Datos empresa:</strong> </div>
+                        <br>
+                        <div>
+                            <p><strong>Nombre:</strong> Eduardo Zambrano</p>
+                            <p><strong>Dirección:</strong> Cerro Murrinumo 462</p>
+                            <p><strong>Ciudad:</strong> Chillán</p>
+                            <p><strong>Teléfono:</strong> +56987339973</p>
+                            <p><strong>E-mail:</strong> soporte@ezsolutions.cl</p>
+                        </div>
+                    </td>
+                    <td style="width: 40%;border: 2px solid black; margin-top: 0px auto;">
+                        <div style="width: 100%; background-color: darkturquoise; float:left; font-size: 14px;"> <strong>Datos cliente:</strong> </div>
+                        <br>
+                        <div>
+                            <p><strong>Nombre Cliente: </strong>
+                                {{ $cotizacion->cliente->nombre_completo }}</p>
+                            <p><strong>Dirección Cliente: </strong>
+                                {{ $cotizacion->cliente->direccion }}</p>
+                            <p><strong>Ciudad Cliente: </strong>
 
-                            {{ $cotizacion->cliente->telefono }}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>E-mail:</strong> soporte@ezsolutions.cl</td>
-                        <td style="width: 20%;"></td>
-                        <td><strong>E-mail Cliente: </strong>
+                                {{ $cotizacion->cliente->ciudad }}</p>
+                            <p><strong>Teléfono Cliente: </strong>
 
-                            {{ $cotizacion->cliente->email }}</td>
-                    </tr>
-                </tbody>
+                                {{ $cotizacion->cliente->telefono }}</p>
+                            <p><strong>E-mail Cliente: </strong>
+
+                                {{ $cotizacion->cliente->email }}</p>
+                        </div>
+                    </td>
             </table>
         </div>
         <div style="height: 300px; margin-top: 0px auto">
