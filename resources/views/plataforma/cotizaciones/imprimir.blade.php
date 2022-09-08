@@ -40,44 +40,44 @@
             </table>
         </div>
 
-        <div>
-            <table
-                style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 12px; overflow: visible">
 
-                <td style="width: 50%;margin-top: 0px auto;">
-                    <div style="width: 100%;background-color: darkturquoise; float:left; font-size: 14px;">
-                        <strong>Datos empresa:</strong> </div>
-                    <br>
-                    <div>
-                        <p><strong>Nombre:</strong> Eduardo Zambrano</p>
-                        <p><strong>Dirección:</strong> Cerro Murrinumo 462</p>
-                        <p><strong>Ciudad:</strong> Chillán</p>
-                        <p><strong>Teléfono:</strong> +56987339973</p>
-                        <p><strong>E-mail:</strong> soporte@ezsolutions.cl</p>
-                    </div>
-                </td>
-                <td style="width: 50%; margin-top: 0px auto;">
-                    <div style="width: 100%; background-color: darkturquoise; float:right; font-size: 14px;">
-                        <strong>Datos cliente:</strong> </div>
-                    <br>
-                    <div>
-                        <p><strong>Nombre Cliente: </strong>
-                            {{ $cotizacion->cliente->nombre_completo }}</p>
-                        <p><strong>Dirección Cliente: </strong>
-                            {{ $cotizacion->cliente->direccion }}</p>
-                        <p><strong>Ciudad Cliente: </strong>
+        <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top;font-size: 12px;height: 100%;">
+            <td style="width: 50%; margin-top: 0px auto;">
+                <div style="width: 100%; background-color: darkturquoise; float:left; font-size: 14px;">
+                    <strong>Datos empresa:</strong>
+                </div>
+                <br>
 
-                            {{ $cotizacion->cliente->ciudad }}</p>
-                        <p><strong>Teléfono Cliente: </strong>
+                <p><strong>Nombre:</strong> Eduardo Zambrano</p>
+                <p><strong>Dirección:</strong> Cerro Murrinumo 462</p>
+                <p><strong>Ciudad:</strong> Chillán</p>
+                <p><strong>Teléfono:</strong> +56987339973</p>
+                <p><strong>E-mail:</strong> soporte@ezsolutions.cl</p>
 
-                            {{ $cotizacion->cliente->telefono }}</p>
-                        <p><strong>E-mail Cliente: </strong>
+            </td>
+            <td style="width: 50%; margin-top: 0px auto;">
+                <div style="width: 100%; background-color: darkturquoise; float:right; font-size: 14px;">
+                    <strong>Datos cliente:</strong>
+                </div>
+                <br>
 
-                            {{ $cotizacion->cliente->email }}</p>
-                    </div>
-                </td>
-            </table>
-        </div>
+                <p><strong>Nombre Cliente: </strong>
+                    {{ $cotizacion->cliente->nombre_completo }}</p>
+                <p><strong>Dirección Cliente: </strong>
+                    {{ $cotizacion->cliente->direccion }}</p>
+                <p><strong>Ciudad Cliente: </strong>
+
+                    {{ $cotizacion->cliente->ciudad }}</p>
+                <p><strong>Teléfono Cliente: </strong>
+
+                    {{ $cotizacion->cliente->telefono }}</p>
+                <p><strong>E-mail Cliente: </strong>
+
+                    {{ $cotizacion->cliente->email }}</p>
+
+            </td>
+        </table>
+
         <div>
             <table style="border-collapse: collapse; width: 100%;">
                 <thead style="font-family: Arial, Helvetica, sans-serif;">
