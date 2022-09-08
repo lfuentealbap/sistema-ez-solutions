@@ -40,14 +40,12 @@
             </table>
         </div>
 
-
         <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top;font-size: 12px;height: 100%;">
-            <td style="width: 50%; margin-top: 0px auto;">
+            <td style="width: 50%;">
                 <div style="width: 100%; background-color: darkturquoise; float:left; font-size: 14px;">
                     <strong>Datos empresa:</strong>
                 </div>
                 <br>
-
                 <p><strong>Nombre:</strong> Eduardo Zambrano</p>
                 <p><strong>Dirección:</strong> Cerro Murrinumo 462</p>
                 <p><strong>Ciudad:</strong> Chillán</p>
@@ -60,7 +58,6 @@
                     <strong>Datos cliente:</strong>
                 </div>
                 <br>
-
                 <p><strong>Nombre Cliente: </strong>
                     {{ $cotizacion->cliente->nombre_completo }}</p>
                 <p><strong>Dirección Cliente: </strong>
@@ -74,11 +71,9 @@
                 <p><strong>E-mail Cliente: </strong>
 
                     {{ $cotizacion->cliente->email }}</p>
-
             </td>
         </table>
 
-        <div>
             <table style="border-collapse: collapse; width: 100%;">
                 <thead style="font-family: Arial, Helvetica, sans-serif;">
                     <tr>
@@ -90,7 +85,6 @@
                     </tr>
                 </thead>
                 <tbody style="border: 2px solid black; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
-
                     @foreach ($cotizacion_producto as $cp)
                         <tr style="border: 1px solid black;">
                             <td style="border: 1px solid black;"> {{ $cp->codigo_producto }} </td>
@@ -106,11 +100,9 @@
                                 @endif
                             @endforeach
                             <td style="border: 1px solid black;"> ${{ $cp->subtotal }} </td>
-
                         </tr>
                     @endforeach
             </table>
-        </div>
         <hr>
         <div>
             <table
