@@ -42,7 +42,7 @@
 
         <div>
             <table
-                style="page-break-inside: avoid; font-family: Arial, Helvetica, sans-serif; vertical-align: top; width: 100%; font-size: 10px; border-collapse: collapse; ">
+                style="page-break-inside: avoid; font-family: Arial, Helvetica, sans-serif; vertical-align: top; width: 100%; font-size: 12px; border-collapse: collapse; ">
                 <thead>
                    <tr>
                     <th style="width: 50%; background-color: darkturquoise; float:left; font-size: 13px;">Datos empresa:</th>
@@ -87,37 +87,41 @@
                     </tr>
                 </tbody>
             </table>
-            <table style="border-collapse: collapse; width: 100%; page-break-inside: avoid;">
-                <thead style="font-family: Arial, Helvetica, sans-serif;">
-                    <tr>
-                        <th style="border: 2px solid black; width: 5%;">Código</th>
-                        <th style="border: 2px solid black;">Nombre</th>
-                        <th style="border: 2px solid black; width: 5%;">Cantidad</th>
-                        <th style="border: 2px solid black; width: 20%;">Precio</th>
-                        <th style="border: 2px solid black;width: 20%;">Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody style="border: 2px solid black; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-
-                    @foreach ($cotizacion_producto as $cp)
-                        <tr style="border: 1px solid black;">
-                            <td style="border: 1px solid black;"> {{ $cp->codigo_producto }} </td>
-                            @foreach ($productos as $producto)
-                                @if ($cp->codigo_producto == $producto->codigo)
-                                    <td style="border: 1px solid black;"> {{ $producto->nombre }} </td>
-                                @endif
-                            @endforeach
-                            <td style="border: 1px solid black;"> {{ $cp->cantidad }} </td>
-                            @foreach ($productos as $producto)
-                                @if ($cp->codigo_producto == $producto->codigo)
-                                    <td style="border: 1px solid black;"> ${{ $producto->valor }} </td>
-                                @endif
-                            @endforeach
-                            <td style="border: 1px solid black;"> ${{ $cp->subtotal }} </td>
-
+            <br>
+            <div style="height: 300px;">
+                <table style="border-collapse: collapse; width: 100%; page-break-inside: avoid;">
+                    <thead style="font-family: Arial, Helvetica, sans-serif;">
+                        <tr>
+                            <th style="border: 2px solid black; width: 5%;">Código</th>
+                            <th style="border: 2px solid black;">Nombre</th>
+                            <th style="border: 2px solid black; width: 5%;">Cantidad</th>
+                            <th style="border: 2px solid black; width: 20%;">Precio</th>
+                            <th style="border: 2px solid black;width: 20%;">Subtotal</th>
                         </tr>
-                    @endforeach
-            </table>
+                    </thead>
+                    <tbody style="border: 2px solid black; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+
+                        @foreach ($cotizacion_producto as $cp)
+                            <tr style="border: 1px solid black;">
+                                <td style="border: 1px solid black;"> {{ $cp->codigo_producto }} </td>
+                                @foreach ($productos as $producto)
+                                    @if ($cp->codigo_producto == $producto->codigo)
+                                        <td style="border: 1px solid black;"> {{ $producto->nombre }} </td>
+                                    @endif
+                                @endforeach
+                                <td style="border: 1px solid black;"> {{ $cp->cantidad }} </td>
+                                @foreach ($productos as $producto)
+                                    @if ($cp->codigo_producto == $producto->codigo)
+                                        <td style="border: 1px solid black;"> ${{ $producto->valor }} </td>
+                                    @endif
+                                @endforeach
+                                <td style="border: 1px solid black;"> ${{ $cp->subtotal }} </td>
+
+                            </tr>
+                        @endforeach
+                </table>
+            </div>
+
         </div>
         <hr>
         <div>
