@@ -40,7 +40,7 @@
             </table>
         </div>
         <table style="font-family: Arial, Helvetica, sans-serif;font-size: 12px; height: 100%;">
-            <td style="width: 50%;line-height: 1;">
+            <td style="width: 50%;line-height: 0.5;">
                 <div style="width: 100%; background-color: darkturquoise; float:left; font-size: 14px;">
                     <strong>Datos empresa:</strong>
                 </div>
@@ -52,7 +52,7 @@
                 <p><strong>E-mail:</strong> soporte@ezsolutions.cl</p>
 
             </td>
-            <td style="width: 50%; line-height: 1;position: relative; right: 1px;">
+            <td style="width: 50%; line-height: 0.5;position: relative; right: 1px;">
                 <div style="width: 100%; background-color: darkturquoise; float:right; font-size: 14px;">
                     <strong>Datos cliente:</strong>
                 </div>
