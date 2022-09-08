@@ -145,9 +145,8 @@
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.create') }}">Registrar
                                                 nuevo
                                                 trabajo</a>
-                                            <a class="nav-link" href="#">Informes
-                                                de trabajos</a>
-
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.rendimiento') }}">Generar informe de rendimiento del mes</a>
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.trealizados') }}">Generar informe de trabajos realizados</a>
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.trabajoshoy') }}">Ver
                                                 trabajos del
                                                 día</a>
@@ -260,8 +259,8 @@
                                             <a class="nav-link" href="{{ route('plataforma.ot.index') }}">Ver
                                                 ordenes de trabajo</a>
 
-                                            <a class="nav-link" href="#">Informes
-                                                de trabajos</a>
+                                                <a class="nav-link" href="{{ route('plataforma.trabajos.rendimiento') }}">Generar informe de rendimiento del mes</a>
+                                                <a class="nav-link" href="{{ route('plataforma.trabajos.trealizados') }}">Generar informe de trabajos realizados</a>
 
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.trabajoshoy') }}">Ver
                                                 trabajos del

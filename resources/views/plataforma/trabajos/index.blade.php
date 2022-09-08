@@ -56,14 +56,14 @@
                                             ]) }}"><i
                                                 class="fas fa-eye" data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-custom-class="custom-tooltip"
-                                                data-bs-title="Ver trabajo"></i></a>
+                                                data-bs-title="Ver trabajo"></i>Ver</a>
                                         <a class="btn btn-primary"
                                             href="{{ route('plataforma.trabajos.edit', [
                                                 'trabajo' => $trabajo->id,
                                             ]) }}"><i
                                                 class="fas fa-edit" data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-custom-class="custom-tooltip"
-                                                data-bs-title="Editar trabajo"></i></a>
+                                                data-bs-title="Editar trabajo"></i>Editar</a>
                                         <form class="d-inline"
                                             action="{{ route('plataforma.trabajos.destroy', [
                                                 'trabajo' => $trabajo->id,
@@ -73,7 +73,7 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"data-bs-toggle="tooltip" data-bs-placement="top"
                                             data-bs-custom-class="custom-tooltip"
-                                            data-bs-title="Eliminar trabajo"><i class="fas fa-trash-alt"></i>
+                                            data-bs-title="Eliminar trabajo"><i class="fas fa-trash-alt"></i>Eliminar
                                                 </button>
                                         </form>
                                         @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
