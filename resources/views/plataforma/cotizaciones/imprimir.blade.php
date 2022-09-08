@@ -37,7 +37,8 @@
                 @endphp
             </td>
         </table>
-        <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%;">
+
+        <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 13px">
             <thead>
                 <th style="width: 40%; background-color: darkturquoise;">Datos empresa:</th>
                 <th style="width: 40%; background-color: darkturquoise;">Datos cliente:</th>
@@ -46,15 +47,13 @@
                 <tr>
                     <td><strong>Nombre:</strong> Eduardo Zambrano</td>
                     <td><strong>Nombre Cliente: </strong>
-
                         {{ $cotizacion->cliente->nombre_completo }}</td>
-
                 </tr>
                 <tr>
                     <td><strong>Dirección:</strong> Cerro Murrinumo 462</td>
                     <td><strong>Dirección Cliente: </strong>
-
-                        {{ $cotizacion->cliente->direccion }}</td>
+                        {{ $cotizacion->cliente->direccion }}
+                    </td>
                 </tr>
                 <tr>
                     <td><strong>Ciudad:</strong> Chillán</td>
@@ -74,7 +73,6 @@
 
                         {{ $cotizacion->cliente->email }}</td>
                 </tr>
-
             </tbody>
         </table>
 
@@ -132,7 +130,7 @@
             </thead>
 
             <td
-                style="width: 70%;border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+                style="width: 60%;border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
                 <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
                 <p>Plazo de entrega 2 Dias hábiles</p>
                 @if ($cotizacion->iva == 0)
