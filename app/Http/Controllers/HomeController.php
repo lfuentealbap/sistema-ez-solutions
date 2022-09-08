@@ -25,9 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $mes = Carbon::now('m');$mes = Carbon::now('m');
+        $mes = Carbon::now('m');
         return view('plataforma.inicio')->with([
-            'trabajos'=> Trabajo::all(),
+            'trabajos'=> Trabajo::whereMonth('fecha_termino', '=', $mes)->select('*')->orderBy('fecha_termino', 'DESC')->get(),
             'sueldos' => Trabajo::whereMonth('fecha_termino', '=', $mes)->select('rut_trabajador','pago', Trabajo::raw("SUM(trabajos.pago) as sueldo"))->where('estado', 'finalizado')->groupBy('rut_trabajador')->get(),
         ]);
     }

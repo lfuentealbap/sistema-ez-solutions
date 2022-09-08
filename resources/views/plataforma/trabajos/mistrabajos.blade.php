@@ -23,7 +23,7 @@
                         </thead>
                         <tbody>
                             @foreach ($trabajos as $trabajo)
-                                @if ($trabajo->rut_trabajador == Auth::user()->rut && ($trabajo->estado == "en curso" || $trabajo->estado == "atrasado"))
+                                @if ($trabajo->rut_trabajador == Auth::user()->rut)
                                     <tr>
 
                                         <td>{{ $trabajo->titulo }}</td>
@@ -67,11 +67,6 @@
                 </div>
 
 
-                @if ($contadorT == 0)
-                    <div class="alert alert-warning">
-                        <p>No hay trabajos registrados</p>
-                    </div>
-                @endif
             </div>
 
         </div>
