@@ -42,9 +42,9 @@
 
         <div>
             <table
-                style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 12px; border-collapse: collapse;display: table">
+                style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 12px; border-collapse: collapse;overflow: visible">
 
-                <td style="width: 60%;border: 2px solid black; margin-top: 0px auto;">
+                <td style="width: 60%;border: 1px solid darkturquoise; margin-top: 0px auto;">
                     <div style="width: 100%;background-color: darkturquoise; float:left; font-size: 14px;">
                         <strong>Datos empresa:</strong> </div>
                     <br>
@@ -56,7 +56,7 @@
                         <p><strong>E-mail:</strong> soporte@ezsolutions.cl</p>
                     </div>
                 </td>
-                <td style="width: 40%;border: 2px solid black; margin-top: 0px auto;">
+                <td style="width: 40%;border: 2px solid darkturquoise; margin-top: 0px auto;">
                     <div style="width: 100%; background-color: darkturquoise; float:right; font-size: 14px;">
                         <strong>Datos cliente:</strong> </div>
                     <br>
