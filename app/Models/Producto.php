@@ -9,7 +9,7 @@ class Producto extends Model
 {
     use HasFactory;
     protected $primaryKey = "codigo";
-
+    public $timestamps = false;
     protected $fillable = [
         'nombre',
         'descripcion',

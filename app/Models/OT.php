@@ -9,6 +9,7 @@ class OT extends Model
 {
     use HasFactory;
     protected $table = "ordenes_trabajos";
+    public $timestamps = false;
     protected $fillable = [
         'rut_trabajador',
         'fecha',

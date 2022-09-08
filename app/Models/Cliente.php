@@ -10,6 +10,7 @@ class Cliente extends Model
     use HasFactory;
     protected $primaryKey = "rut";
     protected $keyType = 'string';
+    public $timestamps = false;
     protected $fillable = [
         'nombre_completo',
         'direccion',

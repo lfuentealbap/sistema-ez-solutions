@@ -9,6 +9,7 @@ class Cotizacion extends Model
 {
     use HasFactory;
     protected $table = "cotizaciones";
+    public $timestamps = false;
     protected $fillable = [
         'fecha_creacion',
         'fecha_expiracion',
