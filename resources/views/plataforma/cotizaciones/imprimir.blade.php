@@ -42,11 +42,13 @@
 
         <div>
             <table
-                style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 13px; border-collapse: collapse;">
+                style="page-break-inside: avoid; font-family: Arial, Helvetica, sans-serif; vertical-align: top; width: 100%; font-size: 10px; border-collapse: collapse; ">
                 <thead>
-                    <th style="width: 40%; background-color: darkturquoise; float:left">Datos empresa:</th>
+                   <tr>
+                    <th style="width: 50%; background-color: darkturquoise; float:left; font-size: 13px;">Datos empresa:</th>
                     <th></th>
-                    <th style="width: 40%; background-color: darkturquoise; float:right">Datos cliente:</th>
+                    <th style="width: 50%; background-color: darkturquoise; float:right;font-size: 13px;">Datos cliente:</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -85,8 +87,7 @@
                     </tr>
                 </tbody>
             </table>
-
-            <table style="border-collapse: collapse; width: 100%;">
+            <table style="border-collapse: collapse; width: 100%; page-break-inside: avoid;">
                 <thead style="font-family: Arial, Helvetica, sans-serif;">
                     <tr>
                         <th style="border: 2px solid black; width: 5%;">Código</th>
@@ -96,7 +97,7 @@
                         <th style="border: 2px solid black;width: 20%;">Subtotal</th>
                     </tr>
                 </thead>
-                <tbody style="border: 2px solid black; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
+                <tbody style="border: 2px solid black; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 
                     @foreach ($cotizacion_producto as $cp)
                         <tr style="border: 1px solid black;">
@@ -122,6 +123,7 @@
         <div>
             <table
                 style=" width: 100%; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 14px;">
+              <tr>
                 <td style="width: 70%;"></td>
                 <td style="width: 30%; border: 3px solid black;">
                     <strong> Neto: </strong>${{ $cotizacion->neto }} <br>
@@ -129,6 +131,7 @@
                     <strong>Descuentos: </strong>${{ $cotizacion->descuento }} <br>
                     <strong>Total: </strong>${{ $cotizacion->total }}
                 </td>
+                </tr>
             </table>
         </div>
 
