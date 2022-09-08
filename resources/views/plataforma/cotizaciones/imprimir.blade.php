@@ -42,8 +42,8 @@
             <table
                 style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 13px; border-collapse: collapse;">
                 <thead>
-                    <th style="width: 40%; background-color: darkturquoise;">Datos empresa:</th>
-                    <th style="width: 40%; background-color: darkturquoise;">Datos cliente:</th>
+                    <th style="width: 40%; background-color: darkturquoise; float:left">Datos empresa:</th>
+                    <th style="width: 40%; background-color: darkturquoise; float:right">Datos cliente:</th>
                 </thead>
                 <tbody>
                     <tr>
@@ -129,13 +129,13 @@
             <table style=" width: 100%; border-collapse: collapse;">
                 <thead>
                     <th
-                        style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif; border: 2px solid darkturquoise;">
+                        style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif; border: 2px solid darkturquoise; float:left">
                         Términos y condiciones</th>
                     <th></th>
                 </thead>
                 <tbody>
                     <td
-                        style="width: 60%;border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+                        style="width: 60%; border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px; float:left">
                         <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
                         <p>Plazo de entrega 2 Dias hábiles</p>
                         @if ($cotizacion->iva == 0)
