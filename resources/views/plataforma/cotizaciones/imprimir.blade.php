@@ -147,7 +147,6 @@
             Si usted tiene alguna duda sobre esta cotización, por favor, póngase en contacto con nosotros <br>
             SERVICIOS INFORMATICOS | Teléfono: +56987339973 | E-mail: Soporte@ezsolutions.cl <br>
             <p style="color: blue;"> <i>Gracias por su preferencia !</i> </p>
-
         </div>
     </div>
 </body>
