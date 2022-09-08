@@ -3,3 +3,6 @@ $(document).ready( function () {
         order: [[3, 'desc']],
     });
 } );
+$(document).ready( function () {
+    $('#misProductos').DataTable();
+} );

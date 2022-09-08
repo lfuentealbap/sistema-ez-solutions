@@ -11,8 +11,8 @@
         </div>
     @else
 
-        <div class="table-responsive rounded" style="background-color: lightblue;">
-            <table class="table table-bordered border-primary">
+        <div style="background-color: white;">
+            <table class="table-responsive table-bordered border-primary" id="misProductos">
                 <thead class="thead-light">
                     <tr>
                         <th>Código</th>
@@ -28,7 +28,7 @@
                             <td>{{$producto->codigo}}</td>
                             <td>{{$producto->nombre}}</td>
                             <td>{{$producto->descripcion}}</td>
-                            <td>{{$producto->valor}}</td>
+                            <td>${{$producto->valor}}</td>
                             <td>
                                 <a class="btn btn-info" href="{{ route('plataforma.productos.show', [
                                     'producto' => $producto->codigo]) }}"><i class="fas fa-eye"></i> Ver</a>
