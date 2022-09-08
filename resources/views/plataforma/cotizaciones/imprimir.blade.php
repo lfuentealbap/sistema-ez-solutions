@@ -86,7 +86,7 @@
                 </tbody>
             </table>
         </div>
-        <div style="height: 300px; margin-top: 0px auto">
+        <div>
             <table style="border-collapse: collapse; width: 100%;">
                 <thead style="font-family: Arial, Helvetica, sans-serif;">
                     <tr>
@@ -134,7 +134,7 @@
         </div>
 
         <div>
-            <table style=" width: 100%; border-collapse: collapse;">
+            <table style=" width: 100%;">
                 <thead>
                     <th
                         style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif; border: 2px solid darkturquoise; float:left">
