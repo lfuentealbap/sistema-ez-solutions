@@ -25,52 +25,60 @@
             </td>
 
         </table>
-        <table
-            style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; vertical-align: middle;">
-            <td style="width: 50%; border: 1px solid white; text-align: left; margin-top: 0px auto;">
-                <strong></strong>
-            </td>
-            <td style="width: 50%;border: 1px solid white; text-align: right; margin-top: 0px auto;">
-                <strong>Fecha:</strong> @php
+        <div>
+            <table
+                style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; vertical-align: middle;">
+                <td style="width: 50%; border: 1px solid white; text-align: left; margin-top: 0px auto;">
+                    <strong></strong>
+                </td>
+                <td style="width: 50%;border: 1px solid white; text-align: right; margin-top: 0px auto;">
+                    <strong>Fecha:</strong> @php
 
-                    echo \Carbon\Carbon::parse($cotizacion->fecha_creacion)->format('d/m/Y');
-                @endphp
-            </td>
-        </table>
+                        echo \Carbon\Carbon::parse($cotizacion->fecha_creacion)->format('d/m/Y');
+                    @endphp
+                </td>
+            </table>
+        </div>
 
         <div>
             <table
                 style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 13px; border-collapse: collapse;">
                 <thead>
-                    <th style="width: 40%; background-color: darkturquoise; float:left">Datos empresa:</th>
+                    <th style="width: 40%; background-color: darkturquoise; float:left;">Datos empresa:</th>
+                    <th style="width: 20%;"></th>
                     <th style="width: 40%; background-color: darkturquoise; float:right">Datos cliente:</th>
                 </thead>
                 <tbody>
                     <tr>
                         <td><strong>Nombre:</strong> Eduardo Zambrano</td>
+                        <td style="width: 20%;"></td>
                         <td><strong>Nombre Cliente: </strong>
                             {{ $cotizacion->cliente->nombre_completo }}</td>
                     </tr>
                     <tr>
                         <td><strong>Dirección:</strong> Cerro Murrinumo 462</td>
+                        <td style="width: 20%;"></td>
                         <td><strong>Dirección Cliente: </strong>
                             {{ $cotizacion->cliente->direccion }}
                         </td>
                     </tr>
                     <tr>
                         <td><strong>Ciudad:</strong> Chillán</td>
+                        <td style="width: 20%;"></td>
                         <td> <strong>Ciudad Cliente: </strong>
 
                             {{ $cotizacion->cliente->ciudad }}</td>
                     </tr>
                     <tr>
                         <td><strong>Teléfono:</strong> +56987339973</td>
+                        <td style="width: 20%;"></td>
                         <td><strong>Teléfono Cliente: </strong>
 
                             {{ $cotizacion->cliente->telefono }}</td>
                     </tr>
                     <tr>
                         <td><strong>E-mail:</strong> soporte@ezsolutions.cl</td>
+                        <td style="width: 20%;"></td>
                         <td><strong>E-mail Cliente: </strong>
 
                             {{ $cotizacion->cliente->email }}</td>
