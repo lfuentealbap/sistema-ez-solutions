@@ -38,43 +38,47 @@
             </td>
         </table>
 
-        <table style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 13px; border-collapse: collapse;">
-            <thead>
-                <th style="width: 40%; background-color: darkturquoise;">Datos empresa:</th>
-                <th style="width: 40%; background-color: darkturquoise;">Datos cliente:</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Nombre:</strong> Eduardo Zambrano</td>
-                    <td><strong>Nombre Cliente: </strong>
-                        {{ $cotizacion->cliente->nombre_completo }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Dirección:</strong> Cerro Murrinumo 462</td>
-                    <td><strong>Dirección Cliente: </strong>
-                        {{ $cotizacion->cliente->direccion }}
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Ciudad:</strong> Chillán</td>
-                    <td> <strong>Ciudad Cliente: </strong>
+        <div>
+            <table
+                style="font-family: Arial, Helvetica, sans-serif; vertical-align: top; height: 100%; font-size: 13px; border-collapse: collapse;">
+                <thead>
+                    <th style="width: 40%; background-color: darkturquoise;">Datos empresa:</th>
+                    <th style="width: 40%; background-color: darkturquoise;">Datos cliente:</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Nombre:</strong> Eduardo Zambrano</td>
+                        <td><strong>Nombre Cliente: </strong>
+                            {{ $cotizacion->cliente->nombre_completo }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dirección:</strong> Cerro Murrinumo 462</td>
+                        <td><strong>Dirección Cliente: </strong>
+                            {{ $cotizacion->cliente->direccion }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ciudad:</strong> Chillán</td>
+                        <td> <strong>Ciudad Cliente: </strong>
 
-                        {{ $cotizacion->cliente->ciudad }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Teléfono:</strong> +56987339973</td>
-                    <td><strong>Teléfono Cliente: </strong>
+                            {{ $cotizacion->cliente->ciudad }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Teléfono:</strong> +56987339973</td>
+                        <td><strong>Teléfono Cliente: </strong>
 
-                        {{ $cotizacion->cliente->telefono }}</td>
-                </tr>
-                <tr>
-                    <td><strong>E-mail:</strong> soporte@ezsolutions.cl</td>
-                    <td><strong>E-mail Cliente: </strong>
+                            {{ $cotizacion->cliente->telefono }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>E-mail:</strong> soporte@ezsolutions.cl</td>
+                        <td><strong>E-mail Cliente: </strong>
 
-                        {{ $cotizacion->cliente->email }}</td>
-                </tr>
-            </tbody>
-        </table>
+                            {{ $cotizacion->cliente->email }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
 
         <div style="height: 380px;">
             <table style="border-collapse: collapse; width: 100%;">
@@ -109,40 +113,45 @@
                     @endforeach
             </table>
         </div>
-        <br>
-        <table
-            style=" width: 100%; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 14px;">
-            <td style="width: 70%;"></td>
-            <td style="width: 30%; border: 3px solid black;">
-                <strong> Neto: </strong>${{ $cotizacion->neto }} <br>
-                <strong>IVA: </strong>${{ $cotizacion->iva }} <br>
-                <strong>Descuentos: </strong>${{ $cotizacion->descuento }} <br>
-                <strong>Total: </strong>${{ $cotizacion->total }}
-            </td>
-        </table>
-        <br>
-        <table style=" width: 100%; border-collapse: collapse;">
-            <thead>
-                <th
-                    style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif; border: 2px solid darkturquoise;">
-                    Términos y condiciones</th>
-                <th></th>
-            </thead>
+        <hr>
+        <div>
+            <table
+                style=" width: 100%; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 14px;">
+                <td style="width: 70%;"></td>
+                <td style="width: 30%; border: 3px solid black;">
+                    <strong> Neto: </strong>${{ $cotizacion->neto }} <br>
+                    <strong>IVA: </strong>${{ $cotizacion->iva }} <br>
+                    <strong>Descuentos: </strong>${{ $cotizacion->descuento }} <br>
+                    <strong>Total: </strong>${{ $cotizacion->total }}
+                </td>
+            </table>
+        </div>
 
-            <td
-                style="width: 60%;border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-                <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
-                <p>Plazo de entrega 2 Dias hábiles</p>
-                @if ($cotizacion->iva == 0)
-                    <p><i>Valor sin iva incluido</i></p>
-                @else
-                    <p><i>Valor con iva incluido</i></p>
-                @endif
-                <p><strong>x</strong>____________________________</p>
-                <p>Nombre: </p>
-            </td>
+        <div>
+            <table style=" width: 100%; border-collapse: collapse;">
+                <thead>
+                    <th
+                        style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif; border: 2px solid darkturquoise;">
+                        Términos y condiciones</th>
+                    <th></th>
+                </thead>
 
-        </table>
+                <td
+                    style="width: 60%;border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+                    <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
+                    <p>Plazo de entrega 2 Dias hábiles</p>
+                    @if ($cotizacion->iva == 0)
+                        <p><i>Valor sin iva incluido</i></p>
+                    @else
+                        <p><i>Valor con iva incluido</i></p>
+                    @endif
+                    <p><strong>x</strong>____________________________</p>
+                    <p>Nombre: </p>
+                </td>
+
+            </table>
+        </div>
+
         <div style="text-align: center; font-family: Arial, Helvetica, sans-serif;font-size: 12px;">
             Si usted tiene alguna duda sobre esta cotización, por favor, póngase en contacto con nosotros <br>
             SERVICIOS INFORMATICOS | Teléfono: +56987339973 | E-mail: Soporte@ezsolutions.cl <br>
@@ -150,4 +159,5 @@
         </div>
     </div>
 </body>
+
 </html>
