@@ -103,19 +103,34 @@
 
                         @foreach ($cotizacion_producto as $cp)
                             <tr style="border: 1px solid black;">
-                                <td style="border: 1px solid black;"> {{ $cp->codigo_producto }} </td>
                                 @foreach ($productos as $producto)
-                                    @if ($cp->codigo_producto == $producto->codigo)
+                                @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
+                                <td style="border: 1px solid black;"> {{ $cp->codigo_producto }} </td>
+                                @endif
+                            @endforeach
+
+                                @foreach ($productos as $producto)
+                                    @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
                                         <td style="border: 1px solid black;"> {{ $producto->nombre }} </td>
                                     @endif
                                 @endforeach
-                                <td style="border: 1px solid black;"> {{ $cp->cantidad }} </td>
                                 @foreach ($productos as $producto)
-                                    @if ($cp->codigo_producto == $producto->codigo)
+                                @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
+                                <td style="border: 1px solid black;"> {{ $cp->cantidad }} </td>
+                                @endif
+                            @endforeach
+
+                                @foreach ($productos as $producto)
+                                    @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
                                         <td style="border: 1px solid black;"> ${{ $producto->valor }} </td>
                                     @endif
                                 @endforeach
-                                <td style="border: 1px solid black;"> ${{ $cp->subtotal }} </td>
+                                @foreach ($productos as $producto)
+                                    @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
+                                    <td style="border: 1px solid black;"> ${{ $cp->subtotal }} </td>
+                                    @endif
+                                @endforeach
+
 
                             </tr>
                         @endforeach

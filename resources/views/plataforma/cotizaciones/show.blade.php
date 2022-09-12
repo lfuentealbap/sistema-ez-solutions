@@ -83,19 +83,34 @@
 
                     @foreach ($cotizacion_producto as $cp)
                         <tr>
-                            <td> {{ $cp->codigo_producto }} </td>
                             @foreach ($productos as $producto)
-                                @if ($cp->codigo_producto == $producto->codigo)
+                                @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
+                                <td> {{ $cp->codigo_producto }} </td>
+                                @endif
+                            @endforeach
+
+                            @foreach ($productos as $producto)
+                                @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
                                     <td> {{ $producto->nombre }} </td>
                                 @endif
                             @endforeach
-                            <td> {{ $cp->cantidad }} </td>
                             @foreach ($productos as $producto)
-                                @if ($cp->codigo_producto == $producto->codigo)
+                                @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
+                                <td> {{ $cp->cantidad }} </td>
+                                @endif
+                            @endforeach
+
+                            @foreach ($productos as $producto)
+                                @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
                                     <td> {{ $producto->valor }} </td>
                                 @endif
                             @endforeach
-                            <td> {{ $cp->subtotal }} </td>
+                            @foreach ($productos as $producto)
+                                @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
+                                <td> {{ $cp->subtotal }} </td>
+                                @endif
+                            @endforeach
+
 
                         </tr>
                     @endforeach
