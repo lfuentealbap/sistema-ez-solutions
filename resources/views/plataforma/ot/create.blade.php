@@ -48,7 +48,12 @@
                             <div class="row mb-3">
                                 <label for="ciudad" class="col-md-4 col-form-label text-md-end">Ciudad:</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="ciudad" value="{{ old('ciudad') }}" required>
+                                    <select class="form-select" id="ciudad" name="ciudad" required>
+                                        <option selected value="">Seleccione ciudad...</option>
+                                        @foreach ($ciudades as $ciudad)
+                                            <option value="{{ $ciudad->ciudad }}">{{ $ciudad->ciudad }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -168,6 +173,9 @@
               document.getElementById('base64').value = image;
            },false);
 
+        </script>
+        <script>
+            $('#ciudad').select2();
         </script>
 
 

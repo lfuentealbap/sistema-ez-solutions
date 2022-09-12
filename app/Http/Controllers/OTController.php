@@ -9,6 +9,7 @@ use App\Models\Trabajo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 class OTController extends Controller
 {
@@ -54,7 +55,7 @@ class OTController extends Controller
     public function create(Trabajo $trabajo)
     {
         return view('plataforma.ot.create')->with([
-            'trabajo' => $trabajo, 'areas' => Area::all(),]);
+            'trabajo' => $trabajo, 'areas' => Area::all(), 'ciudades'=> DB::table('ciudades')->orderBy('ciudad', 'ASC')->get()]);
     }
 
     /**
