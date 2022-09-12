@@ -36,13 +36,13 @@
                                             <p class="card-text">{{ $trabajo->descripcion }}.</p>
                                             <p class="card-text"><strong>Ubicación:</strong>
                                                 {{ $trabajo->direccion }}, {{ $trabajo->ciudad }}</p>
+                                                <p class="card-text"><strong>Trabajador a cargo:</strong>
+                                                    {{ $trabajo->trabajador->nombres }} {{ $trabajo->trabajador->apellidos }}</p>
                                             <a href="{{ route('plataforma.trabajos.show', [
                                                 'trabajo' => $trabajo->id,
                                             ]) }}"
                                                 class="btn btn-primary ">Ver detalles</a>
-                                            @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
 
-                                            @endif
 
                                         </div>
                                     </div>
