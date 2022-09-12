@@ -22,8 +22,12 @@
                             </div>
                             <div class="form-row">
                                 <label for="ciudad">Ciudad</label>
-                                <input type="text" class="form-control" name="ciudad" value="{{ old('ciudad') }}"
-                                    required>
+                                <select class="form-select" id="ciudad" name="ciudad" required>
+                                    <option selected value="">Seleccione ciudad...</option>
+                                    @foreach ($ciudades as $ciudad)
+                                        <option value="{{ $ciudad->ciudad }}">{{ $ciudad->ciudad }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-row">
                                 <label for="direccion">Dirección</label>
@@ -74,4 +78,7 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#ciudad').select2();
+    </script>
 @endsection

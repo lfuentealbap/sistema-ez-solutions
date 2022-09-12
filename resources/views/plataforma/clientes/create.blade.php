@@ -65,15 +65,13 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Ciudad') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="ciudad" type="text"
-                                        class="form-control @error('ciudad') is-invalid @enderror" name="ciudad"
-                                        value="{{ old('ciudad') }}" required autocomplete="ciudad" autofocus>
+                                    <select class="form-select" id="ciudad" name="ciudad" required>
+                                        <option selected value="">Seleccione ciudad...</option>
+                                        @foreach ($ciudades as $ciudad)
+                                            <option value="{{ $ciudad->ciudad }}">{{ $ciudad->ciudad }}</option>
+                                        @endforeach
+                                    </select>
 
-                                    @error('ciudad')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
                                 </div>
                             </div>
 
@@ -124,4 +122,7 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#ciudad').select2();
+    </script>
 @endsection

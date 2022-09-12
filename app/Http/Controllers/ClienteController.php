@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ClienteRequest;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
@@ -31,7 +32,9 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('plataforma.clientes.create');
+        return view('plataforma.clientes.create')->with([
+            'ciudades'=> DB::table('ciudades')->orderBy('ciudad', 'ASC')->get(),
+        ]);
     }
 
     /**

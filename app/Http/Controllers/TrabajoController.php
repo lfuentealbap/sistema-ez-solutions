@@ -166,7 +166,7 @@ class TrabajoController extends Controller
     //Invoca a vista en donde permite registrar un trabajo nuevo
     public function create(){
         return view('plataforma.trabajos.create')->with([
-            'trabajadores' => User::all(), 'areas' => Area::all(),
+            'trabajadores' => User::all(), 'areas' => Area::all(),'ciudades'=> DB::table('ciudades')->orderBy('ciudad', 'ASC')->get(),
         ]);
     }
 
