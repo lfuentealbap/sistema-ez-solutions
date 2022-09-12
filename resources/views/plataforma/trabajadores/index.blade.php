@@ -12,8 +12,8 @@
                     No hay clientes registrados
                 </div>
             @else
-                <div class="table-responsive rounded" style="background-color: lightblue;">
-                    <table class="table table-bordered border-primary">
+                <div class="table-responsive rounded" >
+                    <table class="table table-bordered border-primary" id="misEmpleados" style="background-color: lightblue;">
                         <thead class="thead-light">
                             <tr>
                                 <th>RUT</th>

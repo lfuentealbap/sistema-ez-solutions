@@ -5,7 +5,7 @@
 
         @if (Auth::user()->rol == 'trabajador')
         <div class="table-responsive rounded">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="misOT" style="background-color: lightblue;">
                 <thead >
                     <tr>
                         <th>Número de OT</th>

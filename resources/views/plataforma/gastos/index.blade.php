@@ -12,7 +12,7 @@
     @else
 
         <div class="table-responsive rounded">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="misGastos" style="background-color: lightblue;">
                 <thead >
                     <tr>
                         <th>Nombre del gasto</th>

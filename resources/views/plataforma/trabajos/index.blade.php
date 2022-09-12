@@ -13,8 +13,8 @@
                     No hay trabajos registrados
                 </div>
             @else
-                <div class="table-responsive rounded" style="background-color: lightblue;">
-                    <table class="table table-bordered border-primary">
+                <div class="table-responsive rounded" >
+                    <table class="table table-bordered border-primary" id="misTrabajosTodos" style="background-color: lightblue;">
                         <thead class="thead-light">
                             <tr>
                                 <th>Trabajo</th>
@@ -29,14 +29,14 @@
                             @foreach ($trabajos as $trabajo)
                                 <tr>
 
-                                    <td>{{ $trabajo->titulo }}</td>
-                                    <td>{{ $trabajo->descripcion }}</td>
-                                    <td>{{ $trabajo->trabajador->nombres }} {{ $trabajo->trabajador->apellidos }}</td>
-                                    <td>@php
+                                    <td scope="col">{{ $trabajo->titulo }}</td>
+                                    <td scope="col">{{ $trabajo->descripcion }}</td>
+                                    <td scope="col">{{ $trabajo->trabajador->nombres }} {{ $trabajo->trabajador->apellidos }}</td>
+                                    <td scope="col">@php
 
                                         echo \Carbon\Carbon::parse($trabajo->fecha_termino)->format('d-m-Y H:i');
                                     @endphp </td>
-                                    <td>
+                                    <td scope="col">
                                         @if ($trabajo->estado == 'en curso')
                                             <span class="badge bg-primary">En curso</span>
                                         @elseif ($trabajo->estado == 'finalizado')
@@ -49,7 +49,7 @@
                                             <span class="badge bg-warning">Atrasado</span>
                                         @endif
                                     </td>
-                                    <td>
+                                    <td scope="col">
                                         <a class="btn btn-info"
                                             href="{{ route('plataforma.trabajos.show', [
                                                 'trabajo' => $trabajo->id,

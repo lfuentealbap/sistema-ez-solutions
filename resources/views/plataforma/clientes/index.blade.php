@@ -11,8 +11,8 @@
         </div>
     @else
 
-        <div class="table-responsive rounded" style="background-color: lightblue;">
-            <table class="table table-bordered border-primary">
+        <div class="table-responsive" >
+            <table class="table table-bordered border-primary" id="misClientes" style="background-color: lightblue;">
                 <thead class="thead-light">
                     <tr>
                         <th>RUT</th>
