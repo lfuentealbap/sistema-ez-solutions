@@ -77,14 +77,14 @@
                                                 </button>
                                         </form>
                                         @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip modal"
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                                 data-bs-target="#modalSuspender{{ $trabajo->id }}"  data-bs-placement="top"
                                                 data-bs-custom-class="custom-tooltip"
                                                 data-bs-title="Suspender trabajo"><i
                                                     class="fas fa-power-off"></i>Suspender</button>
                                         @endif
                                         @if ($trabajo->estado == 'en curso' || $trabajo->estado == 'atrasado')
-                                            <button type="button" class="btn btn-dark" data-bs-toggle="tooltip modal"
+                                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
                                                 data-bs-target="#modalCancelar{{ $trabajo->id }}"  data-bs-placement="top"
                                                 data-bs-custom-class="custom-tooltip"
                                                 data-bs-title="Cancelar trabajo"><i
