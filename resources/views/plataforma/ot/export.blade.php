@@ -13,7 +13,7 @@
     <table style="width: 100%; overflow: visible ; vertical-align: middle;">
         <td
             style="width: 10%; float:left; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
-            <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px; width: 60px" alt="EZ">
+            <img src="{{ asset('img/inicio/logo.png') }}" style="height: 80px; width: 90px" alt="EZ">
         </td>
         <td
             style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto; margin-left: auto; text-align: center;">

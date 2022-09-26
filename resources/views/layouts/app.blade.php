@@ -134,6 +134,9 @@
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.index') }}">Ver todos los trabajos</a>
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.create') }}">Registrar
+                                                nuevo
+                                                trabajo</a>
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.editar') }}">Editar
                                                 trabajo</a>
                                             <a class="nav-link"
@@ -142,9 +145,6 @@
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.cancelarT') }}">Cancelar
                                                 trabajo</a>
 
-                                            <a class="nav-link" href="{{ route('plataforma.trabajos.create') }}">Registrar
-                                                nuevo
-                                                trabajo</a>
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.rendimiento') }}">Generar informe de rendimiento del mes</a>
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.trealizados') }}">Generar informe de trabajos realizados</a>
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.trabajoshoy') }}">Ver
@@ -255,6 +255,9 @@
                                     <div class="collapse" id="collapseAdminTrabajos" aria-labelledby="headingOne"
                                         data-bs-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="{{ route('plataforma.trabajos.create') }}">Registrar
+                                                nuevo
+                                                trabajo</a>
                                             <a class="nav-link" href="{{ route('plataforma.trabajos.index') }}">Ver todos los trabajos</a>
                                             <a class="nav-link" href="{{ route('plataforma.ot.index') }}">Ver
                                                 ordenes de trabajo</a>

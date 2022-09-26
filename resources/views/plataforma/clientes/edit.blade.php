@@ -12,6 +12,13 @@
 
                         <div class="card-body">
                             <div class="row mb-3">
+                                <label for="rut" class="col-md-4 col-form-label text-md-end">RUT o RUN</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="rut"
+                                        value="{{ old('rut') ?? $cliente->rut }}" disabled>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label for="nombre_completo" class="col-md-4 col-form-label text-md-end">Nombre Completo</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="nombre_completo"

@@ -13,7 +13,7 @@
         <table style="width: 100%; overflow: visible ; vertical-align: middle;">
             <td
                 style="width: 10%; float:left; font-family: Arial, Helvetica, sans-serif; font-size: 20px; vertical-align: middle; color:darkturquoise;">
-                <img src="{{ asset('img/inicio/logo.png') }}" style="height: 50px; width: 60px" alt="EZ">
+                <img src="{{ asset('img/inicio/logo.png') }}" style="height: 80px; width: 90px" alt="EZ">
             </td>
             <td
                 style="margin:0px auto; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-right: auto; margin-left: auto; text-align: center;">
@@ -45,9 +45,9 @@
                 style="page-break-inside: avoid; font-family: Arial, Helvetica, sans-serif; vertical-align: top; width: 100%; font-size: 12px; border-collapse: collapse; ">
                 <thead>
                    <tr>
-                    <th style="width: 50%; background-color: darkturquoise; float:left; font-size: 13px;">Datos empresa:</th>
+                    <th style="width: 50%; background-color: rgb(0, 145, 255); float:left; font-size: 13px;">Datos empresa:</th>
                     <th></th>
-                    <th style="width: 50%; background-color: darkturquoise; float:right;font-size: 13px;">Datos cliente:</th>
+                    <th style="width: 50%; background-color: rgb(0, 145, 255); float:right;font-size: 13px;">Datos cliente:</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -158,13 +158,13 @@
             <table style=" width: 100%;">
                 <thead>
                     <th
-                        style="background-color: darkturquoise; font-family: Arial, Helvetica, sans-serif; border: 2px solid darkturquoise; float:left">
+                        style="background-color: rgb(0, 145, 255); font-family: Arial, Helvetica, sans-serif; border: 2px solid darkturquoise; float:left">
                         Términos y condiciones</th>
                     <th></th>
                 </thead>
                 <tbody>
                     <td
-                        style="width: 60%; border: 2px solid darkturquoise; font-family: Arial, Helvetica, sans-serif; font-size: 12px; float:left">
+                        style="width: 60%; border: 2px solid rgb(0, 145, 255); font-family: Arial, Helvetica, sans-serif; font-size: 12px; float:left">
                         <p>*Se debe abonar el 50% de la obra para comenzar el trabajo</p>
                         <p>Plazo de entrega 2 Dias hábiles</p>
                         @if ($cotizacion->iva == 0)
