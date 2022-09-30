@@ -92,7 +92,7 @@
         <div class="container">
             <div class="row row-cols-2">
                 <div class="col">
-                    <strong>Diagnóstico </strong>
+                    <strong>Diagnóstico: </strong>
                     <br>
                     {{ $ot->detalles_equipo_antiguo }}
                 </div>
