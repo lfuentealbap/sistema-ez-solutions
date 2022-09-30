@@ -73,7 +73,7 @@
     </table>
     <table style="width: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif;">
         <thead style=" border: 1px solid rgb(0, 145, 255); text-align: left;">
-            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Diagnóstico
+            <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Diagnóstico:
                 </strong></th>
             <th style="background-color: rgb(0, 145, 255); color: white;width: 50%; text-align: left;"><strong>Estado:
                 </strong></th>
