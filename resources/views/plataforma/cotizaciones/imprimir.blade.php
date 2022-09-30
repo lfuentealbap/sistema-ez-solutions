@@ -100,15 +100,13 @@
                         </tr>
                     </thead>
                     <tbody style="border: 2px solid black; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-
                         @foreach ($cotizacion_producto as $cp)
-                            <tr style="border: 1px solid black;">
+                            <tr>
                                 @foreach ($productos as $producto)
                                 @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
                                 <td style="border: 1px solid black;"> {{ $cp->codigo_producto }} </td>
                                 @endif
                             @endforeach
-
                                 @foreach ($productos as $producto)
                                     @if (($cotizacion->id == $cp->id_cotizacion ) && $cp->codigo_producto == $producto->codigo)
                                         <td style="border: 1px solid black;"> {{ $producto->nombre }} </td>
@@ -142,7 +140,7 @@
         <div>
             <table
                 style=" width: 100%; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 14px;">
-              <tr>
+            <tr>
                 <td style="width: 70%;"></td>
                 <td style="width: 30%; border: 3px solid black;">
                     <strong> Neto: </strong>${{ $cotizacion->neto }} <br>
