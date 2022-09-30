@@ -87,15 +87,15 @@ class CotizacionController extends Controller
         $cotizacion_producto->subtotal = $request->subtotal;
         $cotizacion_producto->save();
 
-        $total = 0;
+        $neto = 0;
         $cp = CotizacionProducto::all();
         foreach($cp as $p){
             if($p->id_cotizacion == $cotizacion_producto->id_cotizacion){
-                $total = $total + $p->subtotal;
+                $neto = $neto + $p->subtotal;
             }
         }
-        $iva = ($total)*0.19;
-        $neto = $total - $iva;
+        $iva = ($neto)*0.19;
+        $total = $neto + $iva;
         $cotizacion = Cotizacion::where("id", $cotizacion_producto->id_cotizacion )->update(["neto" => $neto, "iva" =>$iva, "total"=>$total]);
 
             return redirect()->route('plataforma.cotizaciones.continuacion',[
@@ -140,15 +140,14 @@ class CotizacionController extends Controller
     }
     public function guardar(CotizacionGuardarRequest $request, Cotizacion $cotizacion){
 
-        $total = $cotizacion->total;
-        $descuento = $total *($request->descuento/100);
+        $neto = $cotizacion->neto;
+        $descuento = $neto *($request->descuento/100);
         if ($request->apiva == "si"){
-            $iva = ($total)*0.19;
+            $iva = ($neto)*0.19;
         }else{
-            $iva = ($total)*0;
+            $iva = ($neto)*0;
         }
 
-        $neto = $total - ($total*0.19);
         $total = $neto + $iva - $descuento;
         $cotizacion_g = Cotizacion::where("id", $cotizacion->id )->update(["neto" => $neto, "iva" =>$iva, "descuento" =>$descuento, "total"=>$total]);
 
@@ -159,15 +158,15 @@ class CotizacionController extends Controller
 
         $id = $cotizacion_producto->id_cotizacion;
         $cotizacion_producto->delete();
-        $total = 0;
+        $neto = 0;
         $cp = CotizacionProducto::all();
         foreach($cp as $p){
             if($p->id_cotizacion == $cotizacion_producto->id_cotizacion){
-                $total = $total + $p->subtotal;
+                $neto = $neto + $p->subtotal;
             }
         }
-        $iva = ($total)*0.19;
-        $neto = $total - $iva;
+        $iva = ($neto)*0.19;
+        $total = $neto + $iva;
         $cotizacion = Cotizacion::where("id", $cotizacion_producto->id_cotizacion )->update(["neto" => $neto, "iva" =>$iva, "total"=>$total]);
 
 
