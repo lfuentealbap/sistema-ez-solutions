@@ -79,13 +79,13 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="detalles_equipo_antiguo" class="col-md-4 col-form-label text-md-end">Detalles equipo(s) antiguo:</label>
+                                <label for="detalles_equipo_antiguo" class="col-md-4 col-form-label text-md-end">Diagnóstico:</label>
                                 <div class="col-md-6">
                                     <textarea type="text" class="form-control" name="detalles_equipo_antiguo" value="{{ old('detalles_equipo_antiguo') }}" rows="5"> </textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="detalles_equipo_nuevo" class="col-md-4 col-form-label text-md-end">Detalles equipo(s) nuevo:</label>
+                                <label for="detalles_equipo_nuevo" class="col-md-4 col-form-label text-md-end">Estado:</label>
                                 <div class="col-md-6">
                                     <textarea type="text" class="form-control" name="detalles_equipo_nuevo" value="{{ old('detalles_equipo_nuevo') }}" rows="5"> </textarea>
                                 </div>

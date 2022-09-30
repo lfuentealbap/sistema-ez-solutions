@@ -92,12 +92,12 @@
         <div class="container">
             <div class="row row-cols-2">
                 <div class="col">
-                    <strong>Detalles equipo antiguo: </strong>
+                    <strong>Diagnóstico </strong>
                     <br>
                     {{ $ot->detalles_equipo_antiguo }}
                 </div>
                 <div class="col">
-                    <strong>Detalles equipo nuevo: </strong>
+                    <strong>Estado: </strong>
                     <br>
                     {{ $ot->detalles_equipo_nuevo }}
                 </div>
@@ -131,7 +131,7 @@
                 </div>
                 <div class="col">
                     <img src="{{ asset($ot->firma.'.png') }}" alt="">
-                   <br>
+                <br>
                     <strong>Firma colaborador </strong>
                 </div>
                 <div class="col">
